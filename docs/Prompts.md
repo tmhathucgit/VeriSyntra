@@ -1,0 +1,5 @@
+- Vietnamese is the default language. 
+- Native Vietnamese language support, not translated from English.
+- English is the second language for non-Vietnamese users, who operate in Vietnam.
+- Vietnamese Cultural Intelligence integration
+- Keep Vietnamese and English toggles

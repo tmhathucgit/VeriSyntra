@@ -1,5 +1,6 @@
 import { Shield, CheckCircle, Lock, FileText, Users, ArrowRight, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Landing() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,8 +11,8 @@ function Landing() {
       <nav className="fixed w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
-              <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <Link to="/app" className="flex items-center group">
+              <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:scale-105 transition-transform">
                 <path d="M10 8 Q12 10 13 12 L14 16 Q15 20 14 24 L13 28 Q12 30 10 32 Q8 30 7 28 L6 24 Q5 20 6 16 L7 12 Q8 10 10 8 Z" fill="#F97316"/>
                 <circle cx="10" cy="20" r="2" fill="#10B981"/>
                 <path d="M14 12 Q16 14 16.5 16 L17 20 Q17 22 16.5 24 L16 26" stroke="#10B981" strokeWidth="1.5" fill="none"/>
@@ -19,16 +20,16 @@ function Landing() {
                   VeriSyntra
                 </text>
               </svg>
-            </div>
+            </Link>
 
             <div className="hidden md:flex items-center space-x-8">
               <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Tính năng</a>
               <a href="#benefits" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Lợi ích</a>
               <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Về chúng tôi</a>
               <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Liên hệ</a>
-              <button className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 shadow-sm">
+              <Link to="/app" className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 shadow-sm inline-block">
                 Bắt đầu ngay
-              </button>
+              </Link>
             </div>
 
             <button
@@ -47,9 +48,9 @@ function Landing() {
               <a href="#benefits" className="block text-gray-600 hover:text-gray-900 py-2">Lợi ích</a>
               <a href="#about" className="block text-gray-600 hover:text-gray-900 py-2">Về chúng tôi</a>
               <a href="#contact" className="block text-gray-600 hover:text-gray-900 py-2">Liên hệ</a>
-              <button className="w-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium">
+              <Link to="/app" className="block w-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium text-center">
                 Bắt đầu ngay
-              </button>
+              </Link>
             </div>
           </div>
         )}
@@ -78,13 +79,13 @@ function Landing() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="group bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
+                <Link to="/app" className="group bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
                   <span>Dùng thử miễn phí</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                </button>
-                <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold border-2 border-teal-600 transition-all">
-                  Xem demo
-                </button>
+                </Link>
+                <Link to="/app" className="bg-white hover:bg-gray-50 text-teal-600 px-8 py-4 rounded-xl font-semibold border-2 border-teal-600 transition-all flex items-center justify-center">
+                  Vào ứng dụng
+                </Link>
               </div>
 
               <div className="flex items-center space-x-8 pt-4">
@@ -306,6 +307,38 @@ function Landing() {
                 <a href="#" className="text-orange-500 hover:underline">Điều khoản dịch vụ</a>
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-teal-600 to-emerald-600">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+            Sẵn sàng tuân thủ PDPL 2025?
+          </h2>
+          <p className="text-xl text-teal-100 mb-8 leading-relaxed">
+            Truy cập ngay vào nền tảng VeriSyntra để bắt đầu hành trình tuân thủ PDPL 2025 
+            cho doanh nghiệp Việt Nam của bạn.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              to="/app" 
+              className="group bg-white hover:bg-gray-100 text-teal-600 px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+            >
+              <Shield className="w-5 h-5" />
+              <span>Vào ứng dụng VeriSyntra</span>
+              <ArrowRight className="group-hover:translate-x-1 transition-transform w-5 h-5" />
+            </Link>
+            <Link 
+              to="/verisyntra" 
+              className="bg-teal-700 hover:bg-teal-800 text-white px-8 py-4 rounded-xl font-semibold border-2 border-teal-400 transition-all flex items-center justify-center space-x-2"
+            >
+              <span>Xem demo trực tiếp</span>
+            </Link>
+          </div>
+          <div className="mt-8 text-teal-100 text-sm">
+            ✅ Miễn phí dùng thử • ✅ Hỗ trợ tiếng Việt • ✅ Tuân thủ văn hóa doanh nghiệp Việt Nam
           </div>
         </div>
       </section>

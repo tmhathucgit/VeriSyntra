@@ -1,0 +1,33 @@
+Requirements for Verisyntra DPO System:
+    - VeriSyntra wants to provide self-service model to the Viet Nam customers, who will feed information to Verisynstra system, and their Data Proctection Officers will use the Verisyntra's system.
+    - VeriSynstra wants to provide all of these services and functions in house.
+    - VeriSynstra only serves businesses in Vietnam.
+    - Focus on the Vietnam Data Protection requirements only
+    - Provide realistic solutions for the systems can be integrated with each other.
+    - Decouple each service or function so that one component fails does not impact other components.
+    - Able Scale each component independently in the future. 
+    - Use Microservice architecture.
+    - Use Modular Front-End architecture.
+    - The document suggests using third party tools, but Verisyntra wants to have them in house.
+    - Design Front-End and Back-End separately.
+    - Use AWS as the cloud provider for components that are not required to comply with Vietnam Data Protection.
+    - Use Vietnam cloud providers for Vietnam Data Protection local requirements.
+    - Use Vietnam local data storage to Vietnam data local requirements.
+    - Support the Vietnamese and English.
+    - Vietnamese is the default language. 
+    - Native Vietnamese language support, not translated from English.
+    - Vietnamese Cultural Intelligence integration
+    - English is the second language for non-Vietnamese users, who operate in Vietnam.
+    - High Availability
+    - Disaster Recovery
+    - Use open source tools as much as possible.
+    - Cost Effective
+    - include pre-fix "Veri" + SystemName for each system.  Example
+        - VeriPortal
+        - VeriAuth
+        - VeriDB
+    - Automate as much as possible.
+    - use AI tools as much as possible.
+    - Use Machine Learning tools as much as possible.
+    - Build deep integrations making switching costly if a customer wants to leave.
+    - Responsive design for various devices
