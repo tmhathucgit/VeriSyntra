@@ -31,7 +31,7 @@
 .veri-title {
   font-size: 36px;
   font-weight: 700;
-  color: #da251d;
+  color: #6b8e6b;
   margin: 0 0 16px 0;
   line-height: 1.2;
 }
@@ -48,7 +48,7 @@
   padding: 24px;
   border-radius: 12px;
   margin-bottom: 32px;
-  border-left: 4px solid #da251d;
+  border-left: 4px solid #6b8e6b;
 }
 
 .veri-description {
@@ -61,8 +61,8 @@
 .veri-highlight {
   font-size: 16px;
   font-weight: 600;
-  color: #da251d;
-  background: rgba(218, 37, 29, 0.1);
+  color: #6b8e6b;
+  background: rgba(107, 142, 107, 0.1);
   padding: 12px 16px;
   border-radius: 8px;
   margin: 0;
@@ -89,8 +89,8 @@
 }
 
 .veri-feature-item:hover {
-  box-shadow: 0 4px 16px rgba(218, 37, 29, 0.1);
-  border-color: #da251d;
+  box-shadow: 0 4px 16px rgba(107, 142, 107, 0.1);
+  border-color: #6b8e6b;
   transform: translateY(-2px);
 }
 
@@ -129,7 +129,7 @@
 
 .veri-region-badge {
   padding: 8px 16px;
-  background: linear-gradient(135deg, #da251d 0%, #ff6b6b 100%);
+  background: linear-gradient(135deg, #6b8e6b 0%, #ff6b6b 100%);
   color: white;
   border-radius: 20px;
   font-weight: 600;
@@ -155,7 +155,7 @@
   align-items: center;
   gap: 8px;
   padding: 16px 32px;
-  background: linear-gradient(135deg, #da251d 0%, #ff6b6b 100%);
+  background: linear-gradient(135deg, #6b8e6b 0%, #ff6b6b 100%);
   color: white;
   border: none;
   border-radius: 12px;
@@ -163,13 +163,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(218, 37, 29, 0.3);
+  box-shadow: 0 4px 16px rgba(107, 142, 107, 0.3);
 }
 
 .veri-primary-action-button:hover {
   background: linear-gradient(135deg, #c82333 0%, #e55353 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(218, 37, 29, 0.4);
+  box-shadow: 0 6px 20px rgba(107, 142, 107, 0.4);
 }
 
 .veri-button-icon {

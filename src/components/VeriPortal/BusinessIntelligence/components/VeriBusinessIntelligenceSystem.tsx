@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLanguageSwitch } from '../../../../hooks/useCulturalIntelligence';
+import { usePageTitle } from '../../../../hooks/usePageTitle';
 import { VeriSyntraBanner } from '../../../shared/VeriSyntraBanner';
 import {
   VeriBusinessIntelligenceProps,
@@ -559,6 +560,12 @@ export const VeriBusinessIntelligenceSystem: React.FC<VeriBusinessIntelligencePr
   const { switchLanguage, isVietnamese } = useLanguageSwitch();
   // Map i18n language to BI language
   const veriLanguage = isVietnamese ? 'vietnamese' : 'english';
+  
+  // Set page title
+  usePageTitle({ 
+    title: 'Business Intelligence', 
+    titleVi: 'Tình báo Kinh doanh' 
+  });
 
   // Initialize business intelligence system
   useEffect(() => {

@@ -2,6 +2,7 @@
 // Vietnamese Legal Document Generation with AI-Powered Cultural Intelligence
 
 import React, { useState, useEffect, useContext, createContext } from 'react';
+import { usePageTitle } from '../../../../hooks/usePageTitle';
 import {
   VeriDocumentGenerationSystem as VeriDocumentGenerationSystemType,
   VeriDocumentType,
@@ -439,6 +440,12 @@ export const VeriDocumentGenerationSystem: React.FC<VeriDocumentGenerationProps>
   veriCulturalStyle,
   veriSelectedDocuments: initialSelectedDocuments = []
 }) => {
+  // Set page title
+  usePageTitle({ 
+    title: 'Document Generation', 
+    titleVi: 'Tạo Tài liệu' 
+  });
+  
   // Log step changes for future implementation
   const logStepChange = (step: string) => {
     if (veriOnStepChange) {

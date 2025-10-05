@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { usePageTitle } from '../../../hooks/usePageTitle';
 import type {
   VeriCulturalOnboardingSystem as VeriCulturalOnboardingSystemType,
   VeriOnboardingStep,
@@ -23,6 +24,7 @@ import {
   startVeriMLCulturalAnalysis,
   enableVeriAutomationEngine
 } from './services';
+import './styles/VeriCulturalOnboardingTheme.css';
 
 // Vietnamese Cultural Onboarding Context
 interface VeriOnboardingContextType {
@@ -121,6 +123,12 @@ export const VeriCulturalOnboardingSystem: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [veriOnboardingState, setVeriOnboardingState] = useState<VeriCulturalOnboardingSystemType>();
   const [veriCurrentStep, setVeriCurrentStep] = useState<VeriOnboardingStep>('cultural-introduction');
+  
+  // Set page title
+  usePageTitle({ 
+    title: 'Onboarding', 
+    titleVi: 'Giới thiệu Văn hóa' 
+  });
   
   // Initialize with current i18n language state to avoid desynchronization
   const [veriLanguage, setVeriLanguage] = useState<'vietnamese' | 'english'>(() => {

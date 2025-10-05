@@ -3,6 +3,7 @@ import { Shield, CheckCircle, Clock, Users, Server, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { useLanguageSwitch } from '../hooks/useCulturalIntelligence';
+import { usePageTitle } from '../hooks/usePageTitle';
 import { useState } from 'react';
 import { VeriSyntraBanner } from '../components/shared/VeriSyntraBanner';
 
@@ -31,6 +32,12 @@ const VeriSyntraApp: React.FC = () => {
   const [systemStatus, setSystemStatus] = useState<SystemStatus | null>(null);
   const [backendData, setBackendData] = useState<ApiResponse | null>(null);
   const [connectionStatus, setConnectionStatus] = useState<'connecting' | 'connected' | 'disconnected'>('connecting');
+  
+  // Set page title
+  usePageTitle({ 
+    title: 'VeriSyntra App', 
+    titleVi: '\u1ee8ng d\u1ee5ng VeriSyntra' 
+  });
 
   useEffect(() => {
     const testBackendConnection = async () => {

@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import { useLanguageSwitch } from '../../../../hooks/useCulturalIntelligence';
+import { usePageTitle } from '../../../../hooks/usePageTitle';
 import {
   VeriComplianceWizardSystem as VeriComplianceWizardSystemType,
   VeriWizardType,
@@ -247,6 +248,12 @@ export const VeriComplianceWizardSystem: React.FC<VeriComplianceWizardProps> = (
   const { switchLanguage, isVietnamese } = useLanguageSwitch();
   // Map i18n language to wizard language
   const veriLanguage = isVietnamese ? 'vietnamese' : 'english';
+  
+  // Set page title
+  usePageTitle({ 
+    title: 'Compliance Wizards', 
+    titleVi: 'Trình hướng dẫn Tuân thủ' 
+  });
   
   const [veriWizardState, setVeriWizardState] = useState<VeriComplianceWizardSystemType | null>(null);
   const [veriCurrentWizard, setVeriCurrentWizard] = useState<VeriWizardType>('pdpl-2025-setup');

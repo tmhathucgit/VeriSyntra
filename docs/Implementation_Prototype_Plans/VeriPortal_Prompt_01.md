@@ -1,8 +1,7 @@
-Read Dev_VeriSys_Prototype1.md for VeriPortal context
-Read VeriPortal.md for VeriPortal context
-Create comprehensive plan to implement each VeriPortal's module scratch
-don't use previous memory that you created for these modules
-Put the plans of each module in separate markdown files under folder docs/Implementation_Prototype_Plans/VeriPortal/
+Read Dev_VeriSys_Prototype1.md carefully
+Read VeriCompliance.md carefully
+Create comprehensive plan to implement each VeriCompliance's module from scratch
+Put the plans of each module in separate markdown files under folder docs/Implementation_Prototype_Plans/VeriCompliance
 Each plan should include:
 Use Vietnamese Cultural Intelligence system in VeriPortal
 Use Vietnamese as primary language in VeriPortal

@@ -1,0 +1,1207 @@
+/* VeriPortal System Integration - Vietnamese Cultural Styling */
+/* AI-powered comprehensive system integration platform for Vietnamese businesses */
+
+/* Vietnamese Cultural Color Palette */
+:root {
+  /* Vietnamese Flag Colors - Foundation of National Identity */
+  --veri-vietnam-red: #da251d;
+  --veri-vietnam-gold: #ffcd00;
+  
+  /* Vietnamese Cultural Colors */
+  --veri-jade-green: #6b8e6b;
+  --veri-sky-blue: #7fa3c3;
+  --veri-warm-gold: #d4c18a;
+  --veri-bamboo-green: #7fa088;
+  --veri-lotus-pink: #f4a6b8;
+  
+  /* System Integration Colors */
+  --veri-integration-primary: var(--veri-jade-green);
+  --veri-integration-secondary: var(--veri-warm-gold);
+  --veri-integration-accent: var(--veri-jade-green);
+  --veri-integration-success: #00a86b;
+  --veri-integration-warning: #ffa500;
+  --veri-integration-error: #dc143c;
+  --veri-integration-info: var(--veri-sky-blue);
+  
+  /* Vietnamese Gradient Themes */
+  --veri-gradient-vietnam: linear-gradient(135deg, var(--veri-jade-green) 0%, var(--veri-warm-gold) 100%);
+  --veri-gradient-jade: linear-gradient(135deg, var(--veri-jade-green) 0%, var(--veri-bamboo-green) 100%);
+  --veri-gradient-sky: linear-gradient(135deg, var(--veri-sky-blue) 0%, var(--veri-jade-green) 100%);
+  --veri-gradient-gold: linear-gradient(135deg, var(--veri-warm-gold) 0%, var(--veri-bamboo-green) 100%);
+  --veri-gradient-lotus: linear-gradient(135deg, var(--veri-lotus-pink) 0%, var(--veri-warm-gold) 100%);
+}
+
+/* Main Container - Vietnamese Style */
+.veri-system-integration-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4f0 0%, #e8ede8 100%);
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+}
+
+/* Vietnamese regional cultural backgrounds */
+.veri-system-integration-container.north {
+  background: linear-gradient(135deg, #f5f8f5 0%, #eaf2ea 100%);
+  /* Traditional Northern Vietnam - Conservative jade tones */
+}
+
+.veri-system-integration-container.central {
+  background: linear-gradient(135deg, #fefdf8 0%, #f9f6eb 100%);
+  /* Central Vietnam - Warm golden heritage tones */
+}
+
+.veri-system-integration-container.south {
+  background: linear-gradient(135deg, #f8fbfa 0%, #e8f4f0 100%);
+  /* Southern Vietnam - Fresh modern tones */
+}
+
+/* Vietnamese cultural pattern overlay */
+.veri-system-integration-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(107, 142, 107, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212, 193, 138, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(107, 142, 107, 0.02) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.veri-system-integration-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Loading State - Lotus Spinner */
+.veri-system-integration-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 2rem;
+  position: relative;
+}
+
+/* Vietnamese lotus pattern background */
+.veri-system-integration-loading::before {
+  content: '🪷';
+  position: absolute;
+  font-size: 10rem;
+  opacity: 0.05;
+  animation: veriLotusFloatAnimation 4s ease-in-out infinite;
+}
+
+@keyframes veriLotusFloatAnimation {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.veri-lotus-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid var(--veri-warm-gold);
+  border-top-color: var(--veri-jade-green);
+  border-radius: 50%;
+  animation: veriLotusSpinAnimation 1s linear infinite;
+  box-shadow: 
+    0 0 20px rgba(107, 142, 107, 0.4),
+    0 0 40px rgba(212, 193, 138, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.veri-lotus-spinner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--veri-jade-green);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: veriInnerSpinAnimation 2s linear infinite reverse;
+}
+
+@keyframes veriInnerSpinAnimation {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes veriLotusSpinAnimation {
+  to { transform: rotate(360deg); }
+}
+
+.veri-loading-text {
+  font-size: 1.1rem;
+  color: var(--veri-jade-green);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  animation: veriTextPulseAnimation 2s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes veriTextPulseAnimation {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Content Container */
+.veri-system-integration-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header Section - Vietnamese Cultural Subtle Style */
+.veri-integration-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
+  border-radius: 16px;
+  color: var(--veri-jade-green);
+  box-shadow: 
+    0 4px 12px rgba(107, 142, 107, 0.15),
+    0 8px 24px rgba(107, 142, 107, 0.08);
+  border: 2px solid var(--veri-warm-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Vietnamese cultural decorative border */
+.veri-integration-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--veri-jade-green) 0%, var(--veri-warm-gold) 100%);
+  z-index: 1;
+}
+
+/* Vietnamese star pattern (subtle) */
+.veri-integration-header::after {
+  content: '⭐';
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: var(--veri-warm-gold);
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.veri-integration-title-section {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.veri-integration-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, var(--veri-jade-green) 0%, var(--veri-bamboo-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+.veri-integration-subtitle {
+  font-size: 1.2rem;
+  color: var(--veri-jade-green);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* AI Orchestration Indicator */
+.veri-ai-orchestration-indicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, rgba(107, 142, 107, 0.1) 0%, rgba(127, 163, 195, 0.1) 100%);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--veri-warm-gold);
+  box-shadow: 0 4px 12px rgba(107, 142, 107, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.veri-ai-brain {
+  width: 40px;
+  height: 40px;
+  background: var(--veri-gradient-gold);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 
+    0 0 20px rgba(212, 193, 138, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--veri-warm-gold);
+}
+
+.veri-ai-brain.veri-orchestrating::after {
+  content: '🤖';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  animation: veriAIPulseAnimation 2s ease-in-out infinite;
+}
+
+@keyframes veriAIPulseAnimation {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.veri-orchestration-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--veri-jade-green);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* View Selector - Vietnamese Gold Accents */
+.veri-integration-view-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 12px rgba(107, 142, 107, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  flex-wrap: wrap;
+  border: 2px solid rgba(212, 193, 138, 0.3);
+}
+
+.veri-view-button {
+  flex: 1;
+  min-width: 180px;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 2px solid var(--veri-jade-green);
+  border-radius: 8px;
+  color: var(--veri-jade-green);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 2px 8px rgba(107, 142, 107, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.veri-view-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 193, 138, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.veri-view-button:hover::before {
+  left: 100%;
+}
+
+.veri-view-button:hover {
+  background: var(--veri-gradient-jade);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 16px rgba(107, 142, 107, 0.3),
+    0 0 20px rgba(107, 142, 107, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: var(--veri-bamboo-green);
+}
+
+.veri-view-button.veri-view-active {
+  background: var(--veri-gradient-jade);
+  color: white;
+  border-color: var(--veri-jade-green);
+  box-shadow: 
+    0 6px 16px rgba(107, 142, 107, 0.3),
+    0 0 30px rgba(127, 160, 136, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.veri-view-button.veri-view-active::after {
+  content: '🇻🇳';
+  margin-left: 0.5rem;
+}
+
+/* Ecosystem Overview */
+.veri-ecosystem-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Health Summary - Vietnamese Flag Colors */
+.veri-health-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.veri-health-metric {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid var(--veri-warm-gold);
+  transition: all 0.3s ease;
+}
+
+.veri-health-metric:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.12),
+    0 0 30px rgba(212, 193, 138, 0.2);
+  border-left-color: var(--veri-jade-green);
+}
+
+.veri-metric-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.veri-health-score,
+.veri-integration-count,
+.veri-data-flow-rate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.veri-score-value,
+.veri-count-value,
+.veri-flow-value {
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--veri-gradient-vietnam);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.veri-health-trend {
+  font-size: 1.5rem;
+}
+
+.veri-trend-improving { color: var(--veri-integration-success); }
+.veri-trend-stable { color: var(--veri-sky-blue); }
+.veri-trend-declining { color: var(--veri-integration-warning); }
+.veri-trend-critical { color: var(--veri-integration-error); }
+
+/* Systems Grid - Vietnamese Business Theme */
+.veri-systems-grid {
+  margin-top: 2rem;
+}
+
+.veri-systems-grid-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--veri-jade-green);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--veri-warm-gold);
+}
+
+.veri-systems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+/* System Card - Vietnamese Cultural Design */
+.veri-system-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 
+    0 4px 12px rgba(107, 142, 107, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Vietnamese decorative corner pattern */
+.veri-system-card::after {
+  content: '◆';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: var(--veri-warm-gold);
+  opacity: 0.15;
+  font-size: 1.5rem;
+  transform: rotate(45deg);
+}
+
+.veri-system-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--veri-gradient-vietnam);
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px 16px 0 0;
+}
+
+.veri-system-card:hover::before {
+  transform: scaleX(1);
+}
+
+.veri-system-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 28px rgba(107, 142, 107, 0.2),
+    0 0 40px rgba(107, 142, 107, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border-color: var(--veri-warm-gold);
+}
+
+.veri-system-card:hover::after {
+  opacity: 0.3;
+  transform: rotate(45deg) scale(1.1);
+}
+
+.veri-system-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(107, 142, 107, 0.1);
+}
+
+.veri-system-icon {
+  font-size: 2rem;
+}
+
+.veri-system-title {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--veri-jade-green);
+  margin: 0;
+}
+
+.veri-system-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.veri-status-healthy {
+  background: rgba(0, 168, 107, 0.1);
+  color: #00a86b;
+  border: 1px solid #00a86b;
+}
+
+.veri-status-warning {
+  background: rgba(255, 165, 0, 0.1);
+  color: #ff8c00;
+  border: 1px solid #ffa500;
+}
+
+.veri-status-critical {
+  background: rgba(220, 20, 60, 0.1);
+  color: #dc143c;
+  border: 1px solid #dc143c;
+}
+
+.veri-status-offline {
+  background: rgba(128, 128, 128, 0.1);
+  color: #666;
+  border: 1px solid #999;
+}
+
+/* System Metrics */
+.veri-system-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.veri-system-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.veri-metric-value {
+  font-weight: 600;
+  color: var(--veri-jade-green);
+}
+
+.veri-performance-bar {
+  width: 100px;
+  height: 8px;
+  background: rgba(107, 142, 107, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.veri-performance-fill {
+  height: 100%;
+  background: var(--veri-gradient-vietnam);
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+/* System Insights - Vietnamese Lotus Theme */
+.veri-system-insights {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.veri-system-insight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: rgba(107, 142, 107, 0.05);
+  border-left: 3px solid var(--veri-jade-green);
+}
+
+.veri-insight-optimization {
+  background: rgba(107, 142, 107, 0.05);
+  border-left-color: var(--veri-jade-green);
+}
+
+.veri-insight-warning {
+  background: rgba(255, 165, 0, 0.05);
+  border-left-color: var(--veri-integration-warning);
+}
+
+.veri-insight-recommendation {
+  background: rgba(127, 163, 195, 0.05);
+  border-left-color: var(--veri-sky-blue);
+}
+
+.veri-insight-alert {
+  background: rgba(220, 20, 60, 0.05);
+  border-left-color: var(--veri-integration-error);
+}
+
+.veri-insight-icon {
+  font-size: 1.2rem;
+}
+
+.veri-insight-text {
+  flex: 1;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* System Actions - Vietnamese Cultural Buttons */
+.veri-system-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.veri-manage-button,
+.veri-details-button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.veri-manage-button {
+  background: var(--veri-gradient-vietnam);
+  color: white;
+  box-shadow: 0 4px 12px rgba(107, 142, 107, 0.3);
+}
+
+.veri-manage-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 16px rgba(107, 142, 107, 0.4),
+    0 0 30px rgba(212, 193, 138, 0.3);
+}
+
+.veri-details-button {
+  background: white;
+  color: var(--veri-jade-green);
+  border: 2px solid var(--veri-warm-gold);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.veri-details-button:hover {
+  background: var(--veri-gradient-gold);
+  color: var(--veri-jade-green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 193, 138, 0.3);
+}
+
+/* Data Flows Section */
+.veri-data-flows-section {
+  margin-top: 3rem;
+}
+
+.veri-data-flows-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--veri-jade-green);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--veri-warm-gold);
+}
+
+.veri-data-flows-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.veri-data-flow-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 12px rgba(107, 142, 107, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bamboo pattern decoration */
+.veri-data-flow-card::before {
+  content: '🎋';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 2rem;
+  opacity: 0.08;
+}
+
+.veri-data-flow-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 8px 20px rgba(107, 142, 107, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border-color: var(--veri-bamboo-green);
+}
+
+.veri-flow-path {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--veri-gradient-sky);
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+}
+
+.veri-source-system,
+.veri-target-system {
+  flex: 1;
+  text-align: center;
+}
+
+.veri-flow-arrow {
+  font-size: 1.5rem;
+}
+
+.veri-flow-metrics {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.veri-flow-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.veri-monitor-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--veri-gradient-jade);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.veri-monitor-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(107, 142, 107, 0.3);
+}
+
+/* Ecosystem Actions - Vietnamese Gold Theme */
+.veri-ecosystem-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.veri-action-button {
+  flex: 1;
+  min-width: 250px;
+  padding: 1.25rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.veri-action-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.veri-action-button:hover::before {
+  left: 100%;
+}
+
+.veri-health-check-button {
+  background: var(--veri-gradient-vietnam);
+  color: white;
+}
+
+.veri-health-check-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 8px 20px rgba(107, 142, 107, 0.3),
+    0 0 40px rgba(212, 193, 138, 0.3);
+}
+
+.veri-wizard-button {
+  background: var(--veri-gradient-jade);
+  color: white;
+}
+
+.veri-wizard-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(107, 142, 107, 0.3);
+}
+
+.veri-report-button {
+  background: var(--veri-gradient-gold);
+  color: var(--veri-jade-green);
+}
+
+.veri-report-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 193, 138, 0.3);
+}
+
+/* Government Integration View */
+.veri-government-integration {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.veri-government-header {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
+  border-radius: 16px;
+  color: var(--veri-jade-green);
+  border: 2px solid var(--veri-warm-gold);
+  box-shadow: 
+    0 4px 12px rgba(107, 142, 107, 0.15),
+    0 8px 24px rgba(107, 142, 107, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Vietnamese flag pattern */
+.veri-government-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--veri-gradient-vietnam);
+}
+
+/* Decorative star */
+.veri-government-header::after {
+  content: '⭐';
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  opacity: 0.05;
+}
+
+.veri-government-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  background: var(--veri-gradient-vietnam);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+
+.veri-government-subtitle {
+  font-size: 1.1rem;
+  color: var(--veri-jade-green);
+  margin: 0;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+/* MPS Integration Panel */
+.veri-mps-integration-panel {
+  background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 
+    0 8px 24px rgba(107, 142, 107, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 3px solid var(--veri-warm-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Vietnamese government emblem pattern */
+.veri-mps-integration-panel::before {
+  content: '🏛️';
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 8rem;
+  opacity: 0.03;
+}
+
+.veri-mps-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid rgba(107, 142, 107, 0.2);
+}
+
+.veri-mps-logo {
+  font-size: 3rem;
+}
+
+.veri-mps-title {
+  flex: 1;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--veri-jade-green);
+  margin: 0;
+}
+
+.veri-mps-status {
+  font-size: 1.5rem;
+}
+
+.veri-status-connected { color: var(--veri-integration-success); }
+.veri-status-connecting { color: var(--veri-integration-warning); }
+.veri-status-disconnected { color: #999; }
+.veri-status-error { color: var(--veri-integration-error); }
+
+/* MPS Capabilities */
+.veri-mps-capabilities {
+  margin-bottom: 2rem;
+}
+
+.veri-capabilities-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--veri-jade-green);
+  margin-bottom: 1rem;
+}
+
+.veri-capability-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.veri-capability {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.veri-capability.veri-enabled {
+  background: rgba(0, 168, 107, 0.1);
+  border: 2px solid #00a86b;
+}
+
+.veri-capability.veri-disabled {
+  background: rgba(128, 128, 128, 0.05);
+  border: 2px solid #ddd;
+  opacity: 0.6;
+}
+
+.veri-capability-icon {
+  font-size: 1.5rem;
+}
+
+.veri-capability-label {
+  flex: 1;
+  font-weight: 600;
+  color: #333;
+}
+
+.veri-capability-status {
+  font-size: 1.2rem;
+}
+
+/* Regulatory Agencies */
+.veri-regulatory-agencies {
+  margin-top: 2rem;
+}
+
+.veri-agencies-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--veri-jade-green);
+  margin-bottom: 1rem;
+}
+
+.veri-agencies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.veri-agency-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.veri-agency-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: var(--veri-jade-green);
+}
+
+.veri-agency-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(107, 142, 107, 0.2);
+}
+
+.veri-agency-logo {
+  font-size: 2.5rem;
+}
+
+.veri-agency-name {
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--veri-jade-green);
+  margin: 0;
+}
+
+.veri-connection-status {
+  font-size: 1.2rem;
+}
+
+/* Agency Services */
+.veri-agency-services {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.veri-agency-service {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(107, 142, 107, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid var(--veri-jade-green);
+}
+
+.veri-service-name {
+  flex: 1;
+  font-weight: 600;
+  color: #333;
+}
+
+.veri-service-status {
+  font-size: 1.2rem;
+}
+
+.veri-service-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.veri-service-button.veri-configure {
+  background: var(--veri-gradient-jade);
+  color: white;
+}
+
+.veri-service-button.veri-enable {
+  background: var(--veri-gradient-gold);
+  color: var(--veri-jade-green);
+}
+
+.veri-service-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* View Placeholder */
+.veri-view-placeholder {
+  background: white;
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.veri-view-placeholder h2 {
+  font-size: 2rem;
+  color: var(--veri-jade-green);
+  margin-bottom: 1rem;
+}
+
+.veri-view-placeholder p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .veri-integration-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .veri-integration-title {
+    font-size: 2rem;
+  }
+
+  .veri-integration-view-selector {
+    flex-direction: column;
+  }
+
+  .veri-view-button {
+    min-width: 100%;
+  }
+
+  .veri-health-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .veri-systems-grid,
+  .veri-data-flows-grid,
+  .veri-agencies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .veri-ecosystem-actions {
+    flex-direction: column;
+  }
+
+  .veri-action-button {
+    min-width: 100%;
+  }
+}
+
+

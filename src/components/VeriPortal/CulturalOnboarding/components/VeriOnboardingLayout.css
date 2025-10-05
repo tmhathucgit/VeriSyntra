@@ -37,7 +37,7 @@
 .veri-cultural-pattern {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, #da251d 0%, transparent 70%);
+  background: radial-gradient(circle, #6b8e6b 0%, transparent 70%);
   animation: veri-float 6s ease-in-out infinite;
 }
 
@@ -83,8 +83,8 @@
 .veri-cultural-footer {
   padding: 16px;
   text-align: center;
-  background: rgba(218, 37, 29, 0.05);
-  border-top: 1px solid rgba(218, 37, 29, 0.1);
+  background: rgba(212, 193, 138, 0.05);
+  border-top: 1px solid rgba(212, 193, 138, 0.1);
   z-index: 1;
   position: relative;
 }
@@ -94,7 +94,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: #da251d;
+  color: #6b8e6b;
   font-weight: 600;
   font-size: 14px;
 }

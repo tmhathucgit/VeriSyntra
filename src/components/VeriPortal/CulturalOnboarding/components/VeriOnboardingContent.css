@@ -10,7 +10,7 @@
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(218, 37, 29, 0.1);
+  border: 1px solid rgba(212, 193, 138, 0.2);
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
   position: relative;
   overflow: hidden;
@@ -23,7 +23,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #da251d 0%, #ffcd00 100%);
+  background: linear-gradient(90deg, #6b8e6b 0%, #d4c18a 100%);
   z-index: 1;
 }
 

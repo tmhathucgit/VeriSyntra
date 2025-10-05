@@ -47,7 +47,15 @@ export const VeriPortalLayout: React.FC<VeriPortalLayoutProps> = ({
                 }}>
                   <img src={vnMapLogo} alt="VeriSyntra Logo" className="w-full h-full" />
                 </div>
-                <span className="text-xl font-bold" style={{ color: '#6b8e6b' }}>VeriSyntra</span>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold" style={{ color: '#6b8e6b' }}>VeriSyntra</span>
+                  <span className="text-xs font-medium" style={{ 
+                    color: '#7fa3c3',
+                    letterSpacing: '0.5px'
+                  }}>
+                    {isVietnamese ? 'Nền tảng Tuân thủ PDPL 2025' : 'PDPL 2025 Compliance Platform'}
+                  </span>
+                </div>
               </div>
             </Link>
 

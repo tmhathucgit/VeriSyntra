@@ -7,7 +7,7 @@
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f8ff 100%);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(218, 37, 29, 0.1);
+  border: 1px solid rgba(212, 193, 138, 0.2);
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
   position: relative;
   overflow: hidden;
@@ -52,11 +52,11 @@
   align-items: center;
   gap: 8px;
   padding: 6px 12px;
-  background: rgba(218, 37, 29, 0.1);
+  background: rgba(107, 142, 107, 0.1);
   border-radius: 20px;
   font-size: 13px;
   font-weight: 500;
-  color: #da251d;
+  color: #6b8e6b;
 }
 
 .veri-vietnam-flag {
@@ -81,7 +81,7 @@
 .veri-progress-percentage {
   font-size: 28px;
   font-weight: 700;
-  color: #da251d;
+  color: #6b8e6b;
   line-height: 1;
 }
 
@@ -97,7 +97,7 @@
 
 .veri-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #da251d 0%, #ffcd00 100%);
+  background: linear-gradient(90deg, #6b8e6b 0%, #d4c18a 100%);
   border-radius: 4px;
   transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -181,9 +181,9 @@
 }
 
 .veri-step-indicator.veri-active .veri-step-circle {
-  background: linear-gradient(135deg, #da251d 0%, #ff6b6b 100%);
+  background: linear-gradient(135deg, #6b8e6b 0%, #7fa088 100%);
   color: white;
-  box-shadow: 0 4px 16px rgba(218, 37, 29, 0.4);
+  box-shadow: 0 4px 16px rgba(107, 142, 107, 0.4);
   animation: veri-active-pulse 2s infinite;
 }
 
@@ -194,8 +194,8 @@
 }
 
 @keyframes veri-active-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 4px 16px rgba(218, 37, 29, 0.4); }
-  50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(218, 37, 29, 0.6); }
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 16px rgba(107, 142, 107, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(107, 142, 107, 0.6); }
 }
 
 .veri-step-check {
@@ -220,7 +220,7 @@
 }
 
 .veri-step-indicator.veri-active .veri-step-label {
-  color: #da251d;
+  color: #6b8e6b;
 }
 
 .veri-step-indicator.veri-pending .veri-step-label {
@@ -253,7 +253,7 @@
 /* Current Step Highlight */
 .veri-current-step-highlight {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  border: 2px solid rgba(218, 37, 29, 0.1);
+  border: 2px solid rgba(107, 142, 107, 0.1);
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 24px;
@@ -262,7 +262,7 @@
 
 .veri-current-step-info h3 {
   margin: 0 0 8px 0;
-  color: #da251d;
+  color: #6b8e6b;
   font-size: 18px;
   font-weight: 600;
 }
@@ -425,11 +425,11 @@
   
   .veri-current-step-highlight {
     background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
-    border-color: rgba(218, 37, 29, 0.3);
+    border-color: rgba(107, 142, 107, 0.3);
   }
   
   .veri-current-step-info h3 {
-    color: #ff6b6b;
+    color: #7fa088;
   }
   
   .veri-current-step-info p {

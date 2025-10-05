@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landing from './Landing';
 import VeriSyntraApp from './verisyntra/VeriSyntraApp.tsx';
-import { VeriComplianceWizardSystem, VeriDocumentGenerationSystem, VeriBusinessIntelligenceSystem } from './components/VeriPortal';
+import { VeriComplianceWizardSystem, VeriDocumentGenerationSystem, VeriBusinessIntelligenceSystem, VeriCulturalOnboardingSystem } from './components/VeriPortal';
+import VeriSystemIntegrationSystem from './components/VeriPortal/SystemIntegration/components/VeriSystemIntegrationSystem';
 
 // Default Vietnamese Business Context for Demo
 const defaultVeriBusinessContext = {
@@ -35,8 +36,10 @@ function AppRouter() {
         <Route path="/" element={<Landing />} />
         <Route path="/app" element={<VeriSyntraApp />} />
         <Route path="/veriportal" element={<VeriComplianceWizardSystem />} />
+        <Route path="/veriportal/cultural-onboarding" element={<VeriCulturalOnboardingSystem />} />
         <Route path="/veriportal/documents" element={<VeriDocumentGenerationSystem />} />
         <Route path="/veriportal/business-intelligence" element={<VeriBusinessIntelligenceSystem veriBusinessContext={defaultVeriBusinessContext} veriLanguage="vietnamese" />} />
+        <Route path="/veriportal/system-integration" element={<VeriSystemIntegrationSystem />} />
       </Routes>
     </Router>
   );

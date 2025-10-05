@@ -3,12 +3,16 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguageSwitch } from './hooks/useCulturalIntelligence';
+import { usePageTitle } from './hooks/usePageTitle';
 import vnMapLogo from '../svg/vnMapLogo.svg';
 
 function Landing() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t } = useTranslation(['common', 'landing']);
   const { switchLanguage, isVietnamese } = useLanguageSwitch();
+  
+  // Set page title for landing page
+  usePageTitle({ title: 'VeriSyntra', includeAppName: false });
 
   return (
     <div className="min-h-screen bg-white">
@@ -24,7 +28,15 @@ function Landing() {
                 }}>
                   <img src={vnMapLogo} alt="VeriSyntra Logo" className="w-full h-full" />
                 </div>
-                <span className="text-xl font-bold" style={{ color: '#6b8e6b' }}>VeriSyntra</span>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold" style={{ color: '#6b8e6b' }}>VeriSyntra</span>
+                  <span className="text-xs font-medium" style={{ 
+                    color: '#7fa3c3',
+                    letterSpacing: '0.5px'
+                  }}>
+                    {isVietnamese ? 'Nền tảng Tuân thủ PDPL 2025' : 'PDPL 2025 Compliance Platform'}
+                  </span>
+                </div>
               </div>
             </Link>
 

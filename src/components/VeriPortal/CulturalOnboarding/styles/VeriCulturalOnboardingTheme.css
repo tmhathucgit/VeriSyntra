@@ -1,0 +1,207 @@
+/* VeriPortal Cultural Onboarding - Vietnamese Cultural Theme */
+/* Comprehensive Vietnamese cultural color palette and styling variables */
+/* Date: October 2025 - Refined Professional Vietnamese Styling */
+
+:root {
+  /* Vietnamese Flag Colors - Reserved for Special Occasions */
+  --veri-vietnam-red: #da251d;
+  --veri-vietnam-gold: #ffcd00;
+  
+  /* Vietnamese Cultural Colors - Primary Palette */
+  --veri-jade-green: #6b8e6b;       /* 玉 - Harmony, Growth, Prosperity */
+  --veri-bamboo-green: #7fa088;     /* 竹 - Resilience, Flexibility, Strength */
+  --veri-warm-gold: #d4c18a;        /* 金 - Wisdom, Prosperity, Honor */
+  --veri-lotus-pink: #f4a6b8;       /* 蓮 - Purity, Enlightenment, Grace */
+  --veri-sky-blue: #7fa3c3;         /* 天 - Clarity, Peace, Trust */
+  
+  /* Vietnamese Natural Colors - Extended Palette */
+  --veri-mekong-blue: #4a90a4;      /* Mekong River - Life, Flow */
+  --veri-rice-green: #9cb380;       /* Rice Fields - Abundance, Nourishment */
+  --veri-silk-cream: #f5e6d3;       /* Vietnamese Silk - Elegance, Tradition */
+  --veri-lacquer-black: #2d2d2d;    /* Lacquerware - Craftsmanship, Depth */
+  --veri-terracotta: #c17767;       /* Pottery - Heritage, Earth */
+  
+  /* Onboarding Color Assignments */
+  --veri-onboarding-primary: var(--veri-jade-green);
+  --veri-onboarding-secondary: var(--veri-warm-gold);
+  --veri-onboarding-accent: var(--veri-bamboo-green);
+  --veri-onboarding-highlight: var(--veri-lotus-pink);
+  --veri-onboarding-info: var(--veri-sky-blue);
+  
+  /* Success, Warning, Error States - Vietnamese Cultural */
+  --veri-success: #7fa088;          /* Bamboo green - Growth achieved */
+  --veri-warning: #d4c18a;          /* Warm gold - Attention needed */
+  --veri-error: #c17767;            /* Terracotta - Issue to address */
+  --veri-info: #7fa3c3;             /* Sky blue - Information */
+  
+  /* Vietnamese Gradient Themes */
+  --veri-gradient-vietnam: linear-gradient(135deg, var(--veri-jade-green) 0%, var(--veri-warm-gold) 100%);
+  --veri-gradient-jade: linear-gradient(135deg, var(--veri-jade-green) 0%, var(--veri-bamboo-green) 100%);
+  --veri-gradient-bamboo: linear-gradient(135deg, var(--veri-bamboo-green) 0%, var(--veri-rice-green) 100%);
+  --veri-gradient-lotus: linear-gradient(135deg, var(--veri-lotus-pink) 0%, var(--veri-warm-gold) 100%);
+  --veri-gradient-sky: linear-gradient(135deg, var(--veri-sky-blue) 0%, var(--veri-jade-green) 100%);
+  --veri-gradient-mekong: linear-gradient(135deg, var(--veri-mekong-blue) 0%, var(--veri-sky-blue) 100%);
+  --veri-gradient-silk: linear-gradient(135deg, var(--veri-silk-cream) 0%, var(--veri-warm-gold) 100%);
+  
+  /* Regional Gradient Variations */
+  --veri-gradient-north: linear-gradient(135deg, #6b8e6b 0%, #7fa088 50%, #7fa3c3 100%);
+  --veri-gradient-central: linear-gradient(135deg, #7fa3c3 0%, #4a90a4 50%, #6b8e6b 100%);
+  --veri-gradient-south: linear-gradient(135deg, #d4c18a 0%, #f5e6d3 50%, #9cb380 100%);
+  
+  /* Cultural Communication Style Colors */
+  --veri-formal: #6c757d;           /* Gray - Professional, Reserved */
+  --veri-balanced: #7fa3c3;         /* Sky Blue - Harmonious, Diplomatic */
+  --veri-friendly: #9cb380;         /* Rice Green - Warm, Approachable */
+  
+  /* Background Patterns - Vietnamese Motifs */
+  --veri-pattern-lotus: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='40' font-size='30' opacity='0.08'%3E🪷%3C/text%3E%3C/svg%3E");
+  --veri-pattern-bamboo: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='40' font-size='30' opacity='0.08'%3E🎋%3C/text%3E%3C/svg%3E");
+  --veri-pattern-rice: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='40' font-size='30' opacity='0.08'%3E🌾%3C/text%3E%3C/svg%3E");
+  
+  /* Shadow Styles - Vietnamese Aesthetic */
+  --veri-shadow-subtle: 0 2px 8px rgba(107, 142, 107, 0.1);
+  --veri-shadow-medium: 0 4px 16px rgba(107, 142, 107, 0.15);
+  --veri-shadow-strong: 0 8px 32px rgba(107, 142, 107, 0.2);
+  --veri-shadow-glow: 0 0 20px rgba(212, 193, 138, 0.3);
+  
+  /* Border Styles */
+  --veri-border-jade: 2px solid var(--veri-jade-green);
+  --veri-border-bamboo: 2px solid var(--veri-bamboo-green);
+  --veri-border-gold: 2px solid var(--veri-warm-gold);
+  --veri-border-subtle: 1px solid rgba(107, 142, 107, 0.2);
+  
+  /* Typography - Vietnamese Cultural Weights */
+  --veri-font-family: 'Inter', 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif;
+  --veri-font-family-vietnamese: 'Noto Sans', 'Inter', 'Segoe UI', system-ui, sans-serif;
+  
+  /* Spacing - Vietnamese Harmony Principles */
+  --veri-space-xs: 4px;
+  --veri-space-sm: 8px;
+  --veri-space-md: 16px;
+  --veri-space-lg: 24px;
+  --veri-space-xl: 32px;
+  --veri-space-2xl: 48px;
+  
+  /* Border Radius - Vietnamese Aesthetic */
+  --veri-radius-sm: 8px;
+  --veri-radius-md: 12px;
+  --veri-radius-lg: 16px;
+  --veri-radius-xl: 20px;
+  --veri-radius-round: 50%;
+  
+  /* Animation Timings - Vietnamese Flow */
+  --veri-transition-fast: 0.2s ease;
+  --veri-transition-medium: 0.3s ease;
+  --veri-transition-slow: 0.5s ease;
+  --veri-transition-cultural: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Vietnamese Cultural Animations */
+@keyframes veri-lotus-bloom {
+  0% { transform: scale(0.8) rotate(0deg); opacity: 0.5; }
+  50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes veri-bamboo-sway {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-5px) rotate(-2deg); }
+  75% { transform: translateX(5px) rotate(2deg); }
+}
+
+@keyframes veri-jade-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(107, 142, 107, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(107, 142, 107, 0.6); }
+}
+
+@keyframes veri-gold-shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes veri-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes veri-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.95); }
+}
+
+/* Vietnamese Cultural Utility Classes */
+.veri-jade-text { color: var(--veri-jade-green); }
+.veri-bamboo-text { color: var(--veri-bamboo-green); }
+.veri-gold-text { color: var(--veri-warm-gold); }
+.veri-lotus-text { color: var(--veri-lotus-pink); }
+.veri-sky-text { color: var(--veri-sky-blue); }
+
+.veri-jade-bg { background: var(--veri-jade-green); }
+.veri-bamboo-bg { background: var(--veri-bamboo-green); }
+.veri-gold-bg { background: var(--veri-warm-gold); }
+.veri-lotus-bg { background: var(--veri-lotus-pink); }
+.veri-sky-bg { background: var(--veri-sky-blue); }
+
+.veri-gradient-vietnam-bg { background: var(--veri-gradient-vietnam); }
+.veri-gradient-jade-bg { background: var(--veri-gradient-jade); }
+.veri-gradient-lotus-bg { background: var(--veri-gradient-lotus); }
+.veri-gradient-sky-bg { background: var(--veri-gradient-sky); }
+
+/* Vietnamese Cultural Decorative Elements */
+.veri-lotus-decoration::before {
+  content: '🪷';
+  opacity: 0.15;
+  font-size: 3rem;
+}
+
+.veri-bamboo-decoration::before {
+  content: '🎋';
+  opacity: 0.15;
+  font-size: 3rem;
+}
+
+.veri-rice-decoration::before {
+  content: '🌾';
+  opacity: 0.15;
+  font-size: 3rem;
+}
+
+/* Vietnamese Cultural Borders */
+.veri-jade-border { border: var(--veri-border-jade); }
+.veri-bamboo-border { border: var(--veri-border-bamboo); }
+.veri-gold-border { border: var(--veri-border-gold); }
+
+/* Vietnamese Cultural Shadows */
+.veri-shadow-subtle { box-shadow: var(--veri-shadow-subtle); }
+.veri-shadow-medium { box-shadow: var(--veri-shadow-medium); }
+.veri-shadow-strong { box-shadow: var(--veri-shadow-strong); }
+.veri-shadow-glow { box-shadow: var(--veri-shadow-glow); }
+
+/* Responsive Vietnamese Cultural Design */
+@media (max-width: 768px) {
+  :root {
+    --veri-space-md: 12px;
+    --veri-space-lg: 16px;
+    --veri-space-xl: 24px;
+    --veri-space-2xl: 32px;
+  }
+}
+
+/* Dark Mode Vietnamese Cultural Adaptations */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --veri-jade-green: #8fb38f;
+    --veri-bamboo-green: #9dbba5;
+    --veri-warm-gold: #e6d5a8;
+    --veri-lotus-pink: #f6bac8;
+    --veri-sky-blue: #9dbfd9;
+  }
+}
+
+/* Print Styles - Vietnamese Document Aesthetic */
+@media print {
+  :root {
+    --veri-jade-green: #4a6b4a;
+    --veri-warm-gold: #b5a372;
+  }
+}

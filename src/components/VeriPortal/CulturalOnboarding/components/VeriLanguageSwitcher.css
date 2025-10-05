@@ -6,16 +6,16 @@
   align-items: center;
   gap: 12px;
   padding: 8px 16px;
-  background: linear-gradient(135deg, #da251d 0%, #ffcd00 100%);
+  background: linear-gradient(135deg, #6b8e6b 0%, #d4c18a 100%);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(218, 37, 29, 0.15);
+  box-shadow: 0 2px 8px rgba(107, 142, 107, 0.15);
   position: relative;
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
 }
 
 .veri-ai-language-switcher-container[data-ai-enhanced="true"] {
   border: 2px solid rgba(0, 123, 255, 0.3);
-  background: linear-gradient(135deg, #da251d 0%, #ffcd00 80%, #007bff 100%);
+  background: linear-gradient(135deg, #6b8e6b 0%, #d4c18a 80%, #007bff 100%);
 }
 
 .veri-ai-language-button {
@@ -37,15 +37,15 @@
 
 .veri-ai-language-button:hover {
   background: rgba(255, 255, 255, 1);
-  border-color: rgba(218, 37, 29, 0.4);
+  border-color: rgba(107, 142, 107, 0.4);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .veri-ai-language-button.veri-active {
   background: #fff;
-  border-color: #da251d;
-  box-shadow: 0 2px 8px rgba(218, 37, 29, 0.2);
+  border-color: #6b8e6b;
+  box-shadow: 0 2px 8px rgba(107, 142, 107, 0.2);
   font-weight: 600;
 }
 
@@ -95,7 +95,7 @@
 }
 
 .veri-primary-indicator {
-  color: #da251d;
+  color: #6b8e6b;
   font-weight: 600;
 }
 
@@ -183,7 +183,7 @@
   background: rgba(255, 255, 255, 0.95);
   border-radius: 6px;
   font-size: 12px;
-  border-left: 3px solid #da251d;
+  border-left: 3px solid #6b8e6b;
 }
 
 .veri-primary-language,
@@ -298,15 +298,15 @@
 
 /* Vietnamese Cultural Adaptations */
 .veri-ai-language-switcher-container[data-cultural-region="north"] {
-  background: linear-gradient(135deg, #da251d 0%, #ffcd00 70%, #e8f4fd 100%);
+  background: linear-gradient(135deg, #6b8e6b 0%, #d4c18a 70%, #e8f4fd 100%);
 }
 
 .veri-ai-language-switcher-container[data-cultural-region="central"] {
-  background: linear-gradient(135deg, #da251d 0%, #ffcd00 80%, #f0f8ff 100%);
+  background: linear-gradient(135deg, #6b8e6b 0%, #d4c18a 80%, #f0f8ff 100%);
 }
 
 .veri-ai-language-switcher-container[data-cultural-region="south"] {
-  background: linear-gradient(135deg, #da251d 0%, #ffcd00 85%, #fff8e1 100%);
+  background: linear-gradient(135deg, #6b8e6b 0%, #d4c18a 85%, #fff8e1 100%);
 }
 
 /* Mobile Responsive */
