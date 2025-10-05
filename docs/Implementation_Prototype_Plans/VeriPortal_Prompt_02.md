@@ -1,6 +1,6 @@
-Read the VeriPortal_02_SelfServiceDPO.md carefully
-Implement the Module "2. VeriPortal_ComplianceAssessment" as per the instructions
+Read the VeriPortal_01_CulturalOnboarding.md carefully
+Implement as per the instructions
 Check for errors as you go
-Mark each item as complete in the VeriPortal_02_SelfServiceDPO.md when done
-Create a new summary report named "VeriPortal_02_ComplianceAssessment_02_Summary.md" under the VeriPortal folder when done
+Mark each item as complete in the VeriPortal_01_CulturalOnboarding.md when done
+Create a new completion summary report named "VeriPortal_01_CulturalOnboarding_Completion.md" under the VeriPortal/Completion folder when done
 test the website

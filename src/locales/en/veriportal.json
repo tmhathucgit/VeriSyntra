@@ -51,5 +51,12 @@
     "formalProtocol": "Formal Protocol",
     "internationalApproach": "International Approach",
     "traditionalCustoms": "Traditional Customs"
+  },
+  "culturalIntroduction": {
+    "title": "Welcome to VeriPortal",
+    "subtitle": "PDPL 2025 compliance system designed specifically for Vietnamese businesses",
+    "description": "We understand Vietnamese business culture and will adapt the experience to your business",
+    "culturalPromise": "Interface and processes will be customized for your region and business type",
+    "nextAction": "Start Setup"
   }
 }

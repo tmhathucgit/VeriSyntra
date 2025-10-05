@@ -1,0 +1,372 @@
+/* VeriPortal Language Switcher - Vietnamese Cultural Styling */
+/* Implementation Status: ✅ IMPLEMENTED */
+
+.veri-ai-language-switcher-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #da251d 0%, #ffcd00 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(218, 37, 29, 0.15);
+  position: relative;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+.veri-ai-language-switcher-container[data-ai-enhanced="true"] {
+  border: 2px solid rgba(0, 123, 255, 0.3);
+  background: linear-gradient(135deg, #da251d 0%, #ffcd00 80%, #007bff 100%);
+}
+
+.veri-ai-language-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
+  position: relative;
+  min-width: 120px;
+}
+
+.veri-ai-language-button:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(218, 37, 29, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.veri-ai-language-button.veri-active {
+  background: #fff;
+  border-color: #da251d;
+  box-shadow: 0 2px 8px rgba(218, 37, 29, 0.2);
+  font-weight: 600;
+}
+
+.veri-ai-language-button[data-ai-recommended="true"] {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.veri-ai-language-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.veri-flag-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.veri-vietnamese-flag,
+.veri-english-flag {
+  font-size: 18px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.veri-language-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.veri-language-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.veri-primary-indicator,
+.veri-secondary-indicator {
+  font-size: 11px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.veri-primary-indicator {
+  color: #da251d;
+  font-weight: 600;
+}
+
+.veri-ai-recommendation-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: linear-gradient(45deg, #007bff, #00d4ff);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+  animation: veri-ai-pulse 2s infinite;
+}
+
+@keyframes veri-ai-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(0.95); }
+}
+
+.veri-ai-language-recommendations {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  margin-top: 8px;
+  z-index: 1000;
+  border: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+.veri-recommendation-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.veri-recommendation-item:last-child {
+  border-bottom: none;
+}
+
+.veri-recommendation-text {
+  font-size: 12px;
+  color: #666;
+  flex: 1;
+}
+
+.veri-confidence-score {
+  font-size: 11px;
+  font-weight: 600;
+  color: #007bff;
+  background: rgba(0, 123, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.veri-ml-preference-indicator {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  font-size: 11px;
+  color: #007bff;
+  background: rgba(0, 123, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.veri-ml-confidence {
+  font-weight: 500;
+}
+
+.veri-ai-cultural-language-status {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 6px;
+  font-size: 12px;
+  border-left: 3px solid #da251d;
+}
+
+.veri-primary-language,
+.veri-secondary-language {
+  color: #555;
+  font-weight: 500;
+}
+
+.veri-automation-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #007bff;
+  font-weight: 600;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.veri-automation-indicator {
+  animation: veri-ai-rotate 3s linear infinite;
+}
+
+@keyframes veri-ai-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.veri-ai-language-insights {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 300px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  margin-top: 8px;
+  z-index: 1000;
+  border: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+.veri-ai-language-insights h4 {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.veri-ai-language-insights h4::before {
+  content: '🤖';
+  font-size: 16px;
+}
+
+.veri-insight-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.veri-insight-item:last-child {
+  border-bottom: none;
+}
+
+.veri-insight-title {
+  font-weight: 600;
+  color: #333;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.veri-insight-description {
+  color: #666;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.veri-insight-confidence {
+  font-size: 11px;
+  color: #007bff;
+  font-weight: 500;
+}
+
+.veri-language-analysis-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 6px;
+  color: #007bff;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.veri-loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 123, 255, 0.2);
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: veri-spin 1s linear infinite;
+}
+
+@keyframes veri-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Vietnamese Cultural Adaptations */
+.veri-ai-language-switcher-container[data-cultural-region="north"] {
+  background: linear-gradient(135deg, #da251d 0%, #ffcd00 70%, #e8f4fd 100%);
+}
+
+.veri-ai-language-switcher-container[data-cultural-region="central"] {
+  background: linear-gradient(135deg, #da251d 0%, #ffcd00 80%, #f0f8ff 100%);
+}
+
+.veri-ai-language-switcher-container[data-cultural-region="south"] {
+  background: linear-gradient(135deg, #da251d 0%, #ffcd00 85%, #fff8e1 100%);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .veri-ai-language-switcher-container {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+  }
+  
+  .veri-ai-language-button {
+    width: 100%;
+    justify-content: center;
+    min-width: auto;
+  }
+  
+  .veri-ai-cultural-language-status {
+    order: -1;
+    align-self: stretch;
+  }
+  
+  .veri-ai-language-insights {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 12px;
+  }
+}
+
+/* High DPI / Retina Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .veri-vietnamese-flag,
+  .veri-english-flag {
+    font-size: 20px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .veri-ai-language-switcher-container {
+    background: linear-gradient(135deg, #b71c1c 0%, #e6a500 100%);
+  }
+  
+  .veri-ai-language-button {
+    background: rgba(33, 37, 41, 0.9);
+    color: #fff;
+  }
+  
+  .veri-ai-language-button:hover {
+    background: rgba(33, 37, 41, 1);
+  }
+  
+  .veri-ai-language-button.veri-active {
+    background: #212529;
+    border-color: #e6a500;
+  }
+  
+  .veri-ai-language-insights {
+    background: #212529;
+    color: #fff;
+  }
+}

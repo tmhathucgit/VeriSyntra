@@ -1,0 +1,438 @@
+/* VeriPortal Onboarding Progress - Vietnamese Cultural Styling */
+/* Implementation Status: ✅ IMPLEMENTED */
+
+.veri-onboarding-progress-container {
+  width: 100%;
+  padding: 24px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f8ff 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(218, 37, 29, 0.1);
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cultural Variations */
+.veri-onboarding-progress-container.veri-cultural-formal {
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 50%, #fafbfc 100%);
+  border-color: rgba(108, 117, 125, 0.2);
+}
+
+.veri-onboarding-progress-container.veri-cultural-balanced {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f8ff 100%);
+  border-color: rgba(0, 123, 255, 0.1);
+}
+
+.veri-onboarding-progress-container.veri-cultural-friendly {
+  background: linear-gradient(135deg, #fff8e1 0%, #ffffff 50%, #f1f8e9 100%);
+  border-color: rgba(76, 175, 80, 0.1);
+}
+
+/* Progress Header */
+.veri-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.veri-progress-title h2 {
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.veri-cultural-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(218, 37, 29, 0.1);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #da251d;
+}
+
+.veri-vietnam-flag {
+  font-size: 16px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.veri-progress-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  text-align: right;
+}
+
+.veri-step-counter {
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.veri-progress-percentage {
+  font-size: 28px;
+  font-weight: 700;
+  color: #da251d;
+  line-height: 1;
+}
+
+/* Progress Bar */
+.veri-progress-bar-container {
+  position: relative;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.veri-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #da251d 0%, #ffcd00 100%);
+  border-radius: 4px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.veri-progress-bar[data-cultural-region="formal"] {
+  background: linear-gradient(90deg, #6c757d 0%, #adb5bd 100%);
+}
+
+.veri-progress-bar[data-cultural-region="balanced"] {
+  background: linear-gradient(90deg, #007bff 0%, #28a745 100%);
+}
+
+.veri-progress-bar[data-cultural-region="friendly"] {
+  background: linear-gradient(90deg, #28a745 0%, #ffc107 100%);
+}
+
+.veri-progress-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.4) 50%, 
+    transparent 100%
+  );
+  animation: veri-progress-shine 2s infinite;
+}
+
+@keyframes veri-progress-shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.veri-progress-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e9ecef;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+/* Steps Container */
+.veri-steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.veri-step-indicator {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+}
+
+.veri-step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.veri-step-indicator.veri-completed .veri-step-circle {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.veri-step-indicator.veri-active .veri-step-circle {
+  background: linear-gradient(135deg, #da251d 0%, #ff6b6b 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(218, 37, 29, 0.4);
+  animation: veri-active-pulse 2s infinite;
+}
+
+.veri-step-indicator.veri-pending .veri-step-circle {
+  background: #f8f9fa;
+  color: #6c757d;
+  border: 2px solid #dee2e6;
+}
+
+@keyframes veri-active-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 16px rgba(218, 37, 29, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(218, 37, 29, 0.6); }
+}
+
+.veri-step-check {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.veri-step-content {
+  flex: 1;
+  padding-top: 4px;
+}
+
+.veri-step-label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.veri-step-indicator.veri-completed .veri-step-label {
+  color: #28a745;
+}
+
+.veri-step-indicator.veri-active .veri-step-label {
+  color: #da251d;
+}
+
+.veri-step-indicator.veri-pending .veri-step-label {
+  color: #6c757d;
+}
+
+.veri-step-description {
+  font-size: 14px;
+  color: #6c757d;
+  line-height: 1.4;
+}
+
+.veri-step-connector {
+  position: absolute;
+  left: 19px;
+  top: 40px;
+  width: 2px;
+  height: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.veri-step-connector.veri-connector-completed {
+  background: linear-gradient(180deg, #28a745 0%, #20c997 100%);
+}
+
+.veri-step-connector.veri-connector-pending {
+  background: #dee2e6;
+}
+
+/* Current Step Highlight */
+.veri-current-step-highlight {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 2px solid rgba(218, 37, 29, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.veri-current-step-info h3 {
+  margin: 0 0 8px 0;
+  color: #da251d;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.veri-current-step-info p {
+  margin: 0 0 16px 0;
+  color: #495057;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.veri-step-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.veri-cultural-encouragement {
+  font-style: italic;
+  color: #28a745;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.veri-estimated-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6c757d;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.veri-clock-icon {
+  font-size: 14px;
+}
+
+/* Vietnamese Cultural Elements */
+.veri-cultural-elements {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  opacity: 0.05;
+}
+
+.veri-cultural-pattern {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
+}
+
+.veri-pattern-north {
+  top: 10px;
+  right: 10px;
+  background: radial-gradient(circle, #6c757d 0%, transparent 70%);
+}
+
+.veri-pattern-central {
+  top: 30px;
+  right: 40px;
+  background: radial-gradient(circle, #007bff 0%, transparent 70%);
+}
+
+.veri-pattern-south {
+  top: 50px;
+  right: 15px;
+  background: radial-gradient(circle, #28a745 0%, transparent 70%);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .veri-onboarding-progress-container {
+    padding: 16px;
+  }
+  
+  .veri-progress-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .veri-progress-summary {
+    align-items: flex-start;
+  }
+  
+  .veri-progress-title h2 {
+    font-size: 20px;
+  }
+  
+  .veri-step-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .veri-cultural-encouragement {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* Tablet Responsive */
+@media (max-width: 992px) {
+  .veri-steps-container {
+    gap: 16px;
+  }
+  
+  .veri-step-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+  
+  .veri-step-label {
+    font-size: 15px;
+  }
+  
+  .veri-step-description {
+    font-size: 13px;
+  }
+}
+
+/* High DPI / Retina Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .veri-vietnam-flag {
+    font-size: 18px;
+  }
+  
+  .veri-clock-icon {
+    font-size: 16px;
+  }
+}
+
+/* Animation for step completion */
+@keyframes veri-step-complete {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.veri-step-indicator.veri-completed .veri-step-circle {
+  animation: veri-step-complete 0.6s ease-out;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .veri-onboarding-progress-container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 50%, #1a202c 100%);
+    color: #ffffff;
+  }
+  
+  .veri-progress-title h2 {
+    color: #ffffff;
+  }
+  
+  .veri-current-step-highlight {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    border-color: rgba(218, 37, 29, 0.3);
+  }
+  
+  .veri-current-step-info h3 {
+    color: #ff6b6b;
+  }
+  
+  .veri-current-step-info p {
+    color: #cbd5e0;
+  }
+}

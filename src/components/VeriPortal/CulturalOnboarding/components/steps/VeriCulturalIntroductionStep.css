@@ -1,0 +1,226 @@
+/* VeriPortal Cultural Introduction Step - Vietnamese Cultural Styling */
+/* Implementation Status: ✅ IMPLEMENTED */
+
+.veri-cultural-introduction-container {
+  padding: 32px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+.veri-cultural-welcome-header {
+  margin-bottom: 32px;
+}
+
+.veri-vietnam-emblem {
+  margin-bottom: 16px;
+}
+
+.veri-flag {
+  font-size: 64px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  animation: veri-flag-wave 3s ease-in-out infinite;
+}
+
+@keyframes veri-flag-wave {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.veri-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #da251d;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.veri-subtitle {
+  font-size: 18px;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.veri-cultural-promise {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  border-left: 4px solid #da251d;
+}
+
+.veri-description {
+  font-size: 16px;
+  color: #495057;
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.veri-highlight {
+  font-size: 16px;
+  font-weight: 600;
+  color: #da251d;
+  background: rgba(218, 37, 29, 0.1);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 0;
+}
+
+.veri-cultural-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.veri-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.veri-feature-item:hover {
+  box-shadow: 0 4px 16px rgba(218, 37, 29, 0.1);
+  border-color: #da251d;
+  transform: translateY(-2px);
+}
+
+.veri-feature-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.veri-feature-content {
+  font-size: 16px;
+  color: #495057;
+  line-height: 1.4;
+}
+
+.veri-cultural-detection {
+  background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  border: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+.veri-cultural-detection h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #007bff;
+  margin: 0 0 16px 0;
+}
+
+.veri-detection-result {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.veri-region-badge {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #da251d 0%, #ff6b6b 100%);
+  color: white;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.veri-business-style {
+  padding: 8px 16px;
+  background: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.veri-action-section {
+  display: flex;
+  justify-content: center;
+}
+
+.veri-primary-action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #da251d 0%, #ff6b6b 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(218, 37, 29, 0.3);
+}
+
+.veri-primary-action-button:hover {
+  background: linear-gradient(135deg, #c82333 0%, #e55353 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(218, 37, 29, 0.4);
+}
+
+.veri-button-icon {
+  font-size: 16px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .veri-cultural-introduction-container {
+    padding: 20px;
+  }
+  
+  .veri-title {
+    font-size: 28px;
+  }
+  
+  .veri-subtitle {
+    font-size: 16px;
+  }
+  
+  .veri-flag {
+    font-size: 48px;
+  }
+  
+  .veri-feature-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .veri-detection-result {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .veri-cultural-promise {
+    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+    color: #ffffff;
+  }
+  
+  .veri-feature-item {
+    background: #374151;
+    color: #ffffff;
+    border-color: #6b7280;
+  }
+  
+  .veri-cultural-detection {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: #ffffff;
+  }
+}

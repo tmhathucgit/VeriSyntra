@@ -1,0 +1,140 @@
+/* VeriPortal Onboarding Layout - Vietnamese Cultural Styling */
+/* Implementation Status: ✅ IMPLEMENTED */
+
+.veri-onboarding-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Cultural Regional Variations */
+.veri-onboarding-layout.veri-cultural-north {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+}
+
+.veri-onboarding-layout.veri-cultural-central {
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 50%, #cce7ff 100%);
+}
+
+.veri-onboarding-layout.veri-cultural-south {
+  background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 50%, #ffeaa7 100%);
+}
+
+.veri-layout-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.veri-cultural-pattern {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #da251d 0%, transparent 70%);
+  animation: veri-float 6s ease-in-out infinite;
+}
+
+.veri-pattern-1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 85%;
+  animation-delay: 0s;
+}
+
+.veri-pattern-2 {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  left: -5%;
+  animation-delay: 2s;
+}
+
+.veri-pattern-3 {
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  left: 10%;
+  animation-delay: 4s;
+}
+
+@keyframes veri-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.veri-layout-content {
+  flex: 1;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.veri-cultural-footer {
+  padding: 16px;
+  text-align: center;
+  background: rgba(218, 37, 29, 0.05);
+  border-top: 1px solid rgba(218, 37, 29, 0.1);
+  z-index: 1;
+  position: relative;
+}
+
+.veri-vietnam-pride {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #da251d;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.veri-flag {
+  font-size: 18px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .veri-layout-content {
+    padding: 12px;
+  }
+  
+  .veri-cultural-pattern {
+    opacity: 0.5;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .veri-onboarding-layout.veri-cultural-north {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 50%, #4a5568 100%);
+  }
+  
+  .veri-onboarding-layout.veri-cultural-central {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #4a5568 100%);
+  }
+  
+  .veri-onboarding-layout.veri-cultural-south {
+    background: linear-gradient(135deg, #2d1b1b 0%, #3d2f1f 50%, #4a3728 100%);
+  }
+  
+  .veri-cultural-footer {
+    background: rgba(218, 37, 29, 0.1);
+    color: #ffffff;
+  }
+  
+  .veri-vietnam-pride {
+    color: #ff6b6b;
+  }
+}

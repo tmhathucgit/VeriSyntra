@@ -1,0 +1,111 @@
+/* VeriPortal Onboarding Content - Vietnamese Cultural Styling */
+/* Implementation Status: ✅ IMPLEMENTED */
+
+.veri-onboarding-content-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(218, 37, 29, 0.1);
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.veri-onboarding-content-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #da251d 0%, #ffcd00 100%);
+  z-index: 1;
+}
+
+/* Step-specific styling */
+.veri-onboarding-content-container[data-step="cultural-introduction"] {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.95) 100%);
+}
+
+.veri-onboarding-content-container[data-step="business-profile-setup"] {
+  background: linear-gradient(135deg, rgba(240, 248, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+}
+
+.veri-onboarding-content-container[data-step="regional-adaptation"] {
+  background: linear-gradient(135deg, rgba(255, 248, 225, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+}
+
+.veri-onboarding-content-container[data-step="cultural-preferences"] {
+  background: linear-gradient(135deg, rgba(241, 248, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+}
+
+.veri-onboarding-content-container[data-step="compliance-readiness"] {
+  background: linear-gradient(135deg, rgba(248, 255, 241, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+}
+
+.veri-onboarding-content-container[data-step="completion-summary"] {
+  background: linear-gradient(135deg, rgba(255, 251, 235, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+}
+
+/* Animation for content transitions */
+.veri-onboarding-content-container {
+  animation: veri-content-fade-in 0.6s ease-out;
+}
+
+@keyframes veri-content-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .veri-onboarding-content-container {
+    margin: 0;
+    padding: 16px;
+    border-radius: 12px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .veri-onboarding-content-container {
+    background: rgba(33, 37, 41, 0.95);
+    border-color: rgba(218, 37, 29, 0.3);
+    color: #ffffff;
+  }
+  
+  .veri-onboarding-content-container[data-step="cultural-introduction"] {
+    background: linear-gradient(135deg, rgba(33, 37, 41, 0.98) 0%, rgba(45, 55, 72, 0.95) 100%);
+  }
+  
+  .veri-onboarding-content-container[data-step="business-profile-setup"] {
+    background: linear-gradient(135deg, rgba(26, 32, 44, 0.98) 0%, rgba(33, 37, 41, 0.95) 100%);
+  }
+  
+  .veri-onboarding-content-container[data-step="regional-adaptation"] {
+    background: linear-gradient(135deg, rgba(45, 27, 27, 0.98) 0%, rgba(33, 37, 41, 0.95) 100%);
+  }
+  
+  .veri-onboarding-content-container[data-step="cultural-preferences"] {
+    background: linear-gradient(135deg, rgba(26, 32, 44, 0.98) 0%, rgba(33, 37, 41, 0.95) 100%);
+  }
+  
+  .veri-onboarding-content-container[data-step="compliance-readiness"] {
+    background: linear-gradient(135deg, rgba(27, 45, 31, 0.98) 0%, rgba(33, 37, 41, 0.95) 100%);
+  }
+  
+  .veri-onboarding-content-container[data-step="completion-summary"] {
+    background: linear-gradient(135deg, rgba(45, 38, 25, 0.98) 0%, rgba(33, 37, 41, 0.95) 100%);
+  }
+}

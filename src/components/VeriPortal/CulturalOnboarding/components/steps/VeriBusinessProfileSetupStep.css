@@ -1,0 +1,161 @@
+/* VeriPortal Business Profile Setup Step - Vietnamese Cultural Styling */
+/* Implementation Status: ✅ IMPLEMENTED */
+
+.veri-business-profile-container {
+  padding: 32px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+.veri-step-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.veri-step-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.veri-step-description {
+  font-size: 16px;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.veri-business-profile-form {
+  margin-bottom: 32px;
+}
+
+.veri-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.veri-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.veri-input-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.veri-input-field,
+.veri-select-field {
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  background: white;
+  color: #495057;
+  transition: all 0.3s ease;
+}
+
+.veri-input-field:focus,
+.veri-select-field:focus {
+  outline: none;
+  border-color: #da251d;
+  box-shadow: 0 0 0 3px rgba(218, 37, 29, 0.1);
+}
+
+.veri-input-field::placeholder {
+  color: #adb5bd;
+}
+
+.veri-step-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.veri-primary-button,
+.veri-secondary-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.veri-primary-button {
+  background: linear-gradient(135deg, #da251d 0%, #ff6b6b 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(218, 37, 29, 0.3);
+}
+
+.veri-primary-button:hover {
+  background: linear-gradient(135deg, #c82333 0%, #e55353 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(218, 37, 29, 0.4);
+}
+
+.veri-secondary-button {
+  background: #f8f9fa;
+  color: #495057;
+  border: 2px solid #e9ecef;
+}
+
+.veri-secondary-button:hover {
+  background: #e9ecef;
+  border-color: #da251d;
+  transform: translateY(-1px);
+}
+
+.veri-button-icon {
+  font-size: 16px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .veri-business-profile-container {
+    padding: 20px;
+  }
+  
+  .veri-step-title {
+    font-size: 24px;
+  }
+  
+  .veri-step-actions {
+    flex-direction: column;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .veri-business-profile-container {
+    color: #ffffff;
+  }
+  
+  .veri-step-title {
+    color: #ffffff;
+  }
+  
+  .veri-input-field,
+  .veri-select-field {
+    background: #374151;
+    border-color: #6b7280;
+    color: #ffffff;
+  }
+  
+  .veri-secondary-button {
+    background: #374151;
+    color: #ffffff;
+    border-color: #6b7280;
+  }
+}

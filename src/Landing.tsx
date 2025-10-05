@@ -86,6 +86,12 @@ function Landing() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/veriportal" className="group bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-700 hover:via-yellow-600 hover:to-red-700 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
+                  <span className="flex items-center gap-2">
+                    🇻🇳 {isVietnamese ? 'VeriPortal - Onboarding Văn hóa Việt' : 'VeriPortal - Vietnamese Cultural Onboarding'}
+                  </span>
+                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                </Link>
                 <Link to="/app" className="group bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
                   <span>{t('veriportal:hero.tryFree')}</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
