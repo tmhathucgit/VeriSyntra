@@ -1,0 +1,55 @@
+{
+  "navigation": {
+    "features": "Tính năng",
+    "benefits": "Lợi ích",
+    "about": "Về chúng tôi",
+    "contact": "Liên hệ"
+  },
+  "hero": {
+    "badge": "Tuân thủ PDPL 2025",
+    "title": "Giải pháp tuân thủ PDPL 2025 cho doanh nghiệp Việt",
+    "subtitle": "Cổng tự phục vụ giúp doanh nghiệp Việt Nam đạt được và duy trì sự tuân thủ PDPL 2025 một cách độc lập, nhanh chóng và hiệu quả.",
+    "tryFree": "Dùng thử miễn phí",
+    "enterApp": "Vào ứng dụng",
+    "getStarted": "Bắt đầu ngay",
+    "liveDemo": "Xem demo trực tiếp"
+  },
+  "stats": {
+    "trustedBusinesses": "Doanh nghiệp tin tưởng",
+    "complianceRate": "Tỷ lệ tuân thủ",
+    "support": "Hỗ trợ"
+  },
+  "cta": {
+    "title": "Sẵn sàng tuân thủ PDPL 2025?",
+    "startToday": "Bắt đầu ngay hôm nay",
+    "subtitle": "Truy cập ngay vào nền tảng VeriSyntra để bắt đầu hành trình tuân thủ PDPL 2025 cho doanh nghiệp Việt Nam của bạn.",
+    "enterVeriSyntra": "Vào ứng dụng VeriSyntra"
+  },
+  "dashboard": {
+    "title": "Bảng điều khiển doanh nghiệp Việt Nam",
+    "userManagement": "Quản lý người dùng",
+    "totalUsers": "Tổng số người dùng",
+    "activeSessions": "Phiên đang hoạt động",
+    "lastActivity": "Hoạt động gần nhất"
+  },
+  "users": {
+    "title": "Quản lý người dùng",
+    "addUser": "Thêm người dùng",
+    "editUser": "Chỉnh sửa người dùng",
+    "deleteUser": "Xóa người dùng",
+    "userList": "Danh sách người dùng",
+    "permissions": "Quyền hạn",
+    "roles": "Vai trò"
+  },
+  "regions": {
+    "northern": "Miền Bắc Việt Nam",
+    "southern": "Miền Nam Việt Nam", 
+    "central": "Miền Trung Việt Nam"
+  },
+  "businessContext": {
+    "title": "Bối cảnh kinh doanh",
+    "formalProtocol": "Giao thức trang trọng",
+    "internationalApproach": "Phương pháp quốc tế",
+    "traditionalCustoms": "Phong tục truyền thống"
+  }
+}

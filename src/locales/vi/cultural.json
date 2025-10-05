@@ -1,0 +1,70 @@
+{
+  "regions": {
+    "northern": {
+      "name": "Miền Bắc Việt Nam",
+      "businessCulture": "Văn hóa kinh doanh trang trọng cao",
+      "formalityLevel": "Mức độ trang trọng cao",
+      "hierarchyImportance": "Tầm quan trọng của thứ bậc: Rất cao",
+      "governmentProximity": "Gần gũi với chính phủ: Rất cao",
+      "communicationStyle": "Phong cách giao tiếp: Tiếng Việt trang trọng bắt buộc",
+      "meetingPreferences": "Ưu tiên cuộc họp: Có cấu trúc và phân cấp",
+      "decisionSpeed": "Tốc độ quyết định: Cân nhắc kỹ lưỡng",
+      "notes": "Quy trình kinh doanh truyền thống, ảnh hưởng của chính phủ"
+    },
+    "southern": {
+      "name": "Miền Nam Việt Nam", 
+      "businessCulture": "Văn hóa kinh doanh hướng kết quả",
+      "formalityLevel": "Mức độ trang trọng trung bình",
+      "hierarchyImportance": "Tầm quan trọng của thứ bậc: Quan trọng",
+      "governmentProximity": "Gần gũi với chính phủ: Trung bình",
+      "communicationStyle": "Phong cách giao tiếp: Kết hợp kinh doanh",
+      "meetingPreferences": "Ưu tiên cuộc họp: Hướng kết quả",
+      "decisionSpeed": "Tốc độ quyết định: Nhanh hơn",
+      "notes": "Tiếp xúc kinh doanh quốc tế, tinh thần khởi nghiệp"
+    },
+    "central": {
+      "name": "Miền Trung Việt Nam",
+      "businessCulture": "Văn hóa kinh doanh xây dựng đồng thuận",
+      "formalityLevel": "Mức độ trang trọng truyền thống",
+      "hierarchyImportance": "Tầm quan trọng của thứ bậc: Cao",
+      "governmentProximity": "Gần gũi với chính phủ: Trung bình",
+      "communicationStyle": "Phong cách giao tiếp: Tôn trọng và truyền thống",
+      "meetingPreferences": "Ưu tiên cuộc họp: Xây dựng đồng thuận",
+      "decisionSpeed": "Tốc độ quyết định: Cẩn thận",
+      "notes": "Tập trung bảo tồn văn hóa, giá trị truyền thống"
+    }
+  },
+  "sectors": {
+    "technology": {
+      "name": "Công nghệ",
+      "meetingStyle": "Phong cách họp: Hợp tác không chính thức",
+      "decisionSpeed": "Tốc độ quyết định: Nhanh",
+      "complianceFocus": "Trọng tâm tuân thủ: Bảo mật dữ liệu quan trọng",
+      "communication": "Giao tiếp: Kết hợp kỹ thuật Việt-Anh",
+      "innovation": "Sự đổi mới: Cao"
+    },
+    "manufacturing": {
+      "name": "Sản xuất",
+      "meetingStyle": "Phong cách họp: Có cấu trúc và trang trọng",
+      "decisionSpeed": "Tốc độ quyết định: Cân nhắc",
+      "complianceFocus": "Trọng tâm tuân thủ: Dữ liệu công nhân, chuỗi cung ứng",
+      "communication": "Giao tiếp: Ưu tiên tiếng Việt trang trọng",
+      "safety": "An toàn: Ưu tiên quan trọng"
+    },
+    "finance": {
+      "name": "Tài chính",
+      "meetingStyle": "Phong cách họp: Rất trang trọng",
+      "decisionSpeed": "Tốc độ quyết định: Cẩn thận, quản lý rủi ro",
+      "complianceFocus": "Trọng tâm tuân thủ: Dữ liệu khách hàng, dấu vết kiểm toán",
+      "communication": "Giao tiếp: Bắt buộc tiếng Việt trang trọng",
+      "regulatory": "Tuân thủ quy định: Nghiêm ngặt"
+    }
+  },
+  "guidance": {
+    "pdplCompliance": "Hướng dẫn tuân thủ PDPL 2025",
+    "culturalAdaptation": "Thích ứng văn hóa",
+    "implementationTimeline": "Lịch trình thực hiện",
+    "communicationGuidelines": "Hướng dẫn giao tiếp",
+    "vietnameseRequirements": "Yêu cầu tiếng Việt"
+  }
+}

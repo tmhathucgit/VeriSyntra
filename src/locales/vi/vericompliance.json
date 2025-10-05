@@ -1,0 +1,50 @@
+{
+  "title": "VeriCompliance - Tuân thủ PDPL 2025",
+  "description": "Tuân thủ PDPL 2025 cho doanh nghiệp Việt Nam",
+  "platform": {
+    "title": "Nền tảng tuân thủ PDPL 2025"
+  },
+  "badges": {
+    "pdplCompliant": "PDPL 2025 Tuân thủ",
+    "vietnamSpecialized": "Chuyên biệt Việt Nam"
+  },
+  "assessment": {
+    "title": "Đánh giá tuân thủ PDPL 2025",
+    "start": "Bắt đầu đánh giá",
+    "duration": "Thời gian dự kiến: 30-45 phút",
+    "steps": {
+      "step1": "Phân tích bối cảnh kinh doanh Việt Nam",
+      "step2": "Đánh giá yêu cầu PDPL 2025 hiện tại", 
+      "step3": "Xác định khoảng cách tuân thủ",
+      "step4": "Đề xuất kế hoạch thực hiện phù hợp văn hóa"
+    }
+  },
+  "requirements": {
+    "title": "Yêu cầu tuân thủ PDPL 2025",
+    "totalRequirements": "Tổng số yêu cầu",
+    "dataCollection": "Thông báo thu thập dữ liệu cá nhân bằng tiếng Việt",
+    "consent": "Xin phép rõ ràng trước khi xử lý dữ liệu",
+    "security": "Bảo mật dữ liệu theo tiêu chuẩn Việt Nam",
+    "rights": "Quyền truy cập và sửa đổi dữ liệu cá nhân",
+    "breach": "Báo cáo vi phạm dữ liệu trong 72 giờ"
+  },
+  "status": {
+    "compliant": "Tuân thủ",
+    "nonCompliant": "Chưa tuân thủ",
+    "inProgress": "Đang thực hiện",
+    "review": "Đang xem xét"
+  },
+  "reports": {
+    "title": "Báo cáo PDPL",
+    "generate": "Tạo báo cáo",
+    "download": "Tải xuống",
+    "view": "Xem báo cáo"
+  },
+  "culturalFactors": {
+    "title": "Yếu tố văn hóa",
+    "regionalPractices": "Thực hành kinh doanh theo vùng miền",
+    "sectorRequirements": "Yêu cầu theo ngành nghề",
+    "vietnameseLanguage": "Tuân thủ ngôn ngữ tiếng Việt",
+    "hierarchicalProcess": "Quy trình phân cấp"
+  }
+}

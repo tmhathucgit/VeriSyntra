@@ -1,0 +1,70 @@
+{
+  "regions": {
+    "northern": {
+      "name": "Northern Vietnam",
+      "businessCulture": "High formality business culture",
+      "formalityLevel": "Formality Level: High",
+      "hierarchyImportance": "Hierarchy Importance: Critical",
+      "governmentProximity": "Government Proximity: Very High",
+      "communicationStyle": "Communication Style: Formal Vietnamese required",
+      "meetingPreferences": "Meeting Preferences: Structured hierarchical",
+      "decisionSpeed": "Decision Speed: Deliberate",
+      "notes": "Traditional business protocols, government influence"
+    },
+    "southern": {
+      "name": "Southern Vietnam", 
+      "businessCulture": "Results-oriented business culture",
+      "formalityLevel": "Formality Level: Moderate",
+      "hierarchyImportance": "Hierarchy Importance: Important",
+      "governmentProximity": "Government Proximity: Moderate",
+      "communicationStyle": "Communication Style: Business mix",
+      "meetingPreferences": "Meeting Preferences: Results oriented",
+      "decisionSpeed": "Decision Speed: Faster",
+      "notes": "International business exposure, entrepreneurial"
+    },
+    "central": {
+      "name": "Central Vietnam",
+      "businessCulture": "Consensus-building business culture",
+      "formalityLevel": "Formality Level: Traditional",
+      "hierarchyImportance": "Hierarchy Importance: High",
+      "governmentProximity": "Government Proximity: Moderate",
+      "communicationStyle": "Communication Style: Respectful traditional",
+      "meetingPreferences": "Meeting Preferences: Consensus building",
+      "decisionSpeed": "Decision Speed: Careful",
+      "notes": "Cultural preservation focus, traditional values"
+    }
+  },
+  "sectors": {
+    "technology": {
+      "name": "Technology",
+      "meetingStyle": "Meeting Style: Informal collaborative",
+      "decisionSpeed": "Decision Speed: Fast",
+      "complianceFocus": "Compliance Focus: Data security critical",
+      "communication": "Communication: Technical Vietnamese-English mix",
+      "innovation": "Innovation Openness: High"
+    },
+    "manufacturing": {
+      "name": "Manufacturing",
+      "meetingStyle": "Meeting Style: Structured formal",
+      "decisionSpeed": "Decision Speed: Deliberate",
+      "complianceFocus": "Compliance Focus: Worker data, supply chain",
+      "communication": "Communication: Formal Vietnamese preferred",
+      "safety": "Safety Priority: Critical"
+    },
+    "finance": {
+      "name": "Finance",
+      "meetingStyle": "Meeting Style: Highly formal",
+      "decisionSpeed": "Decision Speed: Careful, risk-managed",
+      "complianceFocus": "Compliance Focus: Customer data, audit trails",
+      "communication": "Communication: Formal Vietnamese required",
+      "regulatory": "Regulatory Adherence: Strict"
+    }
+  },
+  "guidance": {
+    "pdplCompliance": "PDPL 2025 Compliance Guidance",
+    "culturalAdaptation": "Cultural Adaptation",
+    "implementationTimeline": "Implementation Timeline",
+    "communicationGuidelines": "Communication Guidelines",
+    "vietnameseRequirements": "Vietnamese Requirements"
+  }
+}

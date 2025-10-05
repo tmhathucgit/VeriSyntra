@@ -1,0 +1,71 @@
+{
+  "app": {
+    "name": "VeriSyntra",
+    "tagline": "Nền tảng tuân thủ PDPL 2025",
+    "description": "Giải pháp tuân thủ PDPL 2025 chuyên biệt cho doanh nghiệp Việt Nam với trí tuệ văn hóa tích hợp"
+  },
+  "navigation": {
+    "features": "Tính năng",
+    "benefits": "Lợi ích", 
+    "about": "Về chúng tôi",
+    "contact": "Liên hệ",
+    "getStarted": "Bắt đầu ngay",
+    "enterApp": "Vào ứng dụng",
+    "language": "Tiếng Việt"
+  },
+  "buttons": {
+    "tryFree": "Dùng thử miễn phí",
+    "viewDemo": "Xem demo",
+    "enterApp": "Vào ứng dụng",
+    "liveDemo": "Xem demo trực tiếp"
+  },
+  "status": {
+    "connected": "Đã kết nối",
+    "disconnected": "Mất kết nối",
+    "connecting": "Đang kết nối...",
+    "active": "Hoạt động",
+    "inactive": "Không hoạt động",
+    "operational": "Hoạt động",
+    "configured": "Đã cấu hình",
+    "notConfigured": "Chưa cấu hình"
+  },
+  "time": {
+    "vietnamTime": "Thời gian Việt Nam"
+  },
+  "ui": {
+    "loading": "Đang tải...",
+    "error": "Có lỗi xảy ra",
+    "success": "Thành công",
+    "warning": "Cảnh báo",
+    "info": "Thông tin"
+  },
+  "welcome": {
+    "title": "Chào mừng đến với VeriSyntra",
+    "description": "Giải pháp tuân thủ PDPL 2025 chuyên biệt cho doanh nghiệp Việt Nam với trí tuệ văn hóa tích hợp"
+  },
+  "language": {
+    "current": "Tiếng Việt"
+  },
+  "system": {
+    "backendStatus": "Trạng thái hệ thống backend:",
+    "vietnamTime": "Thời gian Việt Nam:",
+    "backendConnection": "Kết nối backend hoạt động tốt",
+    "vietnameseLocale": "Cấu hình Việt Nam",
+    "timezoneLanguage": "Múi giờ và ngôn ngữ Việt Nam"
+  },
+  "features": {
+    "culturalAI": "Trí tuệ văn hóa Việt Nam",
+    "culturalAIDescription": "Phân tích bối cảnh văn hóa và tùy chỉnh tự động cho doanh nghiệp Việt Nam",
+    "businessContextAnalysis": "Phân tích bối cảnh kinh doanh Việt Nam"
+  },
+  "quickActions": {
+    "title": "Hành động nhanh",
+    "userManagement": "Quản lý người dùng",
+    "complianceAssessment": "Đánh giá tuân thủ",
+    "pdplReports": "Báo cáo PDPL",
+    "activityHistory": "Lịch sử hoạt động"
+  },
+  "footer": {
+    "developmentVersion": "Phiên bản phát triển - Kết nối real-time với backend FastAPI"
+  }
+}

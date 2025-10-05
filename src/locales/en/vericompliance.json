@@ -1,0 +1,50 @@
+{
+  "title": "VeriCompliance - PDPL 2025 Compliance",
+  "description": "PDPL 2025 compliance for Vietnamese enterprises",
+  "platform": {
+    "title": "PDPL 2025 Compliance Platform"
+  },
+  "badges": {
+    "pdplCompliant": "PDPL 2025 Compliant",
+    "vietnamSpecialized": "Vietnam Specialized"
+  },
+  "assessment": {
+    "title": "PDPL 2025 Compliance Assessment",
+    "start": "Start Assessment",
+    "duration": "Estimated Duration: 30-45 minutes",
+    "steps": {
+      "step1": "Analyze Vietnamese business context",
+      "step2": "Assess current PDPL 2025 requirements", 
+      "step3": "Identify compliance gaps",
+      "step4": "Propose culturally appropriate implementation plan"
+    }
+  },
+  "requirements": {
+    "title": "PDPL 2025 Compliance Requirements",
+    "totalRequirements": "Total Requirements",
+    "dataCollection": "Personal data collection notice in Vietnamese",
+    "consent": "Clear consent before processing data",
+    "security": "Data security according to Vietnamese standards",
+    "rights": "Right to access and modify personal data",
+    "breach": "Data breach reporting within 72 hours"
+  },
+  "status": {
+    "compliant": "Compliant",
+    "nonCompliant": "Non-Compliant",
+    "inProgress": "In Progress",
+    "review": "Under Review"
+  },
+  "reports": {
+    "title": "PDPL Reports",
+    "generate": "Generate Report",
+    "download": "Download",
+    "view": "View Report"
+  },
+  "culturalFactors": {
+    "title": "Cultural Factors",
+    "regionalPractices": "Regional business practices",
+    "sectorRequirements": "Sector-specific requirements",
+    "vietnameseLanguage": "Vietnamese language compliance",
+    "hierarchicalProcess": "Hierarchical decision processes"
+  }
+}

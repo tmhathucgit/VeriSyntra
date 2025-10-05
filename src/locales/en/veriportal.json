@@ -1,0 +1,55 @@
+{
+  "navigation": {
+    "features": "Features",
+    "benefits": "Benefits",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "PDPL 2025 Compliant",
+    "title": "PDPL 2025 Compliance Solution for Vietnamese Enterprises",
+    "subtitle": "Self-service portal helping Vietnamese businesses achieve and maintain PDPL 2025 compliance independently, quickly and efficiently.",
+    "tryFree": "Try Free",
+    "enterApp": "Enter App",
+    "getStarted": "Get Started",
+    "liveDemo": "View Live Demo"
+  },
+  "stats": {
+    "trustedBusinesses": "Trusted Businesses",
+    "complianceRate": "Compliance Rate",
+    "support": "Support"
+  },
+  "cta": {
+    "title": "Ready for PDPL 2025 Compliance?",
+    "startToday": "Get Started Today",
+    "subtitle": "Access the VeriSyntra platform now to begin your Vietnamese enterprise PDPL 2025 compliance journey.",
+    "enterVeriSyntra": "Enter VeriSyntra App"
+  },
+  "dashboard": {
+    "title": "Vietnamese Business Dashboard",
+    "userManagement": "User Management",
+    "totalUsers": "Total Users",
+    "activeSessions": "Active Sessions",
+    "lastActivity": "Last Activity"
+  },
+  "users": {
+    "title": "User Management",
+    "addUser": "Add User",
+    "editUser": "Edit User",
+    "deleteUser": "Delete User",
+    "userList": "User List",
+    "permissions": "Permissions",
+    "roles": "Roles"
+  },
+  "regions": {
+    "northern": "Northern Vietnam",
+    "southern": "Southern Vietnam", 
+    "central": "Central Vietnam"
+  },
+  "businessContext": {
+    "title": "Business Context",
+    "formalProtocol": "Formal Protocol",
+    "internationalApproach": "International Approach",
+    "traditionalCustoms": "Traditional Customs"
+  }
+}

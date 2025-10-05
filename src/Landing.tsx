@@ -1,9 +1,13 @@
 import { Shield, CheckCircle, Lock, FileText, Users, ArrowRight, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useLanguageSwitch } from './hooks/useCulturalIntelligence';
 
 function Landing() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useTranslation(['common', 'veriportal']);
+  const { switchLanguage, isVietnamese } = useLanguageSwitch();
 
   return (
     <div className="min-h-screen bg-white">
@@ -23,12 +27,18 @@ function Landing() {
             </Link>
 
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Tính năng</a>
-              <a href="#benefits" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Lợi ích</a>
-              <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Về chúng tôi</a>
-              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Liên hệ</a>
+              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('veriportal:navigation.features')}</a>
+              <a href="#benefits" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('veriportal:navigation.benefits')}</a>
+              <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('veriportal:navigation.about')}</a>
+              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('veriportal:navigation.contact')}</a>
+              <button 
+                onClick={() => switchLanguage(isVietnamese ? 'en' : 'vi')}
+                className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium border border-gray-300 px-3 py-1.5 rounded-md"
+              >
+                {isVietnamese ? 'EN' : 'VI'}
+              </button>
               <Link to="/app" className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 shadow-sm inline-block">
-                Bắt đầu ngay
+                {t('veriportal:hero.getStarted')}
               </Link>
             </div>
 
@@ -49,7 +59,7 @@ function Landing() {
               <a href="#about" className="block text-gray-600 hover:text-gray-900 py-2">Về chúng tôi</a>
               <a href="#contact" className="block text-gray-600 hover:text-gray-900 py-2">Liên hệ</a>
               <Link to="/app" className="block w-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium text-center">
-                Bắt đầu ngay
+                {t('veriportal:hero.getStarted')}
               </Link>
             </div>
           </div>
@@ -63,45 +73,45 @@ function Landing() {
             <div className="space-y-8">
               <div className="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium">
                 <Shield size={16} />
-                <span>Tuân thủ PDPL 2025</span>
+                <span>{t('veriportal:hero.badge')}</span>
               </div>
 
               <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight">
-                Giải pháp tuân thủ{' '}
+                {t('veriportal:hero.title').split('PDPL 2025')[0]}{' '}
                 <span className="text-orange-500 bg-gradient-to-r from-orange-500 to-emerald-600 bg-clip-text text-transparent">
                   PDPL 2025
                 </span>{' '}
-                cho doanh nghiệp Việt
+                {t('veriportal:hero.title').split('PDPL 2025')[1]}
               </h1>
 
               <p className="text-xl text-gray-600 leading-relaxed">
-                Cổng tự phục vụ giúp doanh nghiệp Việt Nam đạt được và duy trì sự tuân thủ PDPL 2025 một cách độc lập, nhanh chóng và hiệu quả.
+                {t('veriportal:hero.subtitle')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/app" className="group bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
-                  <span>Dùng thử miễn phí</span>
+                  <span>{t('veriportal:hero.tryFree')}</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </Link>
                 <Link to="/app" className="bg-white hover:bg-gray-50 text-teal-600 px-8 py-4 rounded-xl font-semibold border-2 border-teal-600 transition-all flex items-center justify-center">
-                  Vào ứng dụng
+                  {t('veriportal:hero.enterApp')}
                 </Link>
               </div>
 
               <div className="flex items-center space-x-8 pt-4">
                 <div>
                   <div className="text-3xl font-bold text-gray-900">500+</div>
-                  <div className="text-sm text-gray-600">Doanh nghiệp tin tưởng</div>
+                  <div className="text-sm text-gray-600">{t('veriportal:stats.trustedBusinesses')}</div>
                 </div>
                 <div className="h-12 w-px bg-gray-300"></div>
                 <div>
                   <div className="text-3xl font-bold text-gray-900">99.9%</div>
-                  <div className="text-sm text-gray-600">Tỷ lệ tuân thủ</div>
+                  <div className="text-sm text-gray-600">{t('veriportal:stats.complianceRate')}</div>
                 </div>
                 <div className="h-12 w-px bg-gray-300"></div>
                 <div>
                   <div className="text-3xl font-bold text-gray-900">24/7</div>
-                  <div className="text-sm text-gray-600">Hỗ trợ</div>
+                  <div className="text-sm text-gray-600">{t('veriportal:stats.support')}</div>
                 </div>
               </div>
             </div>
@@ -256,7 +266,7 @@ function Landing() {
 
             <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Bắt đầu ngay hôm nay</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('veriportal:cta.startToday')}</h3>
                 <p className="text-gray-600">Dùng thử miễn phí 14 ngày, không cần thẻ tín dụng</p>
               </div>
 
@@ -315,11 +325,10 @@ function Landing() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-teal-600 to-emerald-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Sẵn sàng tuân thủ PDPL 2025?
+            {t('veriportal:cta.title')}
           </h2>
           <p className="text-xl text-teal-100 mb-8 leading-relaxed">
-            Truy cập ngay vào nền tảng VeriSyntra để bắt đầu hành trình tuân thủ PDPL 2025 
-            cho doanh nghiệp Việt Nam của bạn.
+            {t('veriportal:cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
@@ -327,14 +336,14 @@ function Landing() {
               className="group bg-white hover:bg-gray-100 text-teal-600 px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
             >
               <Shield className="w-5 h-5" />
-              <span>Vào ứng dụng VeriSyntra</span>
+              <span>{t('veriportal:cta.enterVeriSyntra')}</span>
               <ArrowRight className="group-hover:translate-x-1 transition-transform w-5 h-5" />
             </Link>
             <Link 
-              to="/verisyntra" 
+              to="/app" 
               className="bg-teal-700 hover:bg-teal-800 text-white px-8 py-4 rounded-xl font-semibold border-2 border-teal-400 transition-all flex items-center justify-center space-x-2"
             >
-              <span>Xem demo trực tiếp</span>
+              <span>{t('veriportal:hero.liveDemo')}</span>
             </Link>
           </div>
           <div className="mt-8 text-teal-100 text-sm">

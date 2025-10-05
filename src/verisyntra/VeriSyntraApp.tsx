@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Shield, CheckCircle, Globe, Server, Clock, Users } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import axios from 'axios';
+import { useLanguageSwitch } from '../hooks/useCulturalIntelligence';
+import { useState } from 'react';
 
 interface SystemStatus {
   status: string;
@@ -22,7 +25,8 @@ interface ApiResponse {
 }
 
 const VeriSyntraApp: React.FC = () => {
-  const [language, setLanguage] = useState<'vi' | 'en'>('vi');
+  const { t } = useTranslation(['common', 'vericompliance']);
+  const { switchLanguage, isVietnamese } = useLanguageSwitch();
   const [systemStatus, setSystemStatus] = useState<SystemStatus | null>(null);
   const [backendData, setBackendData] = useState<ApiResponse | null>(null);
   const [connectionStatus, setConnectionStatus] = useState<'connecting' | 'connected' | 'disconnected'>('connecting');
@@ -60,7 +64,7 @@ const VeriSyntraApp: React.FC = () => {
   }, []);
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'vi' ? 'en' : 'vi');
+    switchLanguage(isVietnamese ? 'en' : 'vi');
   };
 
   const getConnectionColor = () => {
@@ -72,17 +76,17 @@ const VeriSyntraApp: React.FC = () => {
   };
 
   const getConnectionText = () => {
-    if (language === 'vi') {
+    if (isVietnamese) {
       switch (connectionStatus) {
-        case 'connected': return 'Đã kết nối';
-        case 'disconnected': return 'Mất kết nối';
-        default: return 'Đang kết nối...';
+        case 'connected': return t('common:status.connected');
+        case 'disconnected': return t('common:status.disconnected');
+        default: return t('common:status.connecting');
       }
     } else {
       switch (connectionStatus) {
-        case 'connected': return 'Connected';
-        case 'disconnected': return 'Disconnected';
-        default: return 'Connecting...';
+        case 'connected': return t('common:status.connected');
+        case 'disconnected': return t('common:status.disconnected');
+        default: return t('common:status.connecting');
       }
     }
   };
@@ -99,7 +103,7 @@ const VeriSyntraApp: React.FC = () => {
               <div>
                 <h1 className="text-xl font-bold text-gray-900">VeriSyntra</h1>
                 <p className="text-sm text-gray-600">
-                  {language === 'vi' ? 'Nền tảng tuân thủ PDPL 2025' : 'PDPL 2025 Compliance Platform'}
+                  {t('vericompliance:platform.title')}
                 </p>
               </div>
             </div>
@@ -115,7 +119,7 @@ const VeriSyntraApp: React.FC = () => {
                 className="flex items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
               >
                 <Globe className="w-4 h-4" />
-                <span className="font-medium">{language === 'vi' ? 'Tiếng Việt' : 'English'}</span>
+                <span className="font-medium">{t('common:language.current')}</span>
               </button>
             </div>
           </div>
@@ -131,26 +135,23 @@ const VeriSyntraApp: React.FC = () => {
               </div>
               <div className="flex-1">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  {language === 'vi' ? 'Chào mừng đến với VeriSyntra' : 'Welcome to VeriSyntra'}
+                  {t('common:welcome.title')}
                 </h2>
                 <p className="text-gray-600 mb-4">
-                  {language === 'vi'
-                    ? 'Giải pháp tuân thủ PDPL 2025 chuyên biệt cho doanh nghiệp Việt Nam với trí tuệ văn hóa tích hợp.'
-                    : 'Specialized PDPL 2025 compliance solution for Vietnamese enterprises with integrated cultural intelligence.'
-                  }
+                  {t('common:welcome.description')}
                 </p>
                 
                 {backendData && (
                   <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mb-4">
                     <h3 className="font-semibold text-emerald-900 mb-2">
-                      {language === 'vi' ? 'Trạng thái hệ thống backend:' : 'Backend System Status:'}
+                      {t('common:system.backendStatus')}
                     </h3>
                     <p className="text-emerald-800 text-sm">
-                      {language === 'vi' ? backendData.message : backendData.english}
+                      {isVietnamese ? backendData.message : backendData.english}
                     </p>
                     <div className="mt-2 text-xs text-emerald-700">
                       <span className="font-medium">
-                        {language === 'vi' ? 'Thời gian Việt Nam:' : 'Vietnam Time:'} 
+                        {t('common:system.vietnamTime')} 
                       </span> {backendData.vietnam_time}
                     </div>
                   </div>
@@ -159,10 +160,10 @@ const VeriSyntraApp: React.FC = () => {
                 <div className="flex flex-wrap gap-2">
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
                     <CheckCircle className="w-4 h-4 mr-1" />
-                    PDPL 2025 {language === 'vi' ? 'Tuân thủ' : 'Compliant'}
+                    {t('vericompliance:badges.pdplCompliant')}
                   </span>
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
-                    🇻🇳 {language === 'vi' ? 'Chuyên biệt Việt Nam' : 'Vietnam Specialized'}
+                    🇻🇳 {t('vericompliance:badges.vietnamSpecialized')}
                   </span>
                 </div>
               </div>
@@ -177,7 +178,7 @@ const VeriSyntraApp: React.FC = () => {
                 <Shield className="w-5 h-5 text-orange-600" />
               </div>
               <h3 className="font-semibold text-gray-900">
-                {language === 'vi' ? 'Trí tuệ văn hóa Việt Nam' : 'Vietnamese Cultural AI'}
+                {t('common:features.culturalAI')}
               </h3>
             </div>
             <div className="space-y-2">
@@ -187,15 +188,12 @@ const VeriSyntraApp: React.FC = () => {
                   : 'bg-gray-100 text-gray-800'
               }`}>
                 {systemStatus?.components.cultural_ai === 'active' 
-                  ? (language === 'vi' ? 'Hoạt động' : 'Active')
-                  : (language === 'vi' ? 'Không hoạt động' : 'Inactive')
+                  ? t('common:status.active')
+                  : t('common:status.inactive')
                 }
               </div>
               <p className="text-sm text-gray-600">
-                {language === 'vi' 
-                  ? 'Phân tích bối cảnh kinh doanh Việt Nam'
-                  : 'Analyzing Vietnamese business context'
-                }
+                {t('common:features.businessContextAnalysis')}
               </p>
             </div>
           </div>
@@ -214,12 +212,12 @@ const VeriSyntraApp: React.FC = () => {
                   : 'bg-gray-100 text-gray-800'
               }`}>
                 {systemStatus?.components.api_endpoints === 'operational' 
-                  ? (language === 'vi' ? 'Hoạt động' : 'Operational')
-                  : (language === 'vi' ? 'Không hoạt động' : 'Inactive')
+                  ? t('common:status.operational')
+                  : t('common:status.inactive')
                 }
               </div>
               <p className="text-sm text-gray-600">
-                {language === 'vi' ? 'Kết nối backend hoạt động tốt' : 'Backend connection working well'}
+                {t('common:system.backendConnection')}
               </p>
             </div>
           </div>
@@ -230,7 +228,7 @@ const VeriSyntraApp: React.FC = () => {
                 <Globe className="w-5 h-5 text-emerald-600" />
               </div>
               <h3 className="font-semibold text-gray-900">
-                {language === 'vi' ? 'Cấu hình Việt Nam' : 'Vietnamese Locale'}
+                {t('common:system.vietnameseLocale')}
               </h3>
             </div>
             <div className="space-y-2">
@@ -240,12 +238,12 @@ const VeriSyntraApp: React.FC = () => {
                   : 'bg-gray-100 text-gray-800'
               }`}>
                 {systemStatus?.components.vietnamese_locale === 'configured' 
-                  ? (language === 'vi' ? 'Đã cấu hình' : 'Configured')
-                  : (language === 'vi' ? 'Chưa cấu hình' : 'Not Configured')
+                  ? t('common:status.configured')
+                  : t('common:status.notConfigured')
                 }
               </div>
               <p className="text-sm text-gray-600">
-                {language === 'vi' ? 'Múi giờ và ngôn ngữ Việt Nam' : 'Vietnamese timezone and language'}
+                {t('common:system.timezoneLanguage')}
               </p>
             </div>
           </div>
@@ -253,34 +251,34 @@ const VeriSyntraApp: React.FC = () => {
 
         <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            {language === 'vi' ? 'Hành động nhanh' : 'Quick Actions'}
+            {t('common:quickActions.title')}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <button className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-teal-300 hover:bg-teal-50 transition-colors">
               <Users className="w-5 h-5 text-teal-600" />
               <span className="font-medium text-gray-900">
-                {language === 'vi' ? 'Quản lý người dùng' : 'User Management'}
+                {t('common:quickActions.userManagement')}
               </span>
             </button>
             
             <button className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-orange-300 hover:bg-orange-50 transition-colors">
               <CheckCircle className="w-5 h-5 text-orange-600" />
               <span className="font-medium text-gray-900">
-                {language === 'vi' ? 'Đánh giá tuân thủ' : 'Compliance Assessment'}
+                {t('common:quickActions.complianceAssessment')}
               </span>
             </button>
             
             <button className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-emerald-300 hover:bg-emerald-50 transition-colors">
               <Shield className="w-5 h-5 text-emerald-600" />
               <span className="font-medium text-gray-900">
-                {language === 'vi' ? 'Báo cáo PDPL' : 'PDPL Reports'}
+                {t('common:quickActions.pdplReports')}
               </span>
             </button>
             
             <button className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors">
               <Clock className="w-5 h-5 text-blue-600" />
               <span className="font-medium text-gray-900">
-                {language === 'vi' ? 'Lịch sử hoạt động' : 'Activity History'}
+                {t('common:quickActions.activityHistory')}
               </span>
             </button>
           </div>
@@ -288,10 +286,7 @@ const VeriSyntraApp: React.FC = () => {
 
         <div className="mt-8 text-center text-sm text-gray-500">
           <p>
-            {language === 'vi' 
-              ? 'Phiên bản phát triển - Kết nối real-time với backend FastAPI'
-              : 'Development Version - Real-time connection with FastAPI backend'
-            }
+            {t('common:footer.developmentVersion')}
           </p>
           <p className="mt-1">
             API Documentation: 

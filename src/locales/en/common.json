@@ -1,0 +1,71 @@
+{
+  "app": {
+    "name": "VeriSyntra",
+    "tagline": "PDPL 2025 Compliance Platform",
+    "description": "Specialized PDPL 2025 compliance solution for Vietnamese enterprises with integrated cultural intelligence"
+  },
+  "navigation": {
+    "features": "Features",
+    "benefits": "Benefits", 
+    "about": "About Us",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "enterApp": "Enter App",
+    "language": "English"
+  },
+  "buttons": {
+    "tryFree": "Try Free",
+    "viewDemo": "View Demo",
+    "enterApp": "Enter App",
+    "liveDemo": "View Live Demo"
+  },
+  "status": {
+    "connected": "Connected",
+    "disconnected": "Disconnected",
+    "connecting": "Connecting...",
+    "active": "Active",
+    "inactive": "Inactive",
+    "operational": "Operational",
+    "configured": "Configured",
+    "notConfigured": "Not Configured"
+  },
+  "time": {
+    "vietnamTime": "Vietnam Time"
+  },
+  "ui": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information"
+  },
+  "welcome": {
+    "title": "Welcome to VeriSyntra",
+    "description": "Specialized PDPL 2025 compliance solution for Vietnamese enterprises with integrated cultural intelligence"
+  },
+  "language": {
+    "current": "English"
+  },
+  "system": {
+    "backendStatus": "Backend System Status:",
+    "vietnamTime": "Vietnam Time:",
+    "backendConnection": "Backend connection working well",
+    "vietnameseLocale": "Vietnamese Locale",
+    "timezoneLanguage": "Vietnamese timezone and language"
+  },
+  "features": {
+    "culturalAI": "Vietnamese Cultural AI",
+    "culturalAIDescription": "Cultural context analysis and automatic customization for Vietnamese enterprises",
+    "businessContextAnalysis": "Analyzing Vietnamese business context"
+  },
+  "quickActions": {
+    "title": "Quick Actions",
+    "userManagement": "User Management",
+    "complianceAssessment": "Compliance Assessment",
+    "pdplReports": "PDPL Reports",
+    "activityHistory": "Activity History"
+  },
+  "footer": {
+    "developmentVersion": "Development Version - Real-time connection with FastAPI backend"
+  }
+}

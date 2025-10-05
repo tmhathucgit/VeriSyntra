@@ -8,7 +8,6 @@ function AppRouter() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/app" element={<VeriSyntraApp />} />
-        <Route path="/verisyntra" element={<VeriSyntraApp />} />
       </Routes>
     </Router>
   );
