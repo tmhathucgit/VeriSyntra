@@ -22,36 +22,36 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-/* VeriPortal Gradient Text */
+/* VeriPortal Gradient Text - Gentle Vietnamese Colors */
 .veri-gradient-text {
-  background: linear-gradient(135deg, #f97316 0%, #10b981 100%);
+  background: linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
 
-/* Vietnamese Flag Styling */
+/* Vietnamese Cultural Styling - Gentle Colors */
 .veri-vietnam-flag {
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(135deg, #da251d 0%, #ffda00 50%, #da251d 100%);
+  background: linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 50%, #6b8e6b 100%);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
-  font-weight: 600;
-  box-shadow: 0 4px 14px 0 rgba(218, 37, 29, 0.39);
+  font-weight: 500;
+  box-shadow: 0 4px 14px 0 rgba(107, 142, 107, 0.25);
 }
 
-/* Cultural Pattern Background */
+/* Cultural Pattern Background - Gentle Vietnamese Nature */
 .veri-cultural-bg-pattern {
   background-image: 
-    radial-gradient(circle at 25% 25%, #f97316 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, #10b981 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, #06b6d4 0%, transparent 50%);
+    radial-gradient(circle at 25% 25%, #c8d8c8 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, #e1ecf4 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, #d4c18a 0%, transparent 50%);
   background-size: 300px 300px, 250px 250px, 200px 200px;
   background-position: 0 0, 100px 100px, 200px 0;
-  opacity: 0.03;
+  opacity: 0.05;
   position: absolute;
   top: 0;
   left: 0;
@@ -60,13 +60,13 @@
   pointer-events: none;
 }
 
-/* Enhanced Button Styles */
+/* Enhanced Button Styles - Eye-Friendly Vietnamese Colors */
 .veri-action-button {
-  background: linear-gradient(135deg, #da251d 0%, #ffda00 50%, #da251d 100%);
+  background: linear-gradient(135deg, #6b8e6b 0%, #7fa088 100%);
   color: white;
   padding: 1rem 2rem;
-  border-radius: 1rem;
-  font-weight: 600;
+  border-radius: 0.75rem;
+  font-weight: 500;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -74,12 +74,13 @@
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 25px rgba(107, 142, 107, 0.25);
 }
 
 .veri-action-button:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #5a7a5a 0%, #6b8e6b 100%);
+  box-shadow: 0 12px 30px rgba(107, 142, 107, 0.3);
 }
 
 /* Stats Section Styling */
@@ -142,9 +143,9 @@
 
 .veri-progress-bar {
   height: 0.5rem;
-  background: linear-gradient(90deg, #f97316 0%, #10b981 100%);
-  border-radius: 0.25rem;
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, #6b8e6b 0%, #7fa3c3 100%);
+  border-radius: 1rem;
+  transition: width 0.5s ease;
 }
 
 /* Responsive Design */
@@ -172,11 +173,11 @@
   width: 100vw;
   height: 100vh;
   background: linear-gradient(135deg, 
-    #da251d 0%, 
-    #ffda00 25%, 
-    #da251d 50%, 
-    #ffda00 75%, 
-    #da251d 100%
+    #f0f4f0 0%, 
+    #f1f6fb 25%, 
+    #f0f4f0 50%, 
+    #f1f6fb 75%, 
+    #f0f4f0 100%
   );
   background-size: 200% 200%;
   animation: veri-cultural-bg 8s ease-in-out infinite;
@@ -222,10 +223,10 @@
   position: absolute;
   width: 20px;
   height: 35px;
-  background: linear-gradient(145deg, #da251d, #ff6b6b);
+  background: linear-gradient(145deg, #6b8e6b, #7fa088);
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   transform-origin: 50% 80%;
-  box-shadow: 0 2px 8px rgba(218, 37, 29, 0.3);
+  box-shadow: 0 2px 8px rgba(107, 142, 107, 0.25);
 }
 
 .veri-petal-1 { transform: rotate(0deg) translateY(-25px); animation-delay: 0s; }
@@ -241,12 +242,12 @@
   left: 50%;
   width: 24px;
   height: 24px;
-  background: radial-gradient(circle, #ffda00, #f4c430);
+  background: radial-gradient(circle, #d4c18a, #c4a484);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 
-    0 0 0 3px #da251d,
-    0 0 20px rgba(255, 218, 0, 0.6);
+    0 0 0 3px #6b8e6b,
+    0 0 20px rgba(212, 193, 138, 0.4);
   animation: veri-center-pulse 2s ease-in-out infinite;
 }
 
@@ -261,8 +262,8 @@
 
 .veri-flag-star {
   font-size: 1.25rem;
-  color: #ffda00;
-  text-shadow: 0 2px 4px rgba(218, 37, 29, 0.5);
+  color: #d4c18a;
+  text-shadow: 0 2px 4px rgba(107, 142, 107, 0.3);
   animation: veri-star-twinkle 1.5s ease-in-out infinite alternate;
 }
 
@@ -280,13 +281,13 @@
 }
 
 .veri-red-stripe {
-  background: #da251d;
-  box-shadow: 0 1px 3px rgba(218, 37, 29, 0.4);
+  background: #c17a7a;
+  box-shadow: 0 1px 3px rgba(193, 122, 122, 0.3);
 }
 
 .veri-gold-stripe {
-  background: #ffda00;
-  box-shadow: 0 1px 3px rgba(255, 218, 0, 0.4);
+  background: #d4c18a;
+  box-shadow: 0 1px 3px rgba(212, 193, 138, 0.3);
 }
 
 /* Loading Text Styling */
@@ -330,10 +331,10 @@
   top: 0;
   left: 0;
   height: 100%;
-  background: linear-gradient(90deg, #da251d 0%, #ffda00 50%, #da251d 100%);
+  background: linear-gradient(90deg, #6b8e6b 0%, #7fa3c3 50%, #6b8e6b 100%);
   border-radius: 3px;
   animation: veri-progress-flow 2s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(218, 37, 29, 0.4);
+  box-shadow: 0 0 10px rgba(107, 142, 107, 0.3);
 }
 
 .veri-progress-glow {
@@ -342,7 +343,7 @@
   left: -10px;
   width: 20px;
   height: 10px;
-  background: radial-gradient(ellipse, rgba(255, 218, 0, 0.6), transparent);
+  background: radial-gradient(ellipse, rgba(127, 163, 195, 0.4), transparent);
   border-radius: 50%;
   animation: veri-glow-move 2s ease-in-out infinite;
 }
@@ -356,7 +357,7 @@
 .veri-dot {
   width: 8px;
   height: 8px;
-  background: #da251d;
+  background: #6b8e6b;
   border-radius: 50%;
   animation: veri-dot-bounce 1.4s ease-in-out infinite;
 }

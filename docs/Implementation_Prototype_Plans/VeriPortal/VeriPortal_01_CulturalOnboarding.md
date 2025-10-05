@@ -852,7 +852,7 @@ const veriRegionalCulturalAdaptations = {
     veriDecisionMaking: 'consensus-hierarchical',
     veriInterfaceAdaptations: {
       veriGreeting: 'Kính chào Quý khách hàng',
-      veriColorScheme: 'traditional-formal',
+      veriColorScheme: 'gentle-traditional',
       veriLayout: 'structured-hierarchical',
       veriNavigationStyle: 'formal-comprehensive'
     },
@@ -871,7 +871,7 @@ const veriRegionalCulturalAdaptations = {
     veriDecisionMaking: 'consultative-balanced',
     veriInterfaceAdaptations: {
       veriGreeting: 'Xin chào và chào mừng',
-      veriColorScheme: 'balanced-harmonious',
+      veriColorScheme: 'gentle-harmonious',
       veriLayout: 'balanced-thoughtful',
       veriNavigationStyle: 'considered-comprehensive'
     },
@@ -890,7 +890,7 @@ const veriRegionalCulturalAdaptations = {
     veriDecisionMaking: 'collaborative-agile',
     veriInterfaceAdaptations: {
       veriGreeting: 'Chào mừng bạn đến với VeriPortal',
-      veriColorScheme: 'modern-vibrant',
+      veriColorScheme: 'gentle-modern',
       veriLayout: 'dynamic-efficient',
       veriNavigationStyle: 'streamlined-effective'
     },
@@ -1041,32 +1041,32 @@ export const VeriCulturalProgressDashboard: React.FC = () => {
 
 ### **Cultural Color Palette Implementation**
 ```css
-/* Vietnamese Cultural Onboarding Color System */
+/* Vietnamese Cultural Onboarding Color System - Gentle & Eye-Friendly */
 :root {
-  /* Primary Vietnamese Colors */
-  --veri-red-vietnam: #DA020E;
-  --veri-gold-prosperity: #FFCD00;
-  --veri-white-purity: #FFFFFF;
+  /* Primary Vietnamese Colors - Gentle Interpretation */
+  --veri-red-vietnam: #c17a7a;
+  --veri-gold-prosperity: #d4c18a;
+  --veri-white-purity: #fafafa;
   
-  /* Regional Adaptation Colors */
-  --veri-north-formal: #8B0000;
-  --veri-central-balance: #DC6B19;
-  --veri-south-dynamic: #FF1744;
+  /* Regional Adaptation Colors - Soft & Natural */
+  --veri-north-formal: #a18686;
+  --veri-central-balance: #c4a484;
+  --veri-south-dynamic: #b8979c;
   
-  /* Business Type Colors */
-  --veri-sme-practical: #FF6B35;
-  --veri-enterprise-corporate: #1A237E;
-  --veri-startup-innovative: #E91E63;
-  --veri-government-official: #0D47A1;
+  /* Business Type Colors - Professional & Gentle */
+  --veri-sme-practical: #b8a082;
+  --veri-enterprise-corporate: #8296a8;
+  --veri-startup-innovative: #b898a6;
+  --veri-government-official: #7a95b3;
   
-  /* Cultural Semantic Colors */
-  --veri-success: #4CAF50;
-  --veri-progress: #2196F3;
-  --veri-cultural: #FFCD00;
-  --veri-harmony: #8BC34A;
+  /* Cultural Semantic Colors - Nature-Inspired */
+  --veri-success: #6b8e6b;
+  --veri-progress: #7fa3c3;
+  --veri-cultural: #d4c18a;
+  --veri-harmony: #9db09d;
 }
 
-/* Vietnamese Cultural Typography */
+/* Vietnamese Cultural Typography - Gentle & Eye-Friendly */
 .veri-onboarding-typography {
   font-family: 'Be Vietnam Pro', 'Inter', 'Roboto', sans-serif;
   line-height: 1.7;
@@ -1084,8 +1084,9 @@ export const VeriCulturalProgressDashboard: React.FC = () => {
 .veri-regional-adaptation {
   padding: 2rem;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--veri-gold-prosperity) 0%, #FFE082 100%);
-  border: 3px solid var(--veri-red-vietnam);
+  background: linear-gradient(135deg, var(--veri-gold-prosperity) 0%, #f0f4e8 100%);
+  border: 2px solid var(--veri-red-vietnam);
+  box-shadow: 0 2px 8px rgba(193, 122, 122, 0.15);
 }
 
 /* Regional Cultural Layout Adaptations */

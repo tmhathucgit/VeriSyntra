@@ -164,11 +164,24 @@ export const VeriCulturalIntroductionStep: React.FC<VeriCulturalIntroductionStep
         </div>
       )}
       
-      {/* Action Button - Landing Page Style */}
+      {/* Action Button - Vietnamese Cultural Style */}
       <div className="text-center">
         <button 
           onClick={veriProceedToNextStep}
-          className="group bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-700 hover:via-yellow-600 hover:to-red-700 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 mx-auto"
+          className="group text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 flex items-center justify-center space-x-2 mx-auto"
+          style={{
+            background: 'linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 50%, #d4c18a 100%)',
+            border: '2px solid #d4c18a',
+            boxShadow: '0 4px 20px rgba(107, 142, 107, 0.25)'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = '0 6px 32px rgba(107, 142, 107, 0.35)';
+            e.currentTarget.style.background = 'linear-gradient(135deg, #7fa088 0%, #8bb3d3 50%, #dcc898 100%)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = '0 4px 20px rgba(107, 142, 107, 0.25)';
+            e.currentTarget.style.background = 'linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 50%, #d4c18a 100%)';
+          }}
         >
           <span>{t('veriportal:culturalIntroduction.nextAction')}</span>
           <span className="text-lg group-hover:translate-x-1 transition-transform">➡️</span>

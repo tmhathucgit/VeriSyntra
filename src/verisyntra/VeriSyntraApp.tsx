@@ -93,15 +93,24 @@ const VeriSyntraApp: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-teal-50 to-emerald-50">
-      <header className="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-50" style={{
+      background: 'linear-gradient(135deg, #f0f4f0 0%, #f1f6fb 25%, #f0f4f0 50%, #f1f6fb 75%, #f0f4f0 100%)'
+    }}>
+      <header className="bg-white/95 backdrop-blur-sm border-b-2 sticky top-0 z-50" style={{
+        borderColor: '#c17a7a'
+      }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <img src={vnMapLogo} alt="VeriSyntra Logo" className="w-10 h-10" />
+              <div className="w-12 h-12 rounded-lg p-1 bg-white/95 backdrop-blur-sm" style={{
+                border: '1px solid #d4c18a',
+                boxShadow: '0 2px 8px rgba(212, 193, 138, 0.15)'
+              }}>
+                <img src={vnMapLogo} alt="VeriSyntra Logo" className="w-full h-full" />
+              </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">VeriSyntra</h1>
-                <p className="text-sm text-gray-600">
+                <h1 className="text-xl font-bold" style={{ color: '#6b8e6b' }}>VeriSyntra</h1>
+                <p className="text-sm" style={{ color: '#7fa3c3' }}>
                   {t('vericompliance:platform.title')}
                 </p>
               </div>
@@ -115,10 +124,19 @@ const VeriSyntraApp: React.FC = () => {
               
               <button
                 onClick={toggleLanguage}
-                className="flex items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
+                className="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md"
+                style={{
+                  background: isVietnamese 
+                    ? 'linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 100%)'
+                    : 'linear-gradient(135deg, #7fa3c3 0%, #6b8e6b 100%)',
+                  border: '2px solid #d4c18a',
+                  color: 'white'
+                }}
               >
                 <Globe className="w-4 h-4" />
-                <span className="font-medium">{t('common:language.current')}</span>
+                <span className="font-medium">
+                  {isVietnamese ? '🇻🇳 Tiếng Việt' : '🇺🇸 English'}
+                </span>
               </button>
             </div>
           </div>
@@ -127,9 +145,15 @@ const VeriSyntraApp: React.FC = () => {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+          <div className="bg-white rounded-xl shadow-lg p-6 border-2" style={{
+            borderColor: '#d4c18a',
+            boxShadow: '0 8px 32px rgba(107, 142, 107, 0.15)'
+          }}>
             <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{
+                background: 'linear-gradient(145deg, #6b8e6b, #7fa3c3)',
+                boxShadow: '0 4px 16px rgba(107, 142, 107, 0.3)'
+              }}>
                 <Shield className="w-7 h-7 text-white" />
               </div>
               <div className="flex-1">
@@ -157,11 +181,19 @@ const VeriSyntraApp: React.FC = () => {
                 )}
                 
                 <div className="flex flex-wrap gap-2">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium" style={{
+                    backgroundColor: '#f0f8f0',
+                    color: '#6b8e6b',
+                    border: '1px solid #6b8e6b'
+                  }}>
                     <CheckCircle className="w-4 h-4 mr-1" />
                     {t('vericompliance:badges.pdplCompliant')}
                   </span>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium" style={{
+                    backgroundColor: '#f8f4f0',
+                    color: '#c17a7a',
+                    border: '1px solid #d4c18a'
+                  }}>
                     🇻🇳 {t('vericompliance:badges.vietnamSpecialized')}
                   </span>
                 </div>
@@ -171,12 +203,18 @@ const VeriSyntraApp: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+          <div className="bg-white rounded-xl shadow-sm p-6 border-2" style={{
+            borderColor: '#d4c18a',
+            boxShadow: '0 4px 16px rgba(107, 142, 107, 0.1)'
+          }}>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-orange-600" />
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{
+                background: 'linear-gradient(145deg, #6b8e6b, #7fa088)',
+                boxShadow: '0 2px 8px rgba(107, 142, 107, 0.25)'
+              }}>
+                <Shield className="w-5 h-5 text-white" />
               </div>
-              <h3 className="font-semibold text-gray-900">
+              <h3 className="font-semibold" style={{ color: '#6b8e6b' }}>
                 {t('common:features.culturalAI')}
               </h3>
             </div>
@@ -197,12 +235,18 @@ const VeriSyntraApp: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+          <div className="bg-white rounded-xl shadow-sm p-6 border-2" style={{
+            borderColor: '#d4c18a',
+            boxShadow: '0 4px 16px rgba(127, 163, 195, 0.1)'
+          }}>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center">
-                <Server className="w-5 h-5 text-teal-600" />
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{
+                background: 'linear-gradient(145deg, #7fa3c3, #6b8e6b)',
+                boxShadow: '0 2px 8px rgba(127, 163, 195, 0.25)'
+              }}>
+                <Server className="w-5 h-5 text-white" />
               </div>
-              <h3 className="font-semibold text-gray-900">API Endpoints</h3>
+              <h3 className="font-semibold" style={{ color: '#7fa3c3' }}>API Endpoints</h3>
             </div>
             <div className="space-y-2">
               <div className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium ${
@@ -221,12 +265,18 @@ const VeriSyntraApp: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+          <div className="bg-white rounded-xl shadow-sm p-6 border-2" style={{
+            borderColor: '#d4c18a',
+            boxShadow: '0 4px 16px rgba(107, 142, 107, 0.1)'
+          }}>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center">
-                <Globe className="w-5 h-5 text-emerald-600" />
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{
+                background: 'linear-gradient(145deg, #c17a7a, #d4c18a)',
+                boxShadow: '0 2px 8px rgba(193, 122, 122, 0.25)'
+              }}>
+                <Globe className="w-5 h-5 text-white" />
               </div>
-              <h3 className="font-semibold text-gray-900">
+              <h3 className="font-semibold" style={{ color: '#c17a7a' }}>
                 {t('common:system.vietnameseLocale')}
               </h3>
             </div>
@@ -248,35 +298,74 @@ const VeriSyntraApp: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="bg-white rounded-xl shadow-lg p-6 border-2" style={{
+          borderColor: '#d4c18a',
+          boxShadow: '0 8px 32px rgba(107, 142, 107, 0.15)'
+        }}>
+          <h3 className="text-lg font-semibold mb-4" style={{ color: '#6b8e6b' }}>
             {t('common:quickActions.title')}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <button className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-teal-300 hover:bg-teal-50 transition-colors">
-              <Users className="w-5 h-5 text-teal-600" />
-              <span className="font-medium text-gray-900">
+            <button className="flex items-center space-x-3 p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-lg" style={{
+              borderColor: '#d4c18a',
+              backgroundColor: 'rgba(107, 142, 107, 0.05)'
+            }} onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(107, 142, 107, 0.1)';
+              e.currentTarget.style.borderColor = '#6b8e6b';
+            }} onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(107, 142, 107, 0.05)';
+              e.currentTarget.style.borderColor = '#d4c18a';
+            }}>
+              <Users className="w-5 h-5" style={{ color: '#6b8e6b' }} />
+              <span className="font-medium" style={{ color: '#6b8e6b' }}>
                 {t('common:quickActions.userManagement')}
               </span>
             </button>
             
-            <button className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-orange-300 hover:bg-orange-50 transition-colors">
-              <CheckCircle className="w-5 h-5 text-orange-600" />
-              <span className="font-medium text-gray-900">
+            <button className="flex items-center space-x-3 p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-lg" style={{
+              borderColor: '#d4c18a',
+              backgroundColor: 'rgba(127, 163, 195, 0.05)'
+            }} onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(127, 163, 195, 0.1)';
+              e.currentTarget.style.borderColor = '#7fa3c3';
+            }} onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(127, 163, 195, 0.05)';
+              e.currentTarget.style.borderColor = '#d4c18a';
+            }}>
+              <CheckCircle className="w-5 h-5" style={{ color: '#7fa3c3' }} />
+              <span className="font-medium" style={{ color: '#7fa3c3' }}>
                 {t('common:quickActions.complianceAssessment')}
               </span>
             </button>
             
-            <button className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-emerald-300 hover:bg-emerald-50 transition-colors">
-              <Shield className="w-5 h-5 text-emerald-600" />
-              <span className="font-medium text-gray-900">
+            <button className="flex items-center space-x-3 p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-lg" style={{
+              borderColor: '#d4c18a',
+              backgroundColor: 'rgba(193, 122, 122, 0.05)'
+            }} onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(193, 122, 122, 0.1)';
+              e.currentTarget.style.borderColor = '#c17a7a';
+            }} onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(193, 122, 122, 0.05)';
+              e.currentTarget.style.borderColor = '#d4c18a';
+            }}>
+              <Shield className="w-5 h-5" style={{ color: '#c17a7a' }} />
+              <span className="font-medium" style={{ color: '#c17a7a' }}>
                 {t('common:quickActions.pdplReports')}
               </span>
             </button>
             
-            <button className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors">
-              <Clock className="w-5 h-5 text-blue-600" />
-              <span className="font-medium text-gray-900">
+            <button className="flex items-center space-x-3 p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-lg" style={{
+              borderColor: '#d4c18a',
+              backgroundColor: 'rgba(212, 193, 138, 0.05)'
+            }} onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(212, 193, 138, 0.1)';
+              e.currentTarget.style.borderColor = '#d4c18a';
+            }} onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(212, 193, 138, 0.05)';
+              e.currentTarget.style.borderColor = '#d4c18a';
+            }}>
+              <Clock className="w-5 h-5" style={{ color: '#d4c18a' }} />
+              <span className="font-medium" style={{ color: '#d4c18a' }}>
                 {t('common:quickActions.activityHistory')}
               </span>
             </button>
@@ -290,7 +379,10 @@ const VeriSyntraApp: React.FC = () => {
           <p className="mt-1">
             API Documentation: 
             <a href="http://127.0.0.1:8000/docs" target="_blank" rel="noopener noreferrer" 
-               className="text-teal-600 hover:text-teal-700 ml-1">
+               className="ml-1 font-medium transition-colors duration-300"
+               style={{ color: '#7fa3c3' }}
+               onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#6b8e6b'}
+               onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#7fa3c3'}>
               http://127.0.0.1:8000/docs
             </a>
           </p>

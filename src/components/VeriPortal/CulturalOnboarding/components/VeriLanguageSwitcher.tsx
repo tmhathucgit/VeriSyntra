@@ -2,7 +2,6 @@
 // Implementation Status: ✅ IMPLEMENTED
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
 import {
   VeriAICulturalEngine,
@@ -28,7 +27,6 @@ export const VeriLanguageSwitcher: React.FC<VeriAILanguageSwitcherProps> = ({
   veriCurrentLanguage,
   setVeriLanguage
 }) => {
-  const { t } = useTranslation(['common', 'veriportal']);
 
   // Simple and reliable language switching
   const veriHandleLanguageSwitch = (language: 'vietnamese' | 'english') => {
@@ -49,13 +47,22 @@ export const VeriLanguageSwitcher: React.FC<VeriAILanguageSwitcherProps> = ({
 
   return (
     <div className="flex justify-center">
-      {/* Main App Style Language Switcher */}
+      {/* Vietnamese Cultural Style Language Switcher */}
       <button
         onClick={toggleLanguage}
-        className="flex items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
+        className="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md"
+        style={{
+          background: veriCurrentLanguage === 'vietnamese' 
+            ? 'linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 100%)'
+            : 'linear-gradient(135deg, #7fa3c3 0%, #6b8e6b 100%)',
+          border: '2px solid #d4c18a',
+          color: 'white'
+        }}
       >
         <Globe className="w-4 h-4" />
-        <span className="font-medium">{t('common:language.current')}</span>
+        <span className="font-medium">
+          {veriCurrentLanguage === 'vietnamese' ? '🇻🇳 Tiếng Việt' : '🇺🇸 English'}
+        </span>
       </button>
     </div>
   );
