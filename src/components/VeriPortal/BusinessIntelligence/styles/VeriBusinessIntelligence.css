@@ -1,0 +1,949 @@
+/* VeriPortal_05_BusinessIntelligence - CSS Styles */
+/* Vietnamese Business Intelligence & Analytics System Styling */
+
+/* Vietnamese Color Palette & Cultural Design */
+:root {
+  /* Vietnamese Cultural Colors - Traditional */
+  --veri-business-red: #da251d;         /* Vietnamese flag red */
+  --veri-business-yellow: #ffcd00;      /* Golden star */
+  --veri-business-green: #6b8e6b;       /* Jade green */
+  --veri-business-blue: #7fa3c3;        /* Sky blue */
+  --veri-business-gold: #d4c18a;        /* Warm gold */
+  --veri-bamboo-green: #7fa088;
+  --veri-lotus-pink: #f4a6b8;
+  
+  /* Modern Vietnamese Business Palette */
+  --veri-primary: #6b8e6b;              /* Vietnamese jade */
+  --veri-primary-light: #7fa088;
+  --veri-primary-dark: #5a7a5a;
+  --veri-accent: #d4c18a;               /* Vietnamese gold */
+  --veri-accent-light: #e0d0a0;
+  --veri-success: #7fa088;
+  --veri-warning: #ffcd00;
+  --veri-error: #da251d;
+  
+  /* Neutral Colors */
+  --veri-gray-50: #f9fafb;
+  --veri-gray-100: #f3f4f6;
+  --veri-gray-200: #e5e7eb;
+  --veri-gray-300: #d1d5db;
+  --veri-gray-500: #6b7280;
+  --veri-gray-700: #374151;
+  --veri-gray-800: #1f2937;
+  --veri-gray-900: #111827;
+  
+  /* Vietnamese Cultural Gradients */
+  --veri-gradient-red: linear-gradient(135deg, #da251d 0%, #b71c1c 100%);
+  --veri-gradient-gold: linear-gradient(135deg, #d4c18a 0%, #b8a876 100%);
+  --veri-gradient-jade: linear-gradient(135deg, #6b8e6b 0%, #5a7a5a 100%);
+  --veri-gradient-sky: linear-gradient(135deg, #7fa3c3 0%, #6b8da8 100%);
+  --veri-gradient-success: linear-gradient(135deg, #7fa088 0%, #6a8875 100%);
+  --veri-gradient-vietnam: linear-gradient(135deg, #da251d 0%, #ffcd00 100%);
+  
+  /* Shadows & Effects */
+  --veri-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --veri-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --veri-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --veri-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Vietnamese Business Intelligence Layout */
+.veri-analytics-layout {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4f0 0%, #e8ede8 100%);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+/* Vietnamese regional cultural backgrounds */
+.veri-analytics-layout.north {
+  background: linear-gradient(135deg, #f5f8f5 0%, #eaf2ea 100%);
+  /* Traditional Northern Vietnam - Conservative jade tones */
+}
+
+.veri-analytics-layout.central {
+  background: linear-gradient(135deg, #fefdf8 0%, #f9f6eb 100%);
+  /* Central Vietnam - Warm golden heritage tones */
+}
+
+.veri-analytics-layout.south {
+  background: linear-gradient(135deg, #f8fbfa 0%, #e8f4f0 100%);
+  /* Southern Vietnam - Fresh modern tones */
+}
+
+.veri-analytics-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Business Intelligence Header - Vietnamese Cultural Style */
+.veri-bi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(107, 142, 107, 0.15);
+  border: 2px solid var(--veri-business-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.veri-bi-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #da251d 0%, #ffcd00 50%, #6b8e6b 100%);
+}
+
+.veri-bi-title-section {
+  flex: 1;
+}
+
+.veri-bi-main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.veri-bi-subtitle {
+  font-size: 1.125rem;
+  color: var(--veri-gray-700);
+  color: var(--veri-gray-600);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Language Switcher */
+.veri-language-switcher {
+  display: flex;
+  background: var(--veri-gray-100);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.veri-lang-button {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: var(--veri-gray-600);
+}
+
+.veri-lang-button:hover {
+  background: white;
+  color: var(--veri-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--veri-shadow);
+}
+
+.veri-lang-button.active {
+  background: var(--veri-primary);
+  color: white;
+  box-shadow: var(--veri-shadow);
+}
+
+/* Dashboard Selector */
+.veri-dashboard-selector {
+  margin-bottom: 2rem;
+}
+
+.veri-selector-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--veri-gray-800);
+  margin-bottom: 1rem;
+}
+
+.veri-dashboard-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.veri-dashboard-tab {
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--veri-gray-200);
+  border-radius: 12px;
+  background: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  color: var(--veri-gray-700);
+}
+
+.veri-dashboard-tab:hover {
+  border-color: var(--veri-primary-light);
+  background: var(--veri-gray-50);
+  transform: translateY(-2px);
+  box-shadow: var(--veri-shadow-lg);
+}
+
+.veri-dashboard-tab.active {
+  border-color: var(--veri-business-gold);
+  background: linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(107, 142, 107, 0.25);
+  border: 2px solid var(--veri-business-gold);
+}
+
+/* Business Intelligence Overview */
+.veri-business-intelligence-overview {
+  margin-bottom: 2rem;
+}
+
+.veri-overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.veri-overview-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.veri-ai-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.veri-ai-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #7fa088 0%, #6b8e6b 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--veri-business-gold);
+}
+
+.veri-ai-indicator.active {
+  animation: veriPulse 2s infinite;
+}
+
+.veri-ai-pulse {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  animation: veriGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes veriPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes veriGlow {
+  from { opacity: 0.5; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+/* Overview Metrics */
+.veri-overview-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.veri-metric-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(107, 142, 107, 0.12);
+  border: 2px solid var(--veri-business-gold);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.veri-metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #da251d 0%, #ffcd00 50%, #6b8e6b 100%);
+}
+
+.veri-metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(107, 142, 107, 0.2);
+  border-color: var(--veri-business-red);
+}
+
+.veri-metric-icon {
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.veri-metric-icon.compliance {
+  background: linear-gradient(135deg, #7fa3c3 0%, #6b8da8 100%);
+  box-shadow: 0 2px 8px rgba(127, 163, 195, 0.3);
+}
+
+.veri-metric-icon.market {
+  background: linear-gradient(135deg, #7fa088 0%, #6a8875 100%);
+  box-shadow: 0 2px 8px rgba(127, 160, 136, 0.3);
+}
+
+.veri-metric-icon.insights {
+  background: linear-gradient(135deg, #d4c18a 0%, #b8a876 100%);
+  box-shadow: 0 2px 8px rgba(212, 193, 138, 0.3);
+}
+
+.veri-metric-content {
+  flex: 1;
+}
+
+.veri-metric-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--veri-gray-600);
+  margin-bottom: 0.25rem;
+}
+
+.veri-metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.veri-metric-trend {
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.veri-metric-trend.positive {
+  color: #7fa088;
+}
+
+.veri-metric-trend.negative {
+  color: #da251d;
+}
+
+.veri-metric-trend.stable {
+  color: var(--veri-gray-500);
+}
+
+/* Loading States */
+.veri-bi-loading-container,
+.veri-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.veri-loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(212, 193, 138, 0.3);
+  border-top: 4px solid #6b8e6b;
+  border-right: 4px solid #7fa3c3;
+  border-radius: 50%;
+  animation: veriSpin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes veriSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.veri-bi-loading-container h3,
+.veri-loading-container h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--veri-gray-800);
+  margin-bottom: 0.5rem;
+}
+
+.veri-bi-loading-container p,
+.veri-loading-container p {
+  font-size: 1rem;
+  color: var(--veri-gray-600);
+  margin: 0;
+}
+
+/* Compliance Analytics Dashboard */
+.veri-compliance-analytics-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--veri-shadow-lg);
+  border: 1px solid var(--veri-gray-200);
+  overflow: hidden;
+}
+
+.veri-analytics-header {
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--veri-primary) 0%, var(--veri-primary-dark) 100%);
+  color: white;
+}
+
+.veri-dashboard-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.veri-ai-analytics-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.veri-ai-brain {
+  font-size: 1.5rem;
+  animation: veriPulse 2s infinite;
+}
+
+.veri-ai-analytics-text {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Executive Summary */
+.veri-executive-summary {
+  padding: 2rem;
+  border-bottom: 1px solid var(--veri-gray-200);
+}
+
+.veri-summary-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--veri-gray-800);
+  margin-bottom: 1.5rem;
+}
+
+.veri-executive-insights {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Overall Compliance Score */
+.veri-overall-compliance-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.veri-score-visualization {
+  margin-bottom: 1rem;
+}
+
+.veri-score-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--veri-success) 0deg,
+    var(--veri-success) 320deg,
+    var(--veri-gray-200) 320deg,
+    var(--veri-gray-200) 360deg
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.veri-score-circle::before {
+  content: '';
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: white;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.veri-score-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--veri-gray-900);
+  z-index: 2;
+  position: relative;
+  line-height: 1;
+}
+
+.veri-score-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--veri-gray-600);
+  z-index: 2;
+  position: relative;
+  margin-top: 0.25rem;
+}
+
+.veri-score-insights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.veri-score-trend {
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.veri-score-trend.positive {
+  color: var(--veri-success);
+}
+
+.veri-score-benchmark {
+  font-size: 0.875rem;
+  color: var(--veri-gray-600);
+}
+
+/* Key Metrics Grid */
+.veri-key-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.veri-metric-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--veri-gray-50);
+  border-radius: 12px;
+  border: 1px solid var(--veri-gray-200);
+  transition: all 0.3s ease;
+}
+
+.veri-metric-item:hover {
+  background: white;
+  box-shadow: var(--veri-shadow);
+  transform: translateY(-2px);
+}
+
+.veri-metric-item .veri-metric-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+}
+
+.veri-metric-info {
+  flex: 1;
+}
+
+.veri-metric-item .veri-metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--veri-gray-900);
+  margin-bottom: 0.125rem;
+}
+
+.veri-metric-item .veri-metric-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--veri-gray-600);
+}
+
+/* Performance Trend Analysis */
+.veri-performance-trend-analysis {
+  padding: 2rem;
+  border-bottom: 1px solid var(--veri-gray-200);
+}
+
+.veri-trend-analysis-header {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--veri-gray-800);
+  margin-bottom: 1.5rem;
+}
+
+.veri-trend-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.veri-compliance-trend-chart,
+.veri-risk-trend-chart {
+  background: var(--veri-gray-50);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--veri-gray-200);
+}
+
+.veri-compliance-trend-chart h5,
+.veri-risk-trend-chart h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--veri-gray-800);
+  margin-bottom: 1rem;
+}
+
+/* Chart Container */
+.veri-chart-container {
+  display: flex;
+  align-items: end;
+  gap: 0.75rem;
+  height: 120px;
+  margin-bottom: 1rem;
+}
+
+.veri-trend-bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+
+.veri-trend-fill {
+  background: var(--veri-gradient-blue);
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+}
+
+.veri-trend-bar:hover .veri-trend-fill {
+  background: var(--veri-gradient-success);
+  transform: scaleY(1.05);
+}
+
+.veri-trend-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--veri-gray-600);
+  margin-top: 0.5rem;
+}
+
+.veri-trend-value {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--veri-gray-800);
+  position: absolute;
+  top: -1.5rem;
+  white-space: nowrap;
+}
+
+/* Risk Summary */
+.veri-risk-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--veri-gray-200);
+}
+
+.veri-current-risk {
+  text-align: center;
+}
+
+.veri-risk-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--veri-success);
+  display: block;
+}
+
+.veri-risk-label {
+  font-size: 0.875rem;
+  color: var(--veri-gray-600);
+}
+
+.veri-risk-trend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.veri-trend-indicator.decreasing {
+  color: var(--veri-success);
+  font-size: 1.25rem;
+}
+
+/* Top Risks */
+.veri-top-risks h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--veri-gray-800);
+  margin-bottom: 0.75rem;
+}
+
+.veri-top-risks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.veri-risk-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  border: 1px solid var(--veri-gray-200);
+}
+
+.veri-risk-indicator {
+  font-size: 1rem;
+}
+
+/* Analytics Actions */
+.veri-analytics-actions {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--veri-gray-50);
+}
+
+.veri-export-report-button,
+.veri-schedule-analysis-button,
+.veri-ai-recommendations-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.veri-export-report-button {
+  background: linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 100%);
+  color: white;
+  border: 1px solid var(--veri-business-gold);
+}
+
+.veri-export-report-button:hover {
+  background: linear-gradient(135deg, #5a7a5a 0%, #6b8da8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 142, 107, 0.3);
+}
+
+.veri-schedule-analysis-button {
+  background: linear-gradient(135deg, #d4c18a 0%, #b8a876 100%);
+  color: white;
+  border: 1px solid var(--veri-business-green);
+}
+
+.veri-schedule-analysis-button:hover {
+  background: linear-gradient(135deg, #b8a876 0%, #9e8f62 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 193, 138, 0.3);
+}
+
+.veri-ai-recommendations-button {
+  background: linear-gradient(135deg, #7fa088 0%, #6a8875 100%);
+  color: white;
+  border: 1px solid var(--veri-business-gold);
+}
+
+.veri-ai-recommendations-button:hover {
+  background: linear-gradient(135deg, #6a8875 0%, #5a7363 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(127, 160, 136, 0.3);
+}
+
+/* Default Dashboard Styles */
+.veri-market-positioning-container,
+.veri-predictive-analytics-container,
+.veri-default-analytics-container {
+  padding: 3rem;
+  text-align: center;
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--veri-shadow-lg);
+  border: 1px solid var(--veri-gray-200);
+}
+
+.veri-market-positioning-container h2,
+.veri-predictive-analytics-container h2,
+.veri-default-analytics-container h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--veri-gray-800);
+  margin-bottom: 1rem;
+}
+
+.veri-market-positioning-container p,
+.veri-predictive-analytics-container p,
+.veri-default-analytics-container p {
+  font-size: 1rem;
+  color: var(--veri-gray-600);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .veri-analytics-container {
+    padding: 1rem;
+  }
+  
+  .veri-bi-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .veri-dashboard-tabs {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .veri-executive-insights {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .veri-trend-charts {
+    grid-template-columns: 1fr;
+  }
+  
+  .veri-key-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .veri-bi-main-title {
+    font-size: 2rem;
+  }
+  
+  .veri-overview-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .veri-overview-metrics {
+    grid-template-columns: 1fr;
+  }
+  
+  .veri-analytics-actions {
+    flex-direction: column;
+  }
+  
+  .veri-score-circle {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .veri-score-circle::before {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .veri-score-value {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .veri-analytics-container {
+    padding: 0.75rem;
+  }
+  
+  .veri-bi-header,
+  .veri-compliance-analytics-container .veri-analytics-header,
+  .veri-executive-summary,
+  .veri-performance-trend-analysis {
+    padding: 1.25rem;
+  }
+  
+  .veri-dashboard-tabs {
+    grid-template-columns: 1fr;
+  }
+  
+  .veri-language-switcher {
+    width: 100%;
+  }
+  
+  .veri-lang-button {
+    flex: 1;
+  }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --veri-gray-50: #1f2937;
+    --veri-gray-100: #374151;
+    --veri-gray-200: #4b5563;
+    --veri-gray-300: #6b7280;
+    --veri-gray-500: #9ca3af;
+    --veri-gray-700: #d1d5db;
+    --veri-gray-800: #e5e7eb;
+    --veri-gray-900: #f9fafb;
+  }
+  
+  .veri-analytics-layout {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  }
+}

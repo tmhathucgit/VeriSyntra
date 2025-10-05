@@ -1,0 +1,785 @@
+/* Vietnamese Training Integration System Styles */
+/* Comprehensive CSS for PDPL 2025 Training & Education Platform */
+
+/* Vietnamese Cultural Color Palette */
+:root {
+  /* Traditional Vietnamese Colors */
+  --veri-sage-green: #6b8e6b;
+  --veri-ocean-blue: #7fa3c3;
+  --veri-warm-coral: #c17a7a;
+  --veri-bamboo-beige: #f5f5dc;
+  --veri-lotus-white: #fffef7;
+  
+  /* Modern Vietnamese Colors */
+  --veri-forest-green: #2E8B57;
+  --veri-steel-blue: #4682B4;
+  --veri-imperial-red: #CD5C5C;
+  --veri-pearl-white: #ffffff;
+  --veri-charcoal-grey: #333333;
+  
+  /* Vietnamese Cultural Gradients */
+  --veri-gradient-primary: linear-gradient(135deg, var(--veri-sage-green) 0%, var(--veri-ocean-blue) 100%);
+  --veri-gradient-secondary: linear-gradient(135deg, var(--veri-warm-coral) 0%, var(--veri-sage-green) 100%);
+  --veri-gradient-success: linear-gradient(135deg, #4CAF50 0%, var(--veri-sage-green) 100%);
+  
+  /* Vietnamese Typography */
+  --veri-font-family: 'Segoe UI', 'Arial', 'Roboto', sans-serif;
+  --veri-font-size-base: 16px;
+  --veri-font-size-large: 20px;
+  --veri-font-size-small: 14px;
+  --veri-line-height: 1.6;
+  
+  /* Vietnamese Spacing */
+  --veri-spacing-xs: 0.25rem;
+  --veri-spacing-sm: 0.5rem;
+  --veri-spacing-md: 1rem;
+  --veri-spacing-lg: 1.5rem;
+  --veri-spacing-xl: 2rem;
+  --veri-spacing-xxl: 3rem;
+  
+  /* Vietnamese Borders */
+  --veri-border-radius: 8px;
+  --veri-border-radius-large: 12px;
+  --veri-border-width: 2px;
+  --veri-border-color: var(--veri-sage-green);
+  
+  /* Vietnamese Shadows */
+  --veri-shadow-light: 0 2px 4px rgba(107, 142, 107, 0.1);
+  --veri-shadow-medium: 0 4px 8px rgba(107, 142, 107, 0.15);
+  --veri-shadow-heavy: 0 8px 16px rgba(107, 142, 107, 0.2);
+  
+  /* Vietnamese Animation */
+  --veri-transition-fast: 0.2s ease-in-out;
+  --veri-transition-medium: 0.3s ease-in-out;
+  --veri-transition-slow: 0.5s ease-in-out;
+}
+
+/* Vietnamese Training Integration System Container */
+.veri-training-integration-system {
+  font-family: var(--veri-font-family);
+  font-size: var(--veri-font-size-base);
+  line-height: var(--veri-line-height);
+  color: var(--veri-charcoal-grey);
+  background: var(--veri-lotus-white);
+  min-height: 100vh;
+  padding: var(--veri-spacing-md);
+}
+
+/* Vietnamese Training System Header */
+.veri-training-header {
+  text-align: center;
+  margin-bottom: var(--veri-spacing-xxl);
+  padding-bottom: var(--veri-spacing-lg);
+  border-bottom: var(--veri-border-width) solid var(--veri-sage-green);
+  background: var(--veri-gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.veri-training-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--veri-spacing-sm);
+  color: var(--veri-sage-green);
+  text-shadow: 0 2px 4px rgba(107, 142, 107, 0.3);
+}
+
+.veri-training-header p {
+  font-size: var(--veri-font-size-large);
+  color: var(--veri-charcoal-grey);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Vietnamese Training Content Areas */
+.veri-training-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--veri-pearl-white);
+  border-radius: var(--veri-border-radius-large);
+  box-shadow: var(--veri-shadow-medium);
+  overflow: hidden;
+}
+
+/* Vietnamese Training Initialization */
+.veri-training-initializing {
+  padding: var(--veri-spacing-xxl);
+  text-align: center;
+  background: var(--veri-gradient-primary);
+  color: white;
+}
+
+.veri-loading-spinner {
+  font-size: 3rem;
+  margin-bottom: var(--veri-spacing-md);
+  animation: veri-spin 1s linear infinite;
+}
+
+@keyframes veri-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Vietnamese Profile Setup Interface */
+.veri-profile-setup {
+  padding: var(--veri-spacing-xxl);
+  background: var(--veri-lotus-white);
+}
+
+.veri-profile-setup h2 {
+  color: var(--veri-sage-green);
+  font-size: 2rem;
+  margin-bottom: var(--veri-spacing-lg);
+  text-align: center;
+}
+
+.veri-profile-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: var(--veri-spacing-xl);
+  border-radius: var(--veri-border-radius);
+  box-shadow: var(--veri-shadow-light);
+}
+
+.veri-form-group {
+  margin-bottom: var(--veri-spacing-lg);
+}
+
+.veri-form-label {
+  display: block;
+  font-weight: 600;
+  color: var(--veri-charcoal-grey);
+  margin-bottom: var(--veri-spacing-sm);
+  font-size: var(--veri-font-size-base);
+}
+
+.veri-form-input,
+.veri-form-select {
+  width: 100%;
+  padding: var(--veri-spacing-md);
+  border: 2px solid var(--veri-sage-green);
+  border-radius: var(--veri-border-radius);
+  font-size: var(--veri-font-size-base);
+  transition: border-color var(--veri-transition-fast);
+  background: var(--veri-lotus-white);
+}
+
+.veri-form-input:focus,
+.veri-form-select:focus {
+  outline: none;
+  border-color: var(--veri-ocean-blue);
+  box-shadow: 0 0 0 3px rgba(127, 163, 195, 0.2);
+}
+
+/* Vietnamese Program Selection Interface */
+.veri-program-selection {
+  padding: var(--veri-spacing-xxl);
+}
+
+.veri-program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--veri-spacing-lg);
+  margin-top: var(--veri-spacing-xl);
+}
+
+.veri-program-card {
+  background: white;
+  border: 2px solid var(--veri-sage-green);
+  border-radius: var(--veri-border-radius);
+  padding: var(--veri-spacing-lg);
+  transition: all var(--veri-transition-medium);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.veri-program-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--veri-gradient-primary);
+  opacity: 0.1;
+  transition: left var(--veri-transition-medium);
+}
+
+.veri-program-card:hover::before {
+  left: 0;
+}
+
+.veri-program-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--veri-shadow-heavy);
+  border-color: var(--veri-ocean-blue);
+}
+
+.veri-program-card h3 {
+  color: var(--veri-sage-green);
+  margin-bottom: var(--veri-spacing-md);
+  font-size: 1.5rem;
+}
+
+.veri-program-card p {
+  color: var(--veri-charcoal-grey);
+  margin-bottom: var(--veri-spacing-md);
+  line-height: 1.6;
+}
+
+.veri-program-card.selected {
+  background: var(--veri-gradient-primary);
+  color: white;
+  border-color: var(--veri-ocean-blue);
+}
+
+.veri-program-card.selected h3,
+.veri-program-card.selected p {
+  color: white;
+}
+
+/* Vietnamese Learning Interface */
+.veri-learning-interface {
+  display: flex;
+  min-height: 600px;
+}
+
+.veri-learning-sidebar {
+  width: 300px;
+  background: var(--veri-sage-green);
+  color: white;
+  padding: var(--veri-spacing-lg);
+  overflow-y: auto;
+}
+
+.veri-learning-main {
+  flex: 1;
+  padding: var(--veri-spacing-xl);
+  background: var(--veri-lotus-white);
+}
+
+.veri-module-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.veri-module-item {
+  padding: var(--veri-spacing-md);
+  border-radius: var(--veri-border-radius);
+  margin-bottom: var(--veri-spacing-sm);
+  cursor: pointer;
+  transition: background-color var(--veri-transition-fast);
+  border: 2px solid transparent;
+}
+
+.veri-module-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.veri-module-item.active {
+  background: var(--veri-ocean-blue);
+  border-color: white;
+}
+
+.veri-module-item.completed {
+  background: var(--veri-warm-coral);
+  opacity: 0.7;
+}
+
+.veri-module-item h4 {
+  margin: 0 0 var(--veri-spacing-xs) 0;
+  font-size: 1.1rem;
+}
+
+.veri-module-item p {
+  margin: 0;
+  font-size: var(--veri-font-size-small);
+  opacity: 0.9;
+}
+
+/* Vietnamese Progress Tracking */
+.veri-progress-container {
+  background: white;
+  border-radius: var(--veri-border-radius);
+  padding: var(--veri-spacing-lg);
+  margin-bottom: var(--veri-spacing-lg);
+  box-shadow: var(--veri-shadow-light);
+}
+
+.veri-progress-header {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  margin-bottom: var(--veri-spacing-md);
+}
+
+.veri-progress-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--veri-sage-green);
+  margin: 0;
+}
+
+.veri-progress-percentage {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--veri-ocean-blue);
+}
+
+.veri-progress-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--veri-bamboo-beige);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: var(--veri-spacing-md);
+}
+
+.veri-progress-fill {
+  height: 100%;
+  background: var(--veri-gradient-success);
+  border-radius: 6px;
+  transition: width var(--veri-transition-slow);
+  position: relative;
+}
+
+.veri-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+  animation: veri-progress-shine 2s ease-in-out infinite;
+}
+
+@keyframes veri-progress-shine {
+  0% { transform: translateX(-20px); }
+  100% { transform: translateX(20px); }
+}
+
+.veri-progress-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--veri-spacing-md);
+}
+
+.veri-progress-metric {
+  text-align: center;
+  padding: var(--veri-spacing-sm);
+  background: var(--veri-bamboo-beige);
+  border-radius: var(--veri-border-radius);
+}
+
+.veri-progress-metric h5 {
+  margin: 0 0 var(--veri-spacing-xs) 0;
+  font-size: var(--veri-font-size-small);
+  color: var(--veri-charcoal-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.veri-progress-metric span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--veri-sage-green);
+}
+
+/* Vietnamese Assessment Interface */
+.veri-assessment-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: var(--veri-border-radius-large);
+  box-shadow: var(--veri-shadow-medium);
+  overflow: hidden;
+}
+
+.veri-assessment-header {
+  background: var(--veri-gradient-primary);
+  color: white;
+  padding: var(--veri-spacing-xl);
+  text-align: center;
+}
+
+.veri-assessment-header h2 {
+  margin: 0 0 var(--veri-spacing-sm) 0;
+  font-size: 2rem;
+}
+
+.veri-assessment-body {
+  padding: var(--veri-spacing-xl);
+}
+
+.veri-question-container {
+  margin-bottom: var(--veri-spacing-xl);
+  padding: var(--veri-spacing-lg);
+  border: 2px solid var(--veri-bamboo-beige);
+  border-radius: var(--veri-border-radius);
+  transition: border-color var(--veri-transition-fast);
+}
+
+.veri-question-container:hover {
+  border-color: var(--veri-sage-green);
+}
+
+.veri-question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--veri-spacing-md);
+}
+
+.veri-question-number {
+  background: var(--veri-sage-green);
+  color: white;
+  padding: var(--veri-spacing-xs) var(--veri-spacing-md);
+  border-radius: var(--veri-border-radius);
+  font-weight: 600;
+  font-size: var(--veri-font-size-small);
+}
+
+.veri-question-difficulty {
+  background: var(--veri-warm-coral);
+  color: white;
+  padding: var(--veri-spacing-xs) var(--veri-spacing-md);
+  border-radius: var(--veri-border-radius);
+  font-size: var(--veri-font-size-small);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.veri-question-text {
+  font-size: var(--veri-font-size-large);
+  line-height: 1.7;
+  margin-bottom: var(--veri-spacing-lg);
+  color: var(--veri-charcoal-grey);
+}
+
+.veri-options-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--veri-spacing-md);
+}
+
+.veri-option-item {
+  display: flex;
+  align-items: center;
+  padding: var(--veri-spacing-md);
+  background: var(--veri-lotus-white);
+  border: 2px solid var(--veri-bamboo-beige);
+  border-radius: var(--veri-border-radius);
+  cursor: pointer;
+  transition: all var(--veri-transition-fast);
+}
+
+.veri-option-item:hover {
+  background: var(--veri-bamboo-beige);
+  border-color: var(--veri-sage-green);
+}
+
+.veri-option-item.selected {
+  background: var(--veri-sage-green);
+  color: white;
+  border-color: var(--veri-ocean-blue);
+}
+
+.veri-option-item input[type="radio"],
+.veri-option-item input[type="checkbox"] {
+  margin-right: var(--veri-spacing-md);
+  transform: scale(1.2);
+}
+
+/* Vietnamese Certification Interface */
+.veri-certification-container {
+  text-align: center;
+  padding: var(--veri-spacing-xxl);
+  background: var(--veri-gradient-primary);
+  color: white;
+}
+
+.veri-certification-badge {
+  width: 150px;
+  height: 150px;
+  background: white;
+  color: var(--veri-sage-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--veri-spacing-xl) auto;
+  font-size: 3rem;
+  box-shadow: var(--veri-shadow-heavy);
+  animation: veri-badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes veri-badge-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.veri-certification-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--veri-spacing-lg);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.veri-certification-details {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--veri-border-radius);
+  padding: var(--veri-spacing-xl);
+  margin: var(--veri-spacing-xl) auto;
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+}
+
+.veri-certificate-number {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: var(--veri-spacing-sm) var(--veri-spacing-md);
+  border-radius: var(--veri-border-radius);
+  margin: var(--veri-spacing-md) 0;
+}
+
+/* Vietnamese Button Styles */
+.veri-button {
+  background: var(--veri-sage-green);
+  color: white;
+  border: none;
+  padding: var(--veri-spacing-md) var(--veri-spacing-xl);
+  border-radius: var(--veri-border-radius);
+  font-size: var(--veri-font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--veri-transition-fast);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--veri-spacing-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.veri-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--veri-transition-medium);
+}
+
+.veri-button:hover::before {
+  left: 100%;
+}
+
+.veri-button:hover {
+  background: var(--veri-ocean-blue);
+  transform: translateY(-2px);
+  box-shadow: var(--veri-shadow-medium);
+}
+
+.veri-button:active {
+  transform: translateY(0);
+  box-shadow: var(--veri-shadow-light);
+}
+
+.veri-button.secondary {
+  background: var(--veri-warm-coral);
+}
+
+.veri-button.secondary:hover {
+  background: var(--veri-imperial-red);
+}
+
+.veri-button.large {
+  padding: var(--veri-spacing-lg) var(--veri-spacing-xxl);
+  font-size: var(--veri-font-size-large);
+}
+
+.veri-button.small {
+  padding: var(--veri-spacing-sm) var(--veri-spacing-md);
+  font-size: var(--veri-font-size-small);
+}
+
+.veri-button:disabled {
+  background: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.veri-button:disabled:hover {
+  background: #cccccc;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Vietnamese Error and Loading States */
+.veri-training-error {
+  background: #fff5f5;
+  border: 2px solid #feb2b2;
+  border-radius: var(--veri-border-radius);
+  padding: var(--veri-spacing-xl);
+  text-align: center;
+  color: #c53030;
+}
+
+.veri-training-error h3 {
+  color: #c53030;
+  margin-bottom: var(--veri-spacing-md);
+}
+
+.veri-training-loading {
+  text-align: center;
+  padding: var(--veri-spacing-xxl);
+  color: var(--veri-charcoal-grey);
+}
+
+.veri-loading-animation {
+  font-size: 2rem;
+  margin-bottom: var(--veri-spacing-md);
+  animation: veri-bounce 1s ease-in-out infinite;
+}
+
+@keyframes veri-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Vietnamese Footer */
+.veri-training-footer {
+  text-align: center;
+  margin-top: var(--veri-spacing-xxl);
+  padding-top: var(--veri-spacing-lg);
+  border-top: 1px solid var(--veri-ocean-blue);
+  color: var(--veri-charcoal-grey);
+  font-size: var(--veri-font-size-small);
+  background: var(--veri-bamboo-beige);
+  border-radius: var(--veri-border-radius);
+  padding: var(--veri-spacing-lg);
+}
+
+/* Vietnamese Responsive Design */
+@media (max-width: 768px) {
+  .veri-training-integration-system {
+    padding: var(--veri-spacing-sm);
+  }
+  
+  .veri-training-header h1 {
+    font-size: 2rem;
+  }
+  
+  .veri-program-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .veri-learning-interface {
+    flex-direction: column;
+  }
+  
+  .veri-learning-sidebar {
+    width: 100%;
+    order: 2;
+  }
+  
+  .veri-progress-details {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .veri-certification-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .veri-training-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .veri-progress-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .veri-certification-badge {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+  
+  .veri-certification-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Vietnamese Accessibility Enhancements */
+.veri-screen-reader-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.veri-high-contrast {
+  --veri-sage-green: #000000;
+  --veri-ocean-blue: #000080;
+  --veri-warm-coral: #800000;
+  --veri-lotus-white: #ffffff;
+  --veri-charcoal-grey: #000000;
+}
+
+/* Vietnamese Print Styles */
+@media print {
+  .veri-training-integration-system {
+    background: white;
+    color: black;
+    box-shadow: none;
+  }
+  
+  .veri-button {
+    background: transparent;
+    color: black;
+    border: 1px solid black;
+  }
+  
+  .veri-training-footer {
+    background: transparent;
+  }
+}
+
+/* Vietnamese Animation Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .veri-loading-spinner,
+  .veri-loading-animation,
+  .veri-badge-pulse,
+  .veri-progress-shine,
+  .veri-bounce {
+    animation: none;
+  }
+  
+  .veri-button::before,
+  .veri-program-card::before {
+    transition: none;
+  }
+  
+  .veri-button:hover::before,
+  .veri-program-card:hover::before {
+    left: 0;
+    opacity: 0.1;
+  }
+}

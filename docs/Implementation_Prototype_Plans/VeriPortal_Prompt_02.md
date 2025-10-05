@@ -1,8 +1,9 @@
-Read the VeriPortal_03_DocumentGeneration.md carefully
+Read the VeriPortal_07_SystemIntegration.md carefully
 Implement as per the instructions
-Check for errors as you go
 Keep the banner if it currently exists
-Add the bannder from Main Application (/app) if it does not exist
+Use the same banner style and language switcher as the other pages have been implemented
 Keep loading indicator professional
-Create a new completion summary report named "VeriPortal_02_ComplianceWizards_Completion.md" under the VeriPortal/Completion folder when done
-test the website
+Use Vietnamese cultural setup
+Check for errors as you go
+Create a new completion summary report named "VeriPortal_07_SystemIntegration_Completion.md" under the VeriPortal/Completion folder when done
+Test the website

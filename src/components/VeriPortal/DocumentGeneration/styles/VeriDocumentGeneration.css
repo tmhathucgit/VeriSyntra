@@ -1,0 +1,659 @@
+/* VeriPortal Document Generation System Styles */
+/* Vietnamese Legal Document Generation with Cultural Intelligence */
+
+/* Vietnamese Cultural Color Palette */
+:root {
+  --veri-sage-green: #6b8e6b;
+  --veri-ocean-blue: #7fa3c3;
+  --veri-warm-coral: #c17a7a;
+  --veri-gold-highlight: #d4c18a;
+  --veri-lotus-white: #ffffff;
+  --veri-bamboo-gray: #f8f9fa;
+  --veri-jade-light: #f0f8f0;
+  --veri-pearl-blue: #f1f6fb;
+  --veri-warm-ivory: #fefefe;
+}
+
+/* Main Layout */
+.veri-document-layout {
+  min-height: calc(100vh - 80px);
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  background: rgba(248, 251, 253, 0.95);
+}
+
+.veri-document-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--veri-sage-green), var(--veri-ocean-blue));
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 8px 32px rgba(107, 142, 107, 0.2);
+}
+
+.veri-document-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.veri-document-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+.veri-document-main-content {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Sidebar Styles */
+.veri-document-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Business Context Analyzer */
+.veri-business-context-analyzer {
+  background: var(--veri-lotus-white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 2px solid var(--veri-gold-highlight);
+  box-shadow: 0 4px 16px rgba(107, 142, 107, 0.1);
+}
+
+.veri-analyzer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.veri-analyzer-title {
+  color: var(--veri-sage-green);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.veri-analyzing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--veri-ocean-blue);
+  font-size: 0.9rem;
+}
+
+.veri-analyzing-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--veri-ocean-blue);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: veriSpinAnalyzing 1s linear infinite;
+}
+
+@keyframes veriSpinAnalyzing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.veri-business-summary {
+  margin-bottom: 1.5rem;
+}
+
+.veri-business-name {
+  color: var(--veri-sage-green);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.veri-business-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.veri-business-detail {
+  font-size: 0.9rem;
+  color: #666;
+  background: var(--veri-jade-light);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+}
+
+.veri-ai-analysis-results {
+  border-top: 1px solid var(--veri-gold-highlight);
+  padding-top: 1.5rem;
+}
+
+.veri-analysis-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.veri-analysis-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.veri-analysis-metric label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.veri-complexity-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.veri-complexity-badge.veri-low {
+  background: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+}
+
+.veri-complexity-badge.veri-medium {
+  background: rgba(251, 191, 36, 0.15);
+  color: #d97706;
+}
+
+.veri-complexity-badge.veri-high {
+  background: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+}
+
+.veri-score {
+  font-weight: 600;
+  color: var(--veri-sage-green);
+}
+
+.veri-cultural-analysis,
+.veri-industry-requirements {
+  margin-bottom: 1rem;
+}
+
+.veri-cultural-analysis h5,
+.veri-industry-requirements h5 {
+  color: var(--veri-sage-green);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.veri-cultural-style,
+.veri-industry-desc {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+  background: var(--veri-pearl-blue);
+  padding: 0.75rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--veri-ocean-blue);
+}
+
+/* Document Type Selector */
+.veri-document-type-selector {
+  background: var(--veri-lotus-white);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 2px solid var(--veri-gold-highlight);
+  box-shadow: 0 4px 16px rgba(107, 142, 107, 0.1);
+}
+
+.veri-document-selector-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.veri-document-selector-title {
+  color: var(--veri-sage-green);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.veri-document-selector-subtitle {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.veri-document-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.veri-document-card {
+  background: var(--veri-lotus-white);
+  border: 2px solid var(--veri-gold-highlight);
+  border-radius: 10px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.veri-document-card:hover {
+  border-color: var(--veri-sage-green);
+  box-shadow: 0 6px 24px rgba(107, 142, 107, 0.2);
+  transform: translateY(-2px);
+}
+
+.veri-document-card.veri-selected {
+  border-color: var(--veri-sage-green);
+  background: linear-gradient(135deg, var(--veri-jade-light), var(--veri-pearl-blue));
+  box-shadow: 0 8px 32px rgba(107, 142, 107, 0.25);
+}
+
+.veri-document-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.veri-document-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--veri-sage-green), var(--veri-ocean-blue));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.veri-document-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--veri-sage-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--veri-lotus-white);
+  color: var(--veri-sage-green);
+}
+
+.veri-document-card.veri-selected .veri-document-checkbox {
+  background: var(--veri-sage-green);
+  color: white;
+}
+
+.veri-document-title {
+  color: var(--veri-sage-green);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.veri-document-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.veri-feature-badge {
+  background: rgba(107, 142, 107, 0.1);
+  color: var(--veri-sage-green);
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(107, 142, 107, 0.2);
+}
+
+.veri-document-selection-summary {
+  text-align: center;
+  padding: 1rem;
+  background: var(--veri-jade-light);
+  border-radius: 8px;
+  border: 1px solid var(--veri-gold-highlight);
+}
+
+.veri-selection-count {
+  color: var(--veri-sage-green);
+  font-weight: 600;
+}
+
+/* Generator Actions */
+.veri-generator-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.veri-generate-button {
+  background: linear-gradient(135deg, var(--veri-sage-green), var(--veri-ocean-blue));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 16px rgba(107, 142, 107, 0.3);
+}
+
+.veri-generate-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(107, 142, 107, 0.4);
+}
+
+.veri-generate-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.veri-button-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: veriSpinButton 1s linear infinite;
+}
+
+@keyframes veriSpinButton {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.veri-generate-help {
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Generation Progress */
+.veri-generation-progress {
+  background: var(--veri-lotus-white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 2px solid var(--veri-gold-highlight);
+  box-shadow: 0 4px 16px rgba(107, 142, 107, 0.1);
+}
+
+.veri-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.veri-progress-title {
+  color: var(--veri-sage-green);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.veri-progress-percentage {
+  color: var(--veri-ocean-blue);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.veri-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--veri-bamboo-gray);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.veri-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--veri-sage-green), var(--veri-ocean-blue));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.veri-progress-details {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.veri-current-step {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.veri-estimated-time {
+  color: var(--veri-ocean-blue);
+  font-size: 0.85rem;
+}
+
+/* AI Working Indicator */
+.veri-ai-working-indicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--veri-jade-light);
+  border-radius: 8px;
+  border: 1px solid var(--veri-gold-highlight);
+}
+
+.veri-ai-status-text {
+  color: var(--veri-sage-green);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Vietnamese Lotus Spinner */
+.veri-lotus-spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.veri-lotus-petal {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--veri-sage-green);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: veriLotusBloom 1.5s infinite ease-in-out;
+}
+
+.veri-lotus-petal:nth-child(1) { transform: rotate(0deg) translateY(-15px); animation-delay: 0s; }
+.veri-lotus-petal:nth-child(2) { transform: rotate(60deg) translateY(-15px); animation-delay: 0.25s; }
+.veri-lotus-petal:nth-child(3) { transform: rotate(120deg) translateY(-15px); animation-delay: 0.5s; }
+.veri-lotus-petal:nth-child(4) { transform: rotate(180deg) translateY(-15px); animation-delay: 0.75s; }
+.veri-lotus-petal:nth-child(5) { transform: rotate(240deg) translateY(-15px); animation-delay: 1s; }
+.veri-lotus-petal:nth-child(6) { transform: rotate(300deg) translateY(-15px); animation-delay: 1.25s; }
+
+@keyframes veriLotusBloom {
+  0%, 100% { 
+    transform: rotate(var(--rotation)) translateY(-15px) scale(0.8);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: rotate(var(--rotation)) translateY(-15px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Generated Documents */
+.veri-generated-documents {
+  background: var(--veri-lotus-white);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 2px solid var(--veri-gold-highlight);
+  box-shadow: 0 4px 16px rgba(107, 142, 107, 0.1);
+  margin-top: 2rem;
+}
+
+.veri-generated-documents h3 {
+  color: var(--veri-sage-green);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.veri-generated-document-card {
+  background: var(--veri-jade-light);
+  border: 1px solid var(--veri-gold-highlight);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.veri-generated-document-card h4 {
+  color: var(--veri-sage-green);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.veri-generated-document-card p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.veri-download-button {
+  background: var(--veri-ocean-blue);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.veri-download-button:hover {
+  background: #6891b3;
+  transform: translateY(-1px);
+}
+
+/* Business Context Placeholder */
+.veri-business-context-placeholder {
+  background: var(--veri-lotus-white);
+  border: 2px dashed var(--veri-gold-highlight);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .veri-document-main-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .veri-document-sidebar {
+    order: -1;
+  }
+
+  .veri-document-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .veri-document-layout {
+    padding: 1rem;
+  }
+
+  .veri-document-title {
+    font-size: 2rem;
+  }
+
+  .veri-document-subtitle {
+    font-size: 1rem;
+  }
+
+  .veri-document-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .veri-document-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Vietnamese Cultural Enhancements */
+.veri-document-layout[data-cultural-region="north"] {
+  background: rgba(247, 250, 247, 0.95);
+}
+
+.veri-document-layout[data-cultural-region="north"] .veri-document-card {
+  border-style: solid;
+  border-width: 2px;
+}
+
+.veri-document-layout[data-cultural-region="central"] {
+  background: rgba(248, 251, 253, 0.95);
+}
+
+.veri-document-layout[data-cultural-region="central"] .veri-document-card {
+  border-radius: 12px;
+}
+
+.veri-document-layout[data-cultural-region="south"] {
+  background: rgba(248, 250, 252, 0.95);
+}
+
+.veri-document-layout[data-cultural-region="south"] .veri-document-card {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* Accessibility */
+.veri-document-card:focus {
+  outline: 2px solid var(--veri-sage-green);
+  outline-offset: 2px;
+}
+
+.veri-generate-button:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .veri-document-layout {
+    background: white !important;
+  }
+  
+  .veri-generate-button,
+  .veri-ai-working-indicator {
+    display: none !important;
+  }
+}

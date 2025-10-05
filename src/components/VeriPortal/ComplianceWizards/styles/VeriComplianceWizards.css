@@ -1,13 +1,29 @@
 /* VeriPortal_02_ComplianceWizards Styles */
 /* Vietnamese PDPL 2025 Compliance Wizards System CSS */
 
-/* Vietnamese Cultural Color Palette - Gentle & Eye-friendly */
+/* Vietnamese Cultural Color Palette - Traditional & Comprehensive */
 :root {
-  /* Primary Vietnamese Colors - Gentle */
+  /* Vietnamese Cultural Colors - Traditional */
+  --veri-vietnam-red: #da251d;          /* Vietnamese flag red */
+  --veri-vietnam-yellow: #ffcd00;       /* Golden star */
+  --veri-jade-green: #6b8e6b;           /* Traditional jade */
+  --veri-sky-blue: #7fa3c3;             /* Sky blue */
+  --veri-warm-gold: #d4c18a;            /* Vietnamese gold */
+  --veri-bamboo-green: #7fa088;         /* Bamboo green */
+  --veri-lotus-pink: #f4a6b8;           /* Lotus flower */
+  
+  /* Primary Vietnamese Colors */
   --veri-sage-green: #6b8e6b;
   --veri-ocean-blue: #7fa3c3;
   --veri-warm-coral: #c17a7a;
   --veri-gentle-gold: #d4c18a;
+  
+  /* Modern Vietnamese Business Palette */
+  --veri-primary: #6b8e6b;              /* Vietnamese jade */
+  --veri-primary-light: #7fa088;
+  --veri-primary-dark: #5a7a5a;
+  --veri-accent: #d4c18a;               /* Vietnamese gold */
+  --veri-accent-light: #e0d0a0;
   
   /* Supporting Colors */
   --veri-soft-white: #fefefe;
@@ -16,39 +32,57 @@
   --veri-text-dark: #2d2d2d;
   --veri-text-light: #666666;
   
-  /* Status Colors - Gentle */
-  --veri-success-green: #7fb069;
-  --veri-warning-amber: #e6b35c;
-  --veri-error-coral: #d67676;
+  /* Status Colors - Vietnamese Themed */
+  --veri-success-green: #7fa088;
+  --veri-warning-amber: #ffcd00;
+  --veri-error-coral: #da251d;
   --veri-info-blue: #7fa3c3;
   
   /* AI/ML Colors */
   --veri-ai-primary: #8da5c4;
   --veri-ai-secondary: #b8cce3;
   --veri-ai-accent: #6b8e8e;
+  
+  /* Vietnamese Cultural Gradients */
+  --veri-gradient-vietnam: linear-gradient(135deg, #da251d 0%, #ffcd00 100%);
+  --veri-gradient-red: linear-gradient(135deg, #da251d 0%, #b71c1c 100%);
+  --veri-gradient-gold: linear-gradient(135deg, #d4c18a 0%, #b8a876 100%);
+  --veri-gradient-jade: linear-gradient(135deg, #6b8e6b 0%, #5a7a5a 100%);
+  --veri-gradient-sky: linear-gradient(135deg, #7fa3c3 0%, #6b8da8 100%);
+  --veri-gradient-bamboo: linear-gradient(135deg, #7fa088 0%, #6a8875 100%);
+  
+  /* Shadows & Effects */
+  --veri-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --veri-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --veri-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --veri-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* Main Wizard Layout */
 .veri-wizard-layout {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--veri-soft-white) 0%, var(--veri-warm-gray) 100%);
+  background: linear-gradient(135deg, #f0f4f0 0%, #e8ede8 100%);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--veri-text-dark);
 }
 
+/* Vietnamese Cultural Regional Variations */
 .veri-cultural-north {
   --veri-primary: var(--veri-ocean-blue);
-  --veri-accent: var(--veri-sage-green);
+  --veri-accent: var(--veri-jade-green);
+  --veri-gradient-primary: var(--veri-gradient-sky);
 }
 
 .veri-cultural-central {
-  --veri-primary: var(--veri-sage-green);
-  --veri-accent: var(--veri-gentle-gold);
+  --veri-primary: var(--veri-jade-green);
+  --veri-accent: var(--veri-warm-gold);
+  --veri-gradient-primary: var(--veri-gradient-jade);
 }
 
 .veri-cultural-south {
   --veri-primary: var(--veri-warm-coral);
   --veri-accent: var(--veri-ocean-blue);
+  --veri-gradient-primary: linear-gradient(135deg, var(--veri-warm-coral), var(--veri-ocean-blue));
 }
 
 /* Wizard Header */
@@ -58,16 +92,17 @@
   align-items: center;
   padding: 2rem 3rem;
   background: white;
-  border-bottom: 1px solid var(--veri-light-gray);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-bottom: 3px solid transparent;
+  border-image: var(--veri-gradient-vietnam) 1;
+  box-shadow: 0 2px 8px rgba(218, 37, 29, 0.1);
 }
 
 .veri-wizard-header-content h1 {
   margin: 0;
   font-size: 2rem;
   font-weight: 700;
-  color: var(--veri-primary, var(--veri-sage-green));
-  background: linear-gradient(135deg, var(--veri-primary, var(--veri-sage-green)), var(--veri-accent, var(--veri-ocean-blue)));
+  color: var(--veri-primary, var(--veri-jade-green));
+  background: var(--veri-gradient-jade);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -133,13 +168,16 @@
 
 .veri-wizard-option:hover {
   background: var(--veri-light-gray);
-  border-color: var(--veri-primary, var(--veri-sage-green));
+  border-color: var(--veri-jade-green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(107, 142, 107, 0.2);
 }
 
 .veri-wizard-option.veri-active {
-  background: linear-gradient(135deg, var(--veri-primary, var(--veri-sage-green)), var(--veri-accent, var(--veri-ocean-blue)));
+  background: var(--veri-gradient-jade);
   color: white;
-  border-color: var(--veri-primary, var(--veri-sage-green));
+  border-color: var(--veri-jade-green);
+  box-shadow: 0 4px 12px rgba(107, 142, 107, 0.3);
 }
 
 .veri-wizard-option-content {
@@ -161,10 +199,13 @@
 
 /* Wizard Progress */
 .veri-wizard-progress {
-  background: var(--veri-warm-gray);
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
   padding: 1.5rem;
   border-radius: 12px;
   margin-bottom: 1rem;
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg, var(--veri-jade-green), var(--veri-bamboo-green)) 1;
+  box-shadow: 0 2px 8px rgba(107, 142, 107, 0.1);
 }
 
 .veri-wizard-progress-header {
@@ -190,7 +231,11 @@
 
 .veri-compliance-score {
   font-weight: 600;
-  color: var(--veri-primary, var(--veri-sage-green));
+  color: var(--veri-jade-green);
+  background: var(--veri-gradient-jade);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .veri-progress-bar {
@@ -198,15 +243,17 @@
   background: var(--veri-light-gray);
   border-radius: 4px;
   overflow: hidden;
+  border: 1px solid rgba(107, 142, 107, 0.2);
 }
 
 .veri-progress-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--veri-primary, var(--veri-sage-green)), var(--veri-accent, var(--veri-ocean-blue)));
+  background: var(--veri-gradient-jade);
   transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(107, 142, 107, 0.4);
 }
 
-/* Loading States */
+/* Loading States - Vietnamese Cultural Theme */
 .veri-wizard-loading,
 .veri-pdpl-wizard-loading,
 .veri-legal-basis-loading {
@@ -216,6 +263,8 @@
   justify-content: center;
   padding: 4rem 2rem;
   text-align: center;
+  background: linear-gradient(135deg, #f0f4f0 0%, #e8ede8 100%);
+  border-radius: 12px;
 }
 
 .veri-wizard-loading-spinner,
@@ -224,20 +273,23 @@
   margin-bottom: 2rem;
 }
 
+/* Vietnamese Lotus Spinner */
 .veri-lotus-spinner {
   width: 60px;
   height: 60px;
   position: relative;
   animation: veri-lotus-rotate 3s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(107, 142, 107, 0.4));
 }
 
 .veri-lotus-petal {
   position: absolute;
   width: 12px;
   height: 30px;
-  background: linear-gradient(45deg, var(--veri-primary, var(--veri-sage-green)), var(--veri-accent, var(--veri-ocean-blue)));
+  background: var(--veri-gradient-jade);
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   transform-origin: center bottom;
+  box-shadow: 0 0 6px rgba(107, 142, 107, 0.5);
 }
 
 .veri-lotus-petal:nth-child(1) { transform: rotate(0deg); }
@@ -471,22 +523,25 @@
 }
 
 .veri-ai-help-button {
-  background: var(--veri-ai-primary);
+  background: var(--veri-gradient-bamboo);
   color: white;
+  box-shadow: 0 2px 8px rgba(127, 160, 136, 0.3);
 }
 
 .veri-ai-help-button:hover {
-  background: var(--veri-ai-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(127, 160, 136, 0.4);
 }
 
 .veri-wizard-next-button {
-  background: linear-gradient(135deg, var(--veri-primary, var(--veri-sage-green)), var(--veri-accent, var(--veri-ocean-blue)));
+  background: var(--veri-gradient-jade);
   color: white;
+  box-shadow: 0 2px 8px rgba(107, 142, 107, 0.3);
 }
 
 .veri-wizard-next-button:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(107, 142, 107, 0.4);
 }
 
 .veri-wizard-next-button:disabled {
@@ -585,7 +640,14 @@
 
 .veri-ai-recommendation-card {
   padding: 2rem;
-  border-bottom: 1px solid var(--veri-light-gray);
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--veri-jade-green), var(--veri-bamboo-green)) 1;
+  transition: all 0.3s ease;
+}
+
+.veri-ai-recommendation-card:hover {
+  background: linear-gradient(135deg, #f0f4f0 0%, #f9fafb 100%);
+  box-shadow: 0 2px 8px rgba(107, 142, 107, 0.1);
 }
 
 .veri-ai-recommendation-card:last-child {
@@ -679,12 +741,14 @@
 }
 
 .veri-accept-recommendation-button {
-  background: var(--veri-success-green);
+  background: var(--veri-gradient-bamboo);
   color: white;
+  box-shadow: 0 2px 8px rgba(127, 160, 136, 0.3);
 }
 
 .veri-accept-recommendation-button:hover {
-  background: var(--veri-primary, var(--veri-sage-green));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(127, 160, 136, 0.4);
 }
 
 .veri-customize-recommendation-button {
@@ -730,8 +794,10 @@
 }
 
 .veri-legal-basis-card:hover {
-  border-color: var(--veri-primary, var(--veri-sage-green));
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--veri-jade-green);
+  box-shadow: 0 4px 12px rgba(107, 142, 107, 0.2);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f4f0 100%);
 }
 
 .veri-legal-basis-card.veri-selected {

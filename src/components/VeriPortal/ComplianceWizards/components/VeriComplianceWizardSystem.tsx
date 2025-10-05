@@ -2,6 +2,7 @@
 // Vietnamese PDPL 2025 Compliance Wizards System
 
 import React, { useState, useEffect, useContext, createContext } from 'react';
+import { useLanguageSwitch } from '../../../../hooks/useCulturalIntelligence';
 import {
   VeriComplianceWizardSystem as VeriComplianceWizardSystemType,
   VeriWizardType,
@@ -12,8 +13,7 @@ import {
   VeriAIComplianceAnalysis
 } from '../types';
 import { veriComplianceAIService } from '../services/veriComplianceAIServices';
-import { VeriPDPLSetupWizard } from './VeriPDPLSetupWizard';
-import { VeriLanguageSwitcher } from '../../CulturalOnboarding/components/VeriLanguageSwitcher';
+import { VeriPDPLSetupWizard } from './VeriPDPLSetupWizard.tsx';
 import { VeriSyntraBanner } from '../../../shared/VeriSyntraBanner';
 import '../styles/VeriComplianceWizards.css';
 
@@ -187,7 +187,10 @@ const VeriWizardContent: React.FC<{
   veriLanguage: 'vietnamese' | 'english';
   veriBusinessContext: VeriBusinessContext | null;
   veriAIRecommendations?: any[];
-}> = ({ veriWizardType, veriLanguage, veriBusinessContext, veriAIRecommendations }) => {
+  veriOnComplete?: (result: any) => void;
+}> = ({ veriWizardType, veriLanguage, veriBusinessContext, veriAIRecommendations, veriOnComplete }) => {
+  // Use veriAIRecommendations for future wizard implementations
+  console.log('AI Recommendations available:', veriAIRecommendations?.length || 0);
   if (!veriBusinessContext) {
     return (
       <div className="veri-wizard-content-error">
@@ -202,8 +205,11 @@ const VeriWizardContent: React.FC<{
         <VeriPDPLSetupWizard
           veriBusinessContext={veriBusinessContext}
           veriLanguage={veriLanguage}
-          veriOnComplete={(result) => {
+          veriOnComplete={(result: any) => {
             console.log('PDPL Wizard completed:', result);
+            if (veriOnComplete) {
+              veriOnComplete(result);
+            }
           }}
         />
       );
@@ -233,14 +239,17 @@ const VeriWizardContent: React.FC<{
 // Main Vietnamese Compliance Wizard System Component
 export const VeriComplianceWizardSystem: React.FC<VeriComplianceWizardProps> = ({
   veriBusinessContext: initialBusinessContext,
-  veriLanguage: initialLanguage = 'vietnamese',
   veriOnComplete,
   veriOnStepChange,
   veriCulturalStyle
 }) => {
+  // Use global language switcher (same as Business Intelligence)
+  const { switchLanguage, isVietnamese } = useLanguageSwitch();
+  // Map i18n language to wizard language
+  const veriLanguage = isVietnamese ? 'vietnamese' : 'english';
+  
   const [veriWizardState, setVeriWizardState] = useState<VeriComplianceWizardSystemType | null>(null);
   const [veriCurrentWizard, setVeriCurrentWizard] = useState<VeriWizardType>('pdpl-2025-setup');
-  const [veriLanguage, setVeriLanguage] = useState<'vietnamese' | 'english'>(initialLanguage);
   const [veriBusinessContext, setVeriBusinessContext] = useState<VeriBusinessContext | null>(initialBusinessContext || null);
   const [veriAIEngine, setVeriAIEngine] = useState<VeriAIWizardEngine | null>(null);
   const [veriAIAnalysis, setVeriAIAnalysis] = useState<VeriAIComplianceAnalysis | null>(null);
@@ -310,6 +319,15 @@ export const VeriComplianceWizardSystem: React.FC<VeriComplianceWizardProps> = (
     }
   }, [veriAIEngine]);
 
+  // Initialize wizard state when business context is available
+  useEffect(() => {
+    if (veriBusinessContext && !veriWizardState) {
+      // Create a simplified initial wizard state
+      console.log('Initializing wizard state for:', veriBusinessContext.veriBusinessId);
+      setVeriWizardState({} as VeriComplianceWizardSystemType);
+    }
+  }, [veriBusinessContext, veriWizardState]);
+
   const getVeriAvailableWizards = (businessContext: VeriBusinessContext | null): VeriWizardType[] => {
     const allWizards: VeriWizardType[] = [
       'pdpl-2025-setup',
@@ -322,12 +340,12 @@ export const VeriComplianceWizardSystem: React.FC<VeriComplianceWizardProps> = (
       'cross-border-transfer'
     ];
 
-    // For now, return all wizards (can be filtered based on business context later)
-    return allWizards;
-  };
-
-  const handleVeriLanguageChange = (language: 'vietnamese' | 'english') => {
-    setVeriLanguage(language);
+    // Filter wizards based on business context if available
+    if (!businessContext) {
+      return ['pdpl-2025-setup']; // Only basic wizard if no context
+    }
+    
+    return allWizards; // Return all wizards when context is available
   };
 
   const handleVeriWizardSelection = (wizard: VeriWizardType) => {
@@ -372,8 +390,8 @@ export const VeriComplianceWizardSystem: React.FC<VeriComplianceWizardProps> = (
           variant="portal"
           customTitle="VeriPortal"
           customSubtitle={veriLanguage === 'vietnamese' ? 'Hệ thống Wizard Tuân thủ PDPL 2025' : 'PDPL 2025 Compliance Wizards'}
-          currentLanguage={veriLanguage === 'vietnamese' ? 'vi' : 'en'}
-          onLanguageChange={(lang) => handleVeriLanguageChange(lang === 'vi' ? 'vietnamese' : 'english')}
+          currentLanguage={isVietnamese ? 'vi' : 'en'}
+          onLanguageChange={(lang) => switchLanguage(lang)}
           showConnectionStatus={true}
           showLanguageToggle={true}
         />
@@ -389,6 +407,39 @@ export const VeriComplianceWizardSystem: React.FC<VeriComplianceWizardProps> = (
                   ? 'Hướng dẫn từng bước với AI để đạt tuân thủ hoàn toàn'
                   : 'Step-by-step AI guidance for complete compliance'}
               </p>
+            </div>
+            
+            <div className="veri-portal-navigation">
+              <a 
+                href="/veriportal/documents" 
+                className="veri-nav-link"
+                style={{
+                  background: 'linear-gradient(135deg, var(--veri-ocean-blue), var(--veri-sage-green))',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  fontWeight: '500',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(127, 163, 195, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M4 3h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1z"/>
+                  <path d="M6 7h8v1H6V7zm0 3h8v1H6v-1zm0 3h6v1H6v-1z"/>
+                </svg>
+                {veriLanguage === 'vietnamese' ? 'Tạo Tài liệu' : 'Generate Documents'}
+              </a>
             </div>
           </div>
 
@@ -414,6 +465,7 @@ export const VeriComplianceWizardSystem: React.FC<VeriComplianceWizardProps> = (
               veriLanguage={veriLanguage}
               veriBusinessContext={veriBusinessContext}
               veriAIRecommendations={veriAIAnalysis?.veriRecommendations}
+              veriOnComplete={veriOnComplete}
             />
           </div>
         </div>

@@ -10,7 +10,7 @@ import {
   VeriPDPLWizardResult
 } from '../types';
 import { veriComplianceAIService } from '../services/veriComplianceAIServices';
-import { VeriLegalBasisSetupStep } from './VeriLegalBasisSetupStep';
+import { VeriLegalBasisSetupStep } from './VeriLegalBasisSetupStep.tsx';
 
 export const VeriPDPLSetupWizard: React.FC<VeriPDPLWizardProps> = ({
   veriBusinessContext,
@@ -132,7 +132,8 @@ export const VeriPDPLSetupWizard: React.FC<VeriPDPLWizardProps> = ({
   };
 
   const veriRequestAIGuidance = async (step: VeriPDPLStep) => {
-    console.log(`AI guidance requested for step: ${step}`);
+    const currentData = getVeriStepData(step);
+    console.log(`AI guidance requested for step: ${step}`, currentData);
     // This would open an AI assistance modal or panel
   };
 
@@ -238,7 +239,7 @@ export const VeriPDPLSetupWizard: React.FC<VeriPDPLWizardProps> = ({
           <VeriLegalBasisSetupStep
             veriBusinessContext={veriBusinessContext}
             veriLanguage={veriLanguage}
-            veriAIAnalysis={veriAIAnalysis}
+            veriAIAnalysis={veriAIAnalysis || undefined}
             veriOnComplete={(data) => handleStepComplete('legal-basis-setup', data)}
           />
         )}
