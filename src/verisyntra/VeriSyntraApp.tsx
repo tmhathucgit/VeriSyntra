@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { Shield, CheckCircle, Globe, Server, Clock, Users } from 'lucide-react';
+import { Shield, CheckCircle, Clock, Users, Server, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { useLanguageSwitch } from '../hooks/useCulturalIntelligence';
 import { useState } from 'react';
-import vnMapLogo from '../../svg/vnMapLogo.svg';
+import { VeriSyntraBanner } from '../components/shared/VeriSyntraBanner';
 
 interface SystemStatus {
   status: string;
@@ -64,84 +64,19 @@ const VeriSyntraApp: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const toggleLanguage = () => {
-    switchLanguage(isVietnamese ? 'en' : 'vi');
-  };
 
-  const getConnectionColor = () => {
-    switch (connectionStatus) {
-      case 'connected': return 'text-green-600';
-      case 'disconnected': return 'text-red-600';
-      default: return 'text-yellow-600';
-    }
-  };
-
-  const getConnectionText = () => {
-    if (isVietnamese) {
-      switch (connectionStatus) {
-        case 'connected': return t('common:status.connected');
-        case 'disconnected': return t('common:status.disconnected');
-        default: return t('common:status.connecting');
-      }
-    } else {
-      switch (connectionStatus) {
-        case 'connected': return t('common:status.connected');
-        case 'disconnected': return t('common:status.disconnected');
-        default: return t('common:status.connecting');
-      }
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-50" style={{
       background: 'linear-gradient(135deg, #f0f4f0 0%, #f1f6fb 25%, #f0f4f0 50%, #f1f6fb 75%, #f0f4f0 100%)'
     }}>
-      <header className="bg-white/95 backdrop-blur-sm border-b-2 sticky top-0 z-50" style={{
-        borderColor: '#c17a7a'
-      }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-lg p-1 bg-white/95 backdrop-blur-sm" style={{
-                border: '1px solid #d4c18a',
-                boxShadow: '0 2px 8px rgba(212, 193, 138, 0.15)'
-              }}>
-                <img src={vnMapLogo} alt="VeriSyntra Logo" className="w-full h-full" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold" style={{ color: '#6b8e6b' }}>VeriSyntra</h1>
-                <p className="text-sm" style={{ color: '#7fa3c3' }}>
-                  {t('vericompliance:platform.title')}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <div className={`flex items-center space-x-2 ${getConnectionColor()}`}>
-                <Server className="w-4 h-4" />
-                <span className="text-sm font-medium">{getConnectionText()}</span>
-              </div>
-              
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md"
-                style={{
-                  background: isVietnamese 
-                    ? 'linear-gradient(135deg, #6b8e6b 0%, #7fa3c3 100%)'
-                    : 'linear-gradient(135deg, #7fa3c3 0%, #6b8e6b 100%)',
-                  border: '2px solid #d4c18a',
-                  color: 'white'
-                }}
-              >
-                <Globe className="w-4 h-4" />
-                <span className="font-medium">
-                  {isVietnamese ? '🇻🇳 Tiếng Việt' : '🇺🇸 English'}
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <VeriSyntraBanner
+        variant="main"
+        currentLanguage={isVietnamese ? 'vi' : 'en'}
+        onLanguageChange={(lang) => switchLanguage(lang)}
+        showConnectionStatus={true}
+        showLanguageToggle={true}
+      />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">

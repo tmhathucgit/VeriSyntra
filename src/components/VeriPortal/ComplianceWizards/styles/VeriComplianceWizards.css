@@ -1,0 +1,981 @@
+/* VeriPortal_02_ComplianceWizards Styles */
+/* Vietnamese PDPL 2025 Compliance Wizards System CSS */
+
+/* Vietnamese Cultural Color Palette - Gentle & Eye-friendly */
+:root {
+  /* Primary Vietnamese Colors - Gentle */
+  --veri-sage-green: #6b8e6b;
+  --veri-ocean-blue: #7fa3c3;
+  --veri-warm-coral: #c17a7a;
+  --veri-gentle-gold: #d4c18a;
+  
+  /* Supporting Colors */
+  --veri-soft-white: #fefefe;
+  --veri-warm-gray: #f5f5f5;
+  --veri-light-gray: #e8e8e8;
+  --veri-text-dark: #2d2d2d;
+  --veri-text-light: #666666;
+  
+  /* Status Colors - Gentle */
+  --veri-success-green: #7fb069;
+  --veri-warning-amber: #e6b35c;
+  --veri-error-coral: #d67676;
+  --veri-info-blue: #7fa3c3;
+  
+  /* AI/ML Colors */
+  --veri-ai-primary: #8da5c4;
+  --veri-ai-secondary: #b8cce3;
+  --veri-ai-accent: #6b8e8e;
+}
+
+/* Main Wizard Layout */
+.veri-wizard-layout {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--veri-soft-white) 0%, var(--veri-warm-gray) 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--veri-text-dark);
+}
+
+.veri-cultural-north {
+  --veri-primary: var(--veri-ocean-blue);
+  --veri-accent: var(--veri-sage-green);
+}
+
+.veri-cultural-central {
+  --veri-primary: var(--veri-sage-green);
+  --veri-accent: var(--veri-gentle-gold);
+}
+
+.veri-cultural-south {
+  --veri-primary: var(--veri-warm-coral);
+  --veri-accent: var(--veri-ocean-blue);
+}
+
+/* Wizard Header */
+.veri-wizard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  background: white;
+  border-bottom: 1px solid var(--veri-light-gray);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.veri-wizard-header-content h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--veri-primary, var(--veri-sage-green));
+  background: linear-gradient(135deg, var(--veri-primary, var(--veri-sage-green)), var(--veri-accent, var(--veri-ocean-blue)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.veri-wizard-subtitle {
+  margin: 0.5rem 0 0;
+  font-size: 1.1rem;
+  color: var(--veri-text-light);
+  font-weight: 400;
+}
+
+/* Wizard Main Content */
+.veri-wizard-main-content {
+  display: flex;
+  min-height: calc(100vh - 120px);
+}
+
+.veri-wizard-sidebar {
+  width: 320px;
+  background: white;
+  border-right: 1px solid var(--veri-light-gray);
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.veri-wizard-content {
+  flex: 1;
+  padding: 2rem 3rem;
+  overflow-y: auto;
+}
+
+/* Wizard Selector */
+.veri-wizard-selector {
+  margin-bottom: 2rem;
+}
+
+.veri-wizard-selector-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--veri-text-dark);
+  margin-bottom: 1rem;
+}
+
+.veri-wizard-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.veri-wizard-option {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: var(--veri-warm-gray);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.veri-wizard-option:hover {
+  background: var(--veri-light-gray);
+  border-color: var(--veri-primary, var(--veri-sage-green));
+}
+
+.veri-wizard-option.veri-active {
+  background: linear-gradient(135deg, var(--veri-primary, var(--veri-sage-green)), var(--veri-accent, var(--veri-ocean-blue)));
+  color: white;
+  border-color: var(--veri-primary, var(--veri-sage-green));
+}
+
+.veri-wizard-option-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.veri-wizard-option-name {
+  font-weight: 500;
+}
+
+.veri-wizard-active-indicator {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+/* Wizard Progress */
+.veri-wizard-progress {
+  background: var(--veri-warm-gray);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.veri-wizard-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.veri-wizard-progress-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--veri-text-dark);
+  margin: 0;
+}
+
+.veri-wizard-progress-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--veri-text-light);
+}
+
+.veri-compliance-score {
+  font-weight: 600;
+  color: var(--veri-primary, var(--veri-sage-green));
+}
+
+.veri-progress-bar {
+  height: 8px;
+  background: var(--veri-light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.veri-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--veri-primary, var(--veri-sage-green)), var(--veri-accent, var(--veri-ocean-blue)));
+  transition: width 0.3s ease;
+}
+
+/* Loading States */
+.veri-wizard-loading,
+.veri-pdpl-wizard-loading,
+.veri-legal-basis-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.veri-wizard-loading-spinner,
+.veri-ai-loading-indicator,
+.veri-ai-analysis-spinner {
+  margin-bottom: 2rem;
+}
+
+.veri-lotus-spinner {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  animation: veri-lotus-rotate 3s linear infinite;
+}
+
+.veri-lotus-petal {
+  position: absolute;
+  width: 12px;
+  height: 30px;
+  background: linear-gradient(45deg, var(--veri-primary, var(--veri-sage-green)), var(--veri-accent, var(--veri-ocean-blue)));
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform-origin: center bottom;
+}
+
+.veri-lotus-petal:nth-child(1) { transform: rotate(0deg); }
+.veri-lotus-petal:nth-child(2) { transform: rotate(60deg); }
+.veri-lotus-petal:nth-child(3) { transform: rotate(120deg); }
+.veri-lotus-petal:nth-child(4) { transform: rotate(180deg); }
+.veri-lotus-petal:nth-child(5) { transform: rotate(240deg); }
+.veri-lotus-petal:nth-child(6) { transform: rotate(300deg); }
+
+@keyframes veri-lotus-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.veri-wizard-loading-text,
+.veri-ai-loading-text {
+  font-size: 1.1rem;
+  color: var(--veri-text-light);
+}
+
+/* Content Placeholder */
+.veri-wizard-content-placeholder,
+.veri-step-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.veri-wizard-placeholder-icon {
+  margin-bottom: 2rem;
+  color: var(--veri-text-light);
+}
+
+.veri-wizard-placeholder-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--veri-text-dark);
+  margin-bottom: 1rem;
+}
+
+.veri-wizard-placeholder-message {
+  font-size: 1rem;
+  color: var(--veri-text-light);
+  max-width: 400px;
+}
+
+/* PDPL Wizard Specific */
+.veri-pdpl-wizard-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.veri-wizard-header {
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--veri-soft-white) 0%, var(--veri-warm-gray) 100%);
+  border-bottom: 1px solid var(--veri-light-gray);
+}
+
+.veri-wizard-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--veri-primary, var(--veri-sage-green));
+  margin-bottom: 0.5rem;
+}
+
+.veri-ai-insight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--veri-ai-secondary);
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.veri-ai-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--veri-ai-primary);
+  border-radius: 50%;
+  color: white;
+}
+
+.veri-ai-indicator.veri-active {
+  animation: veri-ai-pulse 2s ease-in-out infinite;
+}
+
+@keyframes veri-ai-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.veri-ai-message {
+  font-size: 0.95rem;
+  color: var(--veri-text-dark);
+  font-weight: 500;
+}
+
+/* Steps Navigation */
+.veri-wizard-steps-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--veri-warm-gray);
+  border-bottom: 1px solid var(--veri-light-gray);
+}
+
+.veri-wizard-step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: white;
+  border: 2px solid var(--veri-light-gray);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.veri-wizard-step-indicator.veri-current {
+  border-color: var(--veri-primary, var(--veri-sage-green));
+  background: linear-gradient(135deg, var(--veri-primary, var(--veri-sage-green)), var(--veri-accent, var(--veri-ocean-blue)));
+  color: white;
+}
+
+.veri-wizard-step-indicator.veri-completed {
+  border-color: var(--veri-success-green);
+  background: var(--veri-success-green);
+  color: white;
+}
+
+.veri-wizard-step-indicator.veri-ai-recommended {
+  border-color: var(--veri-ai-primary);
+  box-shadow: 0 0 8px rgba(141, 165, 196, 0.3);
+}
+
+.veri-step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--veri-light-gray);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.veri-wizard-step-indicator.veri-current .veri-step-icon,
+.veri-wizard-step-indicator.veri-completed .veri-step-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.veri-step-number {
+  color: var(--veri-text-dark);
+}
+
+.veri-wizard-step-indicator.veri-current .veri-step-number,
+.veri-wizard-step-indicator.veri-completed .veri-step-number {
+  color: white;
+}
+
+.veri-step-title {
+  font-weight: 500;
+  flex: 1;
+}
+
+.veri-ai-recommended-badge {
+  background: var(--veri-ai-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Step Content */
+.veri-wizard-step-content {
+  padding: 2rem;
+}
+
+/* Wizard Actions */
+.veri-wizard-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background: var(--veri-warm-gray);
+  border-top: 1px solid var(--veri-light-gray);
+}
+
+.veri-wizard-back-button,
+.veri-ai-help-button,
+.veri-wizard-next-button {
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.veri-wizard-back-button {
+  background: var(--veri-light-gray);
+  color: var(--veri-text-dark);
+}
+
+.veri-wizard-back-button:hover:not(:disabled) {
+  background: var(--veri-text-light);
+  color: white;
+}
+
+.veri-wizard-back-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.veri-ai-help-button {
+  background: var(--veri-ai-primary);
+  color: white;
+}
+
+.veri-ai-help-button:hover {
+  background: var(--veri-ai-accent);
+}
+
+.veri-wizard-next-button {
+  background: linear-gradient(135deg, var(--veri-primary, var(--veri-sage-green)), var(--veri-accent, var(--veri-ocean-blue)));
+  color: white;
+}
+
+.veri-wizard-next-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.veri-wizard-next-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Legal Basis Step Specific Styles */
+.veri-legal-basis-step-container {
+  max-width: 900px;
+}
+
+.veri-step-header {
+  margin-bottom: 2rem;
+}
+
+.veri-step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--veri-text-dark);
+  margin-bottom: 1rem;
+}
+
+.veri-ai-analysis-indicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--veri-ai-secondary);
+  border-radius: 10px;
+}
+
+.veri-ai-brain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--veri-ai-primary);
+  border-radius: 50%;
+  color: white;
+}
+
+.veri-ai-brain.veri-active {
+  animation: veri-ai-pulse 2s ease-in-out infinite;
+}
+
+.veri-ai-analysis-text {
+  font-size: 1rem;
+  color: var(--veri-text-dark);
+  font-weight: 500;
+}
+
+/* AI Recommendations */
+.veri-ai-recommendations {
+  margin-bottom: 2rem;
+  background: white;
+  border: 1px solid var(--veri-light-gray);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.veri-recommendation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: var(--veri-ai-secondary);
+  border-bottom: 1px solid var(--veri-light-gray);
+}
+
+.veri-recommendation-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--veri-text-dark);
+}
+
+.veri-toggle-recommendations,
+.veri-show-recommendations {
+  padding: 0.5rem 1rem;
+  background: var(--veri-ai-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.veri-toggle-recommendations:hover,
+.veri-show-recommendations:hover {
+  background: var(--veri-ai-accent);
+}
+
+.veri-ai-recommendation-card {
+  padding: 2rem;
+  border-bottom: 1px solid var(--veri-light-gray);
+}
+
+.veri-ai-recommendation-card:last-child {
+  border-bottom: none;
+}
+
+.veri-recommendation-priority {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.veri-recommendation-priority.veri-high {
+  background: var(--veri-error-coral);
+  color: white;
+}
+
+.veri-recommendation-priority.veri-medium {
+  background: var(--veri-warning-amber);
+  color: white;
+}
+
+.veri-recommendation-priority.veri-low {
+  background: var(--veri-info-blue);
+  color: white;
+}
+
+.veri-recommendation-content {
+  margin-bottom: 1.5rem;
+}
+
+.veri-recommendation-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--veri-text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.veri-recommendation-reason {
+  font-size: 1rem;
+  color: var(--veri-text-light);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.veri-business-context-match {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.veri-match-indicator {
+  width: 120px;
+  height: 8px;
+  background: var(--veri-light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.veri-match-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--veri-success-green), var(--veri-primary, var(--veri-sage-green)));
+  transition: width 0.3s ease;
+}
+
+.veri-match-text {
+  font-size: 0.9rem;
+  color: var(--veri-text-light);
+  font-weight: 500;
+}
+
+.veri-recommendation-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.veri-accept-recommendation-button,
+.veri-customize-recommendation-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.veri-accept-recommendation-button {
+  background: var(--veri-success-green);
+  color: white;
+}
+
+.veri-accept-recommendation-button:hover {
+  background: var(--veri-primary, var(--veri-sage-green));
+}
+
+.veri-customize-recommendation-button {
+  background: var(--veri-light-gray);
+  color: var(--veri-text-dark);
+}
+
+.veri-customize-recommendation-button:hover {
+  background: var(--veri-text-light);
+  color: white;
+}
+
+/* Legal Basis Selection */
+.veri-legal-basis-selection {
+  margin-bottom: 2rem;
+}
+
+.veri-selection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.veri-selection-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--veri-text-dark);
+}
+
+.veri-legal-basis-option {
+  margin-bottom: 1rem;
+}
+
+.veri-legal-basis-card {
+  background: white;
+  border: 2px solid var(--veri-light-gray);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.veri-legal-basis-card:hover {
+  border-color: var(--veri-primary, var(--veri-sage-green));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.veri-legal-basis-card.veri-selected {
+  border-color: var(--veri-primary, var(--veri-sage-green));
+  background: linear-gradient(135deg, var(--veri-primary, var(--veri-sage-green))10, var(--veri-accent, var(--veri-ocean-blue))05);
+}
+
+.veri-legal-basis-card.veri-ai-recommended {
+  border-color: var(--veri-ai-primary);
+  box-shadow: 0 0 12px rgba(141, 165, 196, 0.25);
+}
+
+.veri-legal-basis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.veri-legal-basis-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.veri-legal-basis-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--veri-primary, var(--veri-sage-green));
+}
+
+.veri-legal-basis-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--veri-text-dark);
+}
+
+.veri-ai-recommended-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.veri-ai-recommended-badge.veri-high {
+  background: var(--veri-error-coral);
+  color: white;
+}
+
+.veri-ai-recommended-badge.veri-medium {
+  background: var(--veri-warning-amber);
+  color: white;
+}
+
+.veri-legal-basis-description,
+.veri-vietnamese-context {
+  font-size: 0.95rem;
+  color: var(--veri-text-light);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.veri-vietnamese-context {
+  font-style: italic;
+  color: var(--veri-primary, var(--veri-sage-green));
+}
+
+/* Legal Basis Details */
+.veri-legal-basis-details {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--veri-light-gray);
+}
+
+.veri-processing-purposes h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--veri-text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.veri-purposes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.veri-purpose-item {
+  display: flex;
+  align-items: center;
+}
+
+.veri-purpose-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--veri-text-dark);
+}
+
+.veri-purpose-checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--veri-primary, var(--veri-sage-green));
+}
+
+/* Validation Results */
+.veri-validation-results {
+  margin-top: 2rem;
+  background: white;
+  border: 1px solid var(--veri-light-gray);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.veri-validation-errors h5,
+.veri-validation-warnings h5,
+.veri-validation-suggestions h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.veri-validation-errors h5 {
+  color: var(--veri-error-coral);
+}
+
+.veri-validation-warnings h5 {
+  color: var(--veri-warning-amber);
+}
+
+.veri-validation-suggestions h5 {
+  color: var(--veri-info-blue);
+}
+
+.veri-validation-error,
+.veri-validation-warning,
+.veri-validation-suggestion {
+  padding: 0.75rem 1rem;
+  border-left: 4px solid;
+  margin-bottom: 0.5rem;
+  border-radius: 0 6px 6px 0;
+}
+
+.veri-validation-error {
+  background: rgba(214, 118, 118, 0.1);
+  border-color: var(--veri-error-coral);
+}
+
+.veri-validation-warning {
+  background: rgba(230, 179, 92, 0.1);
+  border-color: var(--veri-warning-amber);
+}
+
+.veri-validation-suggestion {
+  background: rgba(127, 163, 195, 0.1);
+  border-color: var(--veri-info-blue);
+}
+
+.veri-validation-success {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(127, 176, 105, 0.1);
+  border: 1px solid var(--veri-success-green);
+  border-radius: 8px;
+  color: var(--veri-success-green);
+  font-weight: 600;
+}
+
+.veri-success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--veri-success-green);
+  border-radius: 50%;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .veri-wizard-main-content {
+    flex-direction: column;
+  }
+  
+  .veri-wizard-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--veri-light-gray);
+  }
+  
+  .veri-wizard-steps-navigation {
+    flex-direction: column;
+  }
+  
+  .veri-wizard-step-indicator {
+    min-width: auto;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .veri-wizard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .veri-wizard-content,
+  .veri-wizard-sidebar {
+    padding: 1rem;
+  }
+  
+  .veri-wizard-step-content {
+    padding: 1rem;
+  }
+  
+  .veri-wizard-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .veri-recommendation-actions {
+    flex-direction: column;
+  }
+}
+
+/* Animation for smooth transitions */
+.veri-wizard-step-content > * {
+  animation: veri-fade-in 0.5s ease-out;
+}
+
+@keyframes veri-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landing from './Landing';
 import VeriSyntraApp from './verisyntra/VeriSyntraApp';
-import VeriCulturalOnboardingSystem from './components/VeriPortal/CulturalOnboarding/VeriCulturalOnboardingSystem';
+import { VeriComplianceWizardSystem } from './components/VeriPortal/ComplianceWizards';
 
 function AppRouter() {
   return (
@@ -9,7 +9,7 @@ function AppRouter() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/app" element={<VeriSyntraApp />} />
-        <Route path="/veriportal" element={<VeriCulturalOnboardingSystem />} />
+        <Route path="/veriportal" element={<VeriComplianceWizardSystem />} />
       </Routes>
     </Router>
   );

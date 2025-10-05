@@ -1,12 +1,14 @@
 // VeriPortal Layout with Landing Page Theme Integration
-// Implementation Status: 🚀 NEW IMPLEMENTATION
+// Implementation Status: 🚀 UPDATED WITH COMPLIANCE WIZARDS
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft, Shield } from 'lucide-react';
+import { ArrowLeft, Shield, Star, FileText, GraduationCap, BarChart3, Smartphone, Network } from 'lucide-react';
 import vnMapLogo from '../../../svg/vnMapLogo.svg';
 import { VeriLanguageSwitcher } from './CulturalOnboarding/components';
+import { VeriCulturalOnboardingSystem } from './CulturalOnboarding/VeriCulturalOnboardingSystem';
+import { VeriComplianceWizardSystem } from './ComplianceWizards';
 import './VeriPortalTheme.css';
 
 interface VeriPortalLayoutProps {
