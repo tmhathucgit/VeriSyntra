@@ -11,7 +11,11 @@
     "contact": "Contact",
     "getStarted": "Get Started",
     "enterApp": "Enter App",
-    "language": "English"
+    "language": "English",
+    "back": "Back",
+    "next": "Next",
+    "continue": "Continue",
+    "finish": "Finish"
   },
   "buttons": {
     "tryFree": "Try Free",
@@ -44,7 +48,17 @@
     "description": "Specialized PDPL 2025 compliance solution for Vietnamese enterprises with integrated cultural intelligence"
   },
   "language": {
-    "current": "English"
+    "current": "English",
+    "chooser": {
+      "title": "Choose Language",
+      "description": "Switch between Vietnamese and English",
+      "vietnamese": "Vietnamese",
+      "english": "English",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "active": "Active",
+      "aiEnabled": "AI Enabled"
+    }
   },
   "system": {
     "backendStatus": "Backend System Status:",

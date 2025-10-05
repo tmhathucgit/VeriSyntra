@@ -2,6 +2,7 @@
 // Implementation Status: ✅ IMPLEMENTED
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { VeriOnboardingStep } from '../types';
 import './VeriOnboardingProgress.css';
 
@@ -12,71 +13,56 @@ interface VeriOnboardingProgressProps {
   veriSteps: VeriOnboardingStep[];
 }
 
-const veriStepLabels: Record<VeriOnboardingStep, { vietnamese: string; english: string }> = {
-  'cultural-introduction': {
-    vietnamese: 'Giới thiệu Văn hóa',
-    english: 'Cultural Introduction'
-  },
-  'business-profile-setup': {
-    vietnamese: 'Thiết lập Hồ sơ',
-    english: 'Business Profile'
-  },
-  'regional-adaptation': {
-    vietnamese: 'Tùy chỉnh Vùng miền',
-    english: 'Regional Adaptation'
-  },
-  'cultural-preferences': {
-    vietnamese: 'Sở thích Văn hóa',
-    english: 'Cultural Preferences'
-  },
-  'compliance-readiness': {
-    vietnamese: 'Sẵn sàng Tuân thủ',
-    english: 'Compliance Readiness'
-  },
-  'completion-summary': {
-    vietnamese: 'Tóm tắt Hoàn thành',
-    english: 'Completion Summary'
-  }
-};
-
-const veriStepDescriptions: Record<VeriOnboardingStep, { vietnamese: string; english: string }> = {
-  'cultural-introduction': {
-    vietnamese: 'Chào mừng đến với VeriPortal - Hiểu văn hóa Việt Nam',
-    english: 'Welcome to VeriPortal - Understanding Vietnamese Culture'
-  },
-  'business-profile-setup': {
-    vietnamese: 'Cung cấp thông tin doanh nghiệp của bạn',
-    english: 'Provide your business information'
-  },
-  'regional-adaptation': {
-    vietnamese: 'Tùy chỉnh giao diện theo vùng miền',
-    english: 'Customize interface for your region'
-  },
-  'cultural-preferences': {
-    vietnamese: 'Thiết lập sở thích văn hóa và giao tiếp',
-    english: 'Set cultural and communication preferences'
-  },
-  'compliance-readiness': {
-    vietnamese: 'Đánh giá mức độ sẵn sàng tuân thủ PDPL',
-    english: 'Assess PDPL compliance readiness'
-  },
-  'completion-summary': {
-    vietnamese: 'Xem lại và hoàn tất thiết lập',
-    english: 'Review and complete setup'
-  }
-};
-
 export const VeriOnboardingProgress: React.FC<VeriOnboardingProgressProps> = ({
   veriCurrentStep,
   veriTotalSteps,
   veriCulturalStyle = 'balanced',
   veriSteps
 }) => {
+  const { t, i18n } = useTranslation(['common', 'veriportal']);
   const veriCurrentStepIndex = veriSteps.indexOf(veriCurrentStep);
   const veriProgressPercentage = ((veriCurrentStepIndex + 1) / veriTotalSteps) * 100;
   
-  // Detect language preference based on current step content
-  const veriIsVietnamese = true; // Default to Vietnamese for cultural authenticity
+  // Detect language preference based on i18n
+  const veriIsVietnamese = i18n.language === 'vi';
+
+  const getStepTitle = (step: VeriOnboardingStep): string => {
+    switch (step) {
+      case 'cultural-introduction':
+        return t('veriportal:culturalIntroduction.title');
+      case 'business-profile-setup':
+        return t('veriportal:businessContext.title');
+      case 'regional-adaptation':
+        return t('veriportal:regionalAdaptation.title');
+      case 'cultural-preferences':
+        return veriIsVietnamese ? 'Sở thích Văn hóa' : 'Cultural Preferences';
+      case 'compliance-readiness':
+        return veriIsVietnamese ? 'Sẵn sàng Tuân thủ' : 'Compliance Readiness';
+      case 'completion-summary':
+        return veriIsVietnamese ? 'Tóm tắt Hoàn thành' : 'Completion Summary';
+      default:
+        return step;
+    }
+  };
+
+  const getStepDescription = (step: VeriOnboardingStep): string => {
+    switch (step) {
+      case 'cultural-introduction':
+        return t('veriportal:culturalIntroduction.description');
+      case 'business-profile-setup':
+        return veriIsVietnamese ? 'Cung cấp thông tin doanh nghiệp của bạn' : 'Provide your business information';
+      case 'regional-adaptation':
+        return t('veriportal:regionalAdaptation.description');
+      case 'cultural-preferences':
+        return veriIsVietnamese ? 'Thiết lập sở thích văn hóa và giao tiếp' : 'Set cultural and communication preferences';
+      case 'compliance-readiness':
+        return veriIsVietnamese ? 'Đánh giá mức độ sẵn sàng tuân thủ PDPL' : 'Assess PDPL compliance readiness';
+      case 'completion-summary':
+        return veriIsVietnamese ? 'Xem lại và hoàn tất thiết lập' : 'Review and complete setup';
+      default:
+        return step;
+    }
+  };
 
   return (
     <div 
@@ -117,6 +103,34 @@ export const VeriOnboardingProgress: React.FC<VeriOnboardingProgressProps> = ({
         </div>
       </div>
 
+      {/* Step Actions - Moved above progress bar */}
+      <div className="veri-step-actions">
+        <div className="veri-cultural-encouragement">
+          {veriCulturalStyle === 'formal' && veriIsVietnamese && (
+            <span>Kính mời Quý khách tiếp tục quy trình thiết lập</span>
+          )}
+          {veriCulturalStyle === 'balanced' && veriIsVietnamese && (
+            <span>Chúng tôi sẽ hướng dẫn bạn từng bước</span>
+          )}
+          {veriCulturalStyle === 'friendly' && veriIsVietnamese && (
+            <span>Cùng hoàn thành thiết lập nhé!</span>
+          )}
+          {!veriIsVietnamese && (
+            <span>We'll guide you through each step</span>
+          )}
+        </div>
+        
+        <div className="veri-estimated-time">
+          <span className="veri-clock-icon">⏱️</span>
+          <span>
+            {veriIsVietnamese 
+              ? `Ước tính: ${3 - veriCurrentStepIndex} phút`
+              : `Estimated: ${3 - veriCurrentStepIndex} minutes`
+            }
+          </span>
+        </div>
+      </div>
+
       {/* Progress Bar */}
       <div className="veri-progress-bar-container">
         <div 
@@ -134,7 +148,6 @@ export const VeriOnboardingProgress: React.FC<VeriOnboardingProgressProps> = ({
         {veriSteps.map((step, index) => {
           const veriIsCompleted = index < veriCurrentStepIndex;
           const veriIsActive = index === veriCurrentStepIndex;
-          const veriIsPending = index > veriCurrentStepIndex;
           
           return (
             <div
@@ -157,10 +170,10 @@ export const VeriOnboardingProgress: React.FC<VeriOnboardingProgressProps> = ({
               
               <div className="veri-step-content">
                 <div className="veri-step-label">
-                  {veriStepLabels[step][veriIsVietnamese ? 'vietnamese' : 'english']}
+                  {getStepTitle(step)}
                 </div>
                 <div className="veri-step-description">
-                  {veriStepDescriptions[step][veriIsVietnamese ? 'vietnamese' : 'english']}
+                  {getStepDescription(step)}
                 </div>
               </div>
               
@@ -180,38 +193,11 @@ export const VeriOnboardingProgress: React.FC<VeriOnboardingProgressProps> = ({
       <div className="veri-current-step-highlight">
         <div className="veri-current-step-info">
           <h3>
-            {veriStepLabels[veriCurrentStep][veriIsVietnamese ? 'vietnamese' : 'english']}
+            {getStepTitle(veriCurrentStep)}
           </h3>
           <p>
-            {veriStepDescriptions[veriCurrentStep][veriIsVietnamese ? 'vietnamese' : 'english']}
+            {getStepDescription(veriCurrentStep)}
           </p>
-        </div>
-        
-        <div className="veri-step-actions">
-          <div className="veri-cultural-encouragement">
-            {veriCulturalStyle === 'formal' && veriIsVietnamese && (
-              <span>Kính mời Quý khách tiếp tục quy trình thiết lập</span>
-            )}
-            {veriCulturalStyle === 'balanced' && veriIsVietnamese && (
-              <span>Chúng tôi sẽ hướng dẫn bạn từng bước</span>
-            )}
-            {veriCulturalStyle === 'friendly' && veriIsVietnamese && (
-              <span>Cùng hoàn thành thiết lập nhé!</span>
-            )}
-            {!veriIsVietnamese && (
-              <span>We'll guide you through each step</span>
-            )}
-          </div>
-          
-          <div className="veri-estimated-time">
-            <span className="veri-clock-icon">⏱️</span>
-            <span>
-              {veriIsVietnamese 
-                ? `Ước tính: ${3 - veriCurrentStepIndex} phút`
-                : `Estimated: ${3 - veriCurrentStepIndex} minutes`
-              }
-            </span>
-          </div>
         </div>
       </div>
 

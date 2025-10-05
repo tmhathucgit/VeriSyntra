@@ -1,4 +1,4 @@
-import { Shield, CheckCircle, Lock, FileText, Users, ArrowRight, Menu, X } from 'lucide-react';
+import { Shield, CheckCircle, Lock, FileText, Users, ArrowRight, Menu, X, Globe } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -28,15 +28,16 @@ function Landing() {
               <a href="#benefits" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('veriportal:navigation.benefits')}</a>
               <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('veriportal:navigation.about')}</a>
               <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('veriportal:navigation.contact')}</a>
-              <button 
-                onClick={() => switchLanguage(isVietnamese ? 'en' : 'vi')}
-                className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium border border-gray-300 px-3 py-1.5 rounded-md"
-              >
-                {isVietnamese ? 'EN' : 'VI'}
-              </button>
-              <Link to="/app" className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 shadow-sm inline-block">
+              <Link to="/veriportal" className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 shadow-sm inline-block">
                 {t('veriportal:hero.getStarted')}
               </Link>
+              <button 
+                onClick={() => switchLanguage(isVietnamese ? 'en' : 'vi')}
+                className="flex items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
+              >
+                <Globe className="w-4 h-4" />
+                <span className="font-medium">{t('common:language.current')}</span>
+              </button>
             </div>
 
             <button
@@ -55,9 +56,16 @@ function Landing() {
               <a href="#benefits" className="block text-gray-600 hover:text-gray-900 py-2">Lợi ích</a>
               <a href="#about" className="block text-gray-600 hover:text-gray-900 py-2">Về chúng tôi</a>
               <a href="#contact" className="block text-gray-600 hover:text-gray-900 py-2">Liên hệ</a>
-              <Link to="/app" className="block w-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium text-center">
+              <Link to="/veriportal" className="block w-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium text-center mb-2">
                 {t('veriportal:hero.getStarted')}
               </Link>
+              <button 
+                onClick={() => switchLanguage(isVietnamese ? 'en' : 'vi')}
+                className="flex items-center space-x-2 px-3 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors w-full justify-center"
+              >
+                <Globe className="w-4 h-4" />
+                <span className="font-medium">{t('common:language.current')}</span>
+              </button>
             </div>
           </div>
         )}
@@ -86,16 +94,6 @@ function Landing() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/veriportal" className="group bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-700 hover:via-yellow-600 hover:to-red-700 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
-                  <span className="flex items-center gap-2">
-                    🇻🇳 {isVietnamese ? 'VeriPortal - Onboarding Văn hóa Việt' : 'VeriPortal - Vietnamese Cultural Onboarding'}
-                  </span>
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                </Link>
-                <Link to="/app" className="group bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
-                  <span>{t('veriportal:hero.tryFree')}</span>
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                </Link>
                 <Link to="/app" className="bg-white hover:bg-gray-50 text-teal-600 px-8 py-4 rounded-xl font-semibold border-2 border-teal-600 transition-all flex items-center justify-center">
                   {t('veriportal:hero.enterApp')}
                 </Link>

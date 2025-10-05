@@ -11,7 +11,11 @@
     "contact": "Liên hệ",
     "getStarted": "Bắt đầu ngay",
     "enterApp": "Vào ứng dụng",
-    "language": "Tiếng Việt"
+    "language": "Tiếng Việt",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "continue": "Tiếp tục",
+    "finish": "Hoàn thành"
   },
   "buttons": {
     "tryFree": "Dùng thử miễn phí",
@@ -44,7 +48,17 @@
     "description": "Giải pháp tuân thủ PDPL 2025 chuyên biệt cho doanh nghiệp Việt Nam với trí tuệ văn hóa tích hợp"
   },
   "language": {
-    "current": "Tiếng Việt"
+    "current": "Tiếng Việt",
+    "chooser": {
+      "title": "Chọn ngôn ngữ",
+      "description": "Chuyển đổi giữa tiếng Việt và tiếng Anh",
+      "vietnamese": "Tiếng Việt",
+      "english": "English",
+      "primary": "Ngôn ngữ chính",
+      "secondary": "Phụ",
+      "active": "Đang hoạt động",
+      "aiEnabled": "AI đã kích hoạt"
+    }
   },
   "system": {
     "backendStatus": "Trạng thái hệ thống backend:",

@@ -58,5 +58,10 @@
     "description": "Chúng tôi hiểu văn hóa kinh doanh Việt Nam và sẽ điều chỉnh trải nghiệm phù hợp với doanh nghiệp của bạn",
     "culturalPromise": "Giao diện và quy trình sẽ được tùy chỉnh theo vùng miền và loại hình kinh doanh",
     "nextAction": "Bắt đầu thiết lập"
+  },
+  "regionalAdaptation": {
+    "title": "Tùy chỉnh Vùng miền",
+    "subtitle": "Tùy chỉnh cho vùng miền Việt Nam của bạn",
+    "description": "Chọn vùng miền kinh doanh để tối ưu hóa quy trình tuân thủ cho các thực hành địa phương"
   }
 }

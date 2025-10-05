@@ -58,5 +58,10 @@
     "description": "We understand Vietnamese business culture and will adapt the experience to your business",
     "culturalPromise": "Interface and processes will be customized for your region and business type",
     "nextAction": "Start Setup"
+  },
+  "regionalAdaptation": {
+    "title": "Regional Adaptation",
+    "subtitle": "Customize for your Vietnamese region",
+    "description": "Select your business region to optimize compliance processes for local practices"
   }
 }

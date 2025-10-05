@@ -13,12 +13,11 @@ import type {
   VeriAIInsights
 } from './types';
 import {
-  VeriLanguageSwitcher,
   VeriOnboardingProgress,
   VeriOnboardingContent,
-  VeriAIInsightsDashboard,
-  VeriOnboardingLayout
+  VeriAIInsightsDashboard
 } from './components';
+import { VeriPortalLayout } from '../VeriPortalLayout';
 import {
   initializeVeriAICulturalEngine,
   startVeriMLCulturalAnalysis,
@@ -122,8 +121,29 @@ export const VeriCulturalOnboardingSystem: React.FC = () => {
   const { i18n } = useTranslation();
   const [veriOnboardingState, setVeriOnboardingState] = useState<VeriCulturalOnboardingSystemType>();
   const [veriCurrentStep, setVeriCurrentStep] = useState<VeriOnboardingStep>('cultural-introduction');
-  const [veriLanguage, setVeriLanguage] = useState<'vietnamese' | 'english'>('vietnamese');
+  
+  // Initialize with current i18n language state to avoid desynchronization
+  const [veriLanguage, setVeriLanguage] = useState<'vietnamese' | 'english'>(() => {
+    return i18n.language === 'vi' ? 'vietnamese' : 'english';
+  });
   const [veriCulturalContext, setVeriCulturalContext] = useState<VeriCulturalContext>();
+
+  // Keep VeriPortal state synchronized with global i18n state changes
+  useEffect(() => {
+    const handleLanguageChange = (lang: string) => {
+      const newVeriLang = lang === 'vi' ? 'vietnamese' : 'english';
+      console.log(`🔄 VeriPortal: Syncing with global i18n change ${lang} → ${newVeriLang}`);
+      setVeriLanguage(newVeriLang);
+    };
+
+    // Listen for i18n language changes
+    i18n.on('languageChanged', handleLanguageChange);
+
+    // Cleanup listener on unmount
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
   const [veriAIEngine, setVeriAIEngine] = useState<VeriAICulturalEngine>();
   const [veriMLPersonalization, setVeriMLPersonalization] = useState<VeriMLPersonalizationEngine>();
   const [veriAutomationEngine, setVeriAutomationEngine] = useState<VeriAutomationEngine>();
@@ -255,101 +275,116 @@ export const VeriCulturalOnboardingSystem: React.FC = () => {
   }
 
   return (
-    <VeriAIPoweredCulturalOnboardingProvider
+    <VeriPortalLayout 
       veriLanguage={veriLanguage}
-      veriCulturalContext={veriCulturalContext}
-      veriOnboardingState={veriOnboardingState}
-      veriAIEngine={veriAIEngine}
-      veriMLPersonalization={veriMLPersonalization}
-      veriAutomationEngine={veriAutomationEngine}
-      veriAIInsights={veriAIInsights}
+      veriCurrentLanguage={veriLanguage}
+      setVeriLanguage={(newLanguage) => {
+        console.log(`🔥 VeriPortal: Language change request from ${veriLanguage} to ${newLanguage}`);
+        
+        // Only update i18n - component state will be updated by the useEffect listener
+        const i18nLang = newLanguage === 'vietnamese' ? 'vi' : 'en';
+        i18n.changeLanguage(i18nLang);
+        
+        console.log(`🔥 VeriPortal: i18n.changeLanguage(${i18nLang}) called - state will sync automatically`);
+      }}
     >
-      <VeriOnboardingLayout veriCulturalStyle={veriCulturalContext?.veriRegion}>
-        <div className="veri-onboarding-header">
-          {/* Debug Language Indicator */}
-          <div style={{
-            position: 'fixed',
-            top: '10px',
-            right: '10px',
-            background: veriLanguage === 'vietnamese' ? '#da251d' : '#007bff',
-            color: 'white',
-            padding: '10px 15px',
-            borderRadius: '8px',
-            zIndex: 1000,
-            fontSize: '14px',
-            fontWeight: 'bold',
-            border: '3px solid white',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
-          }}>
-            🌐 LANG: {veriLanguage.toUpperCase()} 
-            {veriLanguage === 'vietnamese' ? ' 🇻🇳' : ' 🇺🇸'}
+      <VeriAIPoweredCulturalOnboardingProvider
+        veriLanguage={veriLanguage}
+        veriCulturalContext={veriCulturalContext}
+        veriOnboardingState={veriOnboardingState}
+        veriAIEngine={veriAIEngine}
+        veriMLPersonalization={veriMLPersonalization}
+        veriAutomationEngine={veriAutomationEngine}
+        veriAIInsights={veriAIInsights}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          
+          {/* Welcome Section - Moved from VeriCulturalIntroductionStep */}
+          <div className="space-y-8 mb-8">
+            {/* Hero Section - Landing Page Style */}
+            <div className="text-center space-y-6">
+              <div className="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium">
+                <span className="text-lg">🇻🇳</span>
+                <span>{veriLanguage === 'vietnamese' ? 'Onboarding Văn hóa Việt' : 'Vietnamese Cultural Onboarding'}</span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
+                {veriLanguage === 'vietnamese' ? 'Chào mừng bạn đến với ' : 'Welcome to '}
+                <span className="text-orange-500 bg-gradient-to-r from-orange-500 to-emerald-600 bg-clip-text text-transparent">
+                  VeriPortal
+                </span>
+              </h1>
+
+              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                {veriLanguage === 'vietnamese' 
+                  ? 'Chúng tôi hiểu văn hóa kinh doanh Việt Nam và sẽ điều chỉnh trải nghiệm phù hợp với doanh nghiệp của bạn'
+                  : 'We understand Vietnamese business culture and will tailor the experience to fit your business'
+                }
+              </p>
+            </div>
+
+            {/* Description Card - Landing Page Style */}
+            <div className="bg-gradient-to-r from-orange-50 to-emerald-50 rounded-3xl p-8 border border-orange-100">
+              <div className="space-y-6">
+                <p className="text-lg text-gray-700 leading-relaxed text-center">
+                  {veriLanguage === 'vietnamese'
+                    ? 'Chúng tôi sẽ hướng dẫn bạn từng bước để đảm bảo doanh nghiệp của bạn tuân thủ PDPL 2025 một cách hiệu quả và phù hợp với văn hóa Việt Nam.'
+                    : 'We will guide you step by step to ensure your business complies with PDPL 2025 effectively and in accordance with Vietnamese culture.'
+                  }
+                </p>
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-emerald-100">
+                  <div className="flex items-center justify-center space-x-3">
+                    <div className="w-3 h-3 bg-gradient-to-r from-orange-500 to-emerald-600 rounded-full"></div>
+                    <p className="text-gray-800 font-medium">
+                      {veriLanguage === 'vietnamese'
+                        ? 'Chúng tôi cam kết mang đến trải nghiệm phù hợp với văn hóa doanh nghiệp Việt Nam'
+                        : 'We are committed to providing an experience that fits Vietnamese business culture'
+                      }
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           
-          <VeriLanguageSwitcher
-            veriCurrentLanguage={veriLanguage}
-            setVeriLanguage={(newLanguage) => {
-              console.log(`🔥 MAIN COMPONENT: Received language change request from ${veriLanguage} to ${newLanguage}`);
-              
-              // Update component state
-              setVeriLanguage(newLanguage);
-              
-              // Sync with i18n system
-              const i18nLang = newLanguage === 'vietnamese' ? 'vi' : 'en';
-              i18n.changeLanguage(i18nLang);
-              
-              console.log(`🔥 MAIN COMPONENT: State and i18n should now be ${newLanguage} (${i18nLang})`);
-            }}
-            veriPrimaryLanguage="vietnamese"
-            veriSecondaryLanguage="english"
-            veriAIEngine={veriAIEngine}
-            veriMLPersonalization={veriMLPersonalization}
-            veriAutomationEngine={veriAutomationEngine}
-          />
-          
-          {/* Language Test Indicator */}
-          <div style={{
-            position: 'fixed',
-            top: '60px',
-            right: '10px',
-            background: '#00ff00',
-            color: 'black',
-            padding: '8px 12px',
-            borderRadius: '5px',
-            zIndex: 999,
-            fontSize: '12px'
-          }}>
-            TEST: {veriLanguage === 'vietnamese' ? 'Tiếng Việt được chọn' : 'English selected'}
+          {/* Progress Card */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+            <VeriOnboardingProgress
+              veriCurrentStep={veriCurrentStep}
+              veriTotalSteps={veriOnboardingSteps.length}
+              veriCulturalStyle={veriCulturalContext?.veriCommunicationStyle}
+              veriSteps={veriOnboardingSteps}
+            />
           </div>
           
-          <VeriOnboardingProgress
-            veriCurrentStep={veriCurrentStep}
-            veriTotalSteps={veriOnboardingSteps.length}
-            veriCulturalStyle={veriCulturalContext?.veriCommunicationStyle}
-            veriSteps={veriOnboardingSteps}
-          />
+          {/* Main Content Card */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 p-8 mb-8">
+            <VeriOnboardingContent
+              key={`content-${veriLanguage}`}
+              veriCurrentStep={veriCurrentStep}
+              veriLanguage={veriLanguage}
+              veriCulturalContext={veriCulturalContext}
+              veriAIEngine={veriAIEngine}
+              veriMLPersonalization={veriMLPersonalization}
+              veriAutomationEngine={veriAutomationEngine}
+              veriAIInsights={veriAIInsights}
+              veriOnNext={veriHandleStepProgression}
+              veriOnPrevious={(prevStep) => setVeriCurrentStep(prevStep)}
+            />
+          </div>
+          
+          {/* AI Insights Dashboard Card */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 p-6">
+            <VeriAIInsightsDashboard
+              veriAIInsights={veriAIInsights}
+              veriMLRecommendations={veriMLPersonalization}
+              veriAutomationStatus={veriAutomationEngine?.veriAutomationStatus}
+              veriLanguage={veriLanguage}
+            />
+          </div>
         </div>
-        
-        <VeriOnboardingContent
-          key={`content-${veriLanguage}`}
-          veriCurrentStep={veriCurrentStep}
-          veriLanguage={veriLanguage}
-          veriCulturalContext={veriCulturalContext}
-          veriAIEngine={veriAIEngine}
-          veriMLPersonalization={veriMLPersonalization}
-          veriAutomationEngine={veriAutomationEngine}
-          veriAIInsights={veriAIInsights}
-          veriOnNext={veriHandleStepProgression}
-          veriOnPrevious={(prevStep) => setVeriCurrentStep(prevStep)}
-        />
-        
-        <VeriAIInsightsDashboard
-          veriAIInsights={veriAIInsights}
-          veriMLRecommendations={veriMLPersonalization}
-          veriAutomationStatus={veriAutomationEngine?.veriAutomationStatus}
-          veriLanguage={veriLanguage}
-        />
-      </VeriOnboardingLayout>
-    </VeriAIPoweredCulturalOnboardingProvider>
+      </VeriAIPoweredCulturalOnboardingProvider>
+    </VeriPortalLayout>
   );
 };
 

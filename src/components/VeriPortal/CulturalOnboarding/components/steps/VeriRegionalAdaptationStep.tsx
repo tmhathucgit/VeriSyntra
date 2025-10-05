@@ -2,24 +2,35 @@
 // Implementation Status: ✅ IMPLEMENTED
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { VeriOnboardingStep } from '../../types';
 
 interface VeriRegionalAdaptationStepProps {
-  veriLanguage: 'vietnamese' | 'english';
   veriOnNext: (nextStep: VeriOnboardingStep) => void;
   veriOnPrevious: (prevStep: VeriOnboardingStep) => void;
 }
 
 export const VeriRegionalAdaptationStep: React.FC<VeriRegionalAdaptationStepProps> = ({
-  veriLanguage,
   veriOnNext,
   veriOnPrevious
 }) => {
+  const { t, i18n } = useTranslation(['common', 'veriportal']);
+
+  // Ensure i18n is ready before rendering
+  if (!i18n.isInitialized) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
-      <h2>{veriLanguage === 'vietnamese' ? 'Tùy chỉnh Vùng miền' : 'Regional Adaptation'}</h2>
-      <button onClick={() => veriOnPrevious('business-profile-setup')}>Back</button>
-      <button onClick={() => veriOnNext('cultural-preferences')}>Next</button>
+      <h2>{t('veriportal:regionalAdaptation.title')}</h2>
+      <p>{t('veriportal:regionalAdaptation.description')}</p>
+      <button onClick={() => veriOnPrevious('business-profile-setup')}>
+        {t('common:navigation.back')}
+      </button>
+      <button onClick={() => veriOnNext('cultural-preferences')}>
+        {t('common:navigation.next')}
+      </button>
     </div>
   );
 };

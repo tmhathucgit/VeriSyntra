@@ -1,0 +1,190 @@
+/* VeriPortal Theme Enhancements - Landing Page Style Integration */
+/* Implementation Status: 🚀 NEW THEME INTEGRATION */
+
+/* Global VeriPortal Container Styling */
+.veri-portal-container {
+  background: linear-gradient(135deg, #fff8e1 0%, #f0f8ff 50%, #f8f9fa 100%);
+  min-height: 100vh;
+}
+
+/* Enhanced Card Styling for VeriPortal */
+.veri-portal-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.veri-portal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* VeriPortal Gradient Text */
+.veri-gradient-text {
+  background: linear-gradient(135deg, #f97316 0%, #10b981 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Vietnamese Flag Styling */
+.veri-vietnam-flag {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #da251d 0%, #ffda00 50%, #da251d 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px 0 rgba(218, 37, 29, 0.39);
+}
+
+/* Cultural Pattern Background */
+.veri-cultural-bg-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, #f97316 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, #10b981 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, #06b6d4 0%, transparent 50%);
+  background-size: 300px 300px, 250px 250px, 200px 200px;
+  background-position: 0 0, 100px 100px, 200px 0;
+  opacity: 0.03;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Enhanced Button Styles */
+.veri-action-button {
+  background: linear-gradient(135deg, #da251d 0%, #ffda00 50%, #da251d 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.veri-action-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Stats Section Styling */
+.veri-stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.veri-stat-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.veri-stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  display: block;
+}
+
+.veri-stat-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+/* Feature Grid Enhancements */
+.veri-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.veri-feature-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.veri-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Progress Bar Styling */
+.veri-progress-container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.veri-progress-bar {
+  height: 0.5rem;
+  background: linear-gradient(90deg, #f97316 0%, #10b981 100%);
+  border-radius: 0.25rem;
+  transition: width 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .veri-feature-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .veri-stats-section {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .veri-action-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Animation Utilities */
+@keyframes veri-fade-in {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.veri-fade-in {
+  animation: veri-fade-in 0.6s ease-out forwards;
+}
+
+@keyframes veri-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.veri-floating {
+  animation: veri-float 3s ease-in-out infinite;
+}
