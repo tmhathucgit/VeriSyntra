@@ -38,6 +38,8 @@
   },
   "ui": {
     "loading": "Đang tải...",
+    "loadingVeriPortal": "Khởi tạo VeriPortal AI",
+    "loadingDescription": "Đang chuẩn bị trải nghiệm tuân thủ PDPL dành riêng cho Việt Nam",
     "error": "Có lỗi xảy ra",
     "success": "Thành công",
     "warning": "Cảnh báo",

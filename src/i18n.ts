@@ -6,12 +6,14 @@ import commonVi from './locales/vi/common.json';
 import veriportalVi from './locales/vi/veriportal.json';
 import vericomplianceVi from './locales/vi/vericompliance.json';
 import culturalVi from './locales/vi/cultural.json';
+import landingVi from './locales/vi/landing.json';
 
 // English translations  
 import commonEn from './locales/en/common.json';
 import veriportalEn from './locales/en/veriportal.json';
 import vericomplianceEn from './locales/en/vericompliance.json';
 import culturalEn from './locales/en/cultural.json';
+import landingEn from './locales/en/landing.json';
 
 const resources = {
   vi: {
@@ -19,12 +21,14 @@ const resources = {
     veriportal: veriportalVi,
     vericompliance: vericomplianceVi,
     cultural: culturalVi,
+    landing: landingVi,
   },
   en: {
     common: commonEn,
     veriportal: veriportalEn,
     vericompliance: vericomplianceEn,
     cultural: culturalEn,
+    landing: landingEn,
   }
 };
 
@@ -41,7 +45,7 @@ i18n
     
     // Namespace configuration for microservices
     defaultNS: 'common',
-    ns: ['common', 'veriportal', 'vericompliance', 'cultural'],
+    ns: ['common', 'veriportal', 'vericompliance', 'cultural', 'landing'],
     
     interpolation: {
       escapeValue: false, // React already does escaping

@@ -7,7 +7,7 @@ import vnMapLogo from '../svg/vnMapLogo.svg';
 
 function Landing() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t } = useTranslation(['common', 'veriportal']);
+  const { t } = useTranslation(['common', 'landing']);
   const { switchLanguage, isVietnamese } = useLanguageSwitch();
 
   return (
@@ -24,10 +24,10 @@ function Landing() {
             </Link>
 
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('veriportal:navigation.features')}</a>
-              <a href="#benefits" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('veriportal:navigation.benefits')}</a>
-              <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('veriportal:navigation.about')}</a>
-              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('veriportal:navigation.contact')}</a>
+              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('landing:navigation.features')}</a>
+              <a href="#benefits" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('landing:navigation.benefits')}</a>
+              <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('landing:navigation.about')}</a>
+              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">{t('landing:navigation.contact')}</a>
               <Link to="/veriportal" className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 shadow-sm inline-block">
                 {t('veriportal:hero.getStarted')}
               </Link>
@@ -52,12 +52,12 @@ function Landing() {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-gray-100 bg-white">
             <div className="px-4 py-4 space-y-3">
-              <a href="#features" className="block text-gray-600 hover:text-gray-900 py-2">Tính năng</a>
-              <a href="#benefits" className="block text-gray-600 hover:text-gray-900 py-2">Lợi ích</a>
-              <a href="#about" className="block text-gray-600 hover:text-gray-900 py-2">Về chúng tôi</a>
-              <a href="#contact" className="block text-gray-600 hover:text-gray-900 py-2">Liên hệ</a>
+              <a href="#features" className="block text-gray-600 hover:text-gray-900 py-2">{t('landing:navigation.features')}</a>
+              <a href="#benefits" className="block text-gray-600 hover:text-gray-900 py-2">{t('landing:navigation.benefits')}</a>
+              <a href="#about" className="block text-gray-600 hover:text-gray-900 py-2">{t('landing:navigation.about')}</a>
+              <a href="#contact" className="block text-gray-600 hover:text-gray-900 py-2">{t('landing:navigation.contact')}</a>
               <Link to="/veriportal" className="block w-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-medium text-center mb-2">
-                {t('veriportal:hero.getStarted')}
+                {t('landing:hero.getStarted')}
               </Link>
               <button 
                 onClick={() => switchLanguage(isVietnamese ? 'en' : 'vi')}
@@ -78,41 +78,41 @@ function Landing() {
             <div className="space-y-8">
               <div className="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium">
                 <Shield size={16} />
-                <span>{t('veriportal:hero.badge')}</span>
+                <span>{t('landing:hero.badge')}</span>
               </div>
 
               <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight">
-                {t('veriportal:hero.title').split('PDPL 2025')[0]}{' '}
+                {t('landing:hero.title').split('PDPL 2025')[0]}{' '}
                 <span className="text-orange-500 bg-gradient-to-r from-orange-500 to-emerald-600 bg-clip-text text-transparent">
                   PDPL 2025
                 </span>{' '}
-                {t('veriportal:hero.title').split('PDPL 2025')[1]}
+                {t('landing:hero.title').split('PDPL 2025')[1]}
               </h1>
 
               <p className="text-xl text-gray-600 leading-relaxed">
-                {t('veriportal:hero.subtitle')}
+                {t('landing:hero.subtitle')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/app" className="bg-white hover:bg-gray-50 text-teal-600 px-8 py-4 rounded-xl font-semibold border-2 border-teal-600 transition-all flex items-center justify-center">
-                  {t('veriportal:hero.enterApp')}
+                  {t('landing:hero.enterApp')}
                 </Link>
               </div>
 
               <div className="flex items-center space-x-8 pt-4">
                 <div>
                   <div className="text-3xl font-bold text-gray-900">500+</div>
-                  <div className="text-sm text-gray-600">{t('veriportal:stats.trustedBusinesses')}</div>
+                  <div className="text-sm text-gray-600">{t('landing:stats.trustedBusinesses')}</div>
                 </div>
                 <div className="h-12 w-px bg-gray-300"></div>
                 <div>
                   <div className="text-3xl font-bold text-gray-900">99.9%</div>
-                  <div className="text-sm text-gray-600">{t('veriportal:stats.complianceRate')}</div>
+                  <div className="text-sm text-gray-600">{t('landing:stats.complianceRate')}</div>
                 </div>
                 <div className="h-12 w-px bg-gray-300"></div>
                 <div>
                   <div className="text-3xl font-bold text-gray-900">24/7</div>
-                  <div className="text-sm text-gray-600">{t('veriportal:stats.support')}</div>
+                  <div className="text-sm text-gray-600">{t('landing:stats.support')}</div>
                 </div>
               </div>
             </div>
@@ -124,32 +124,32 @@ function Landing() {
                   <div className="flex items-start space-x-4 p-4 bg-green-50 rounded-xl border border-green-100">
                     <CheckCircle className="text-green-500 flex-shrink-0 mt-1" size={24} />
                     <div>
-                      <h3 className="font-semibold text-gray-900">Đánh giá tự động</h3>
-                      <p className="text-sm text-gray-600 mt-1">Hệ thống tự động đánh giá mức độ tuân thủ PDPL</p>
+                      <h3 className="font-semibold text-gray-900">{t('landing:features.automaticAssessment.title')}</h3>
+                      <p className="text-sm text-gray-600 mt-1">{t('landing:features.automaticAssessment.description')}</p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
                     <Lock className="text-emerald-600 flex-shrink-0 mt-1" size={24} />
                     <div>
-                      <h3 className="font-semibold text-gray-900">Bảo mật dữ liệu</h3>
-                      <p className="text-sm text-gray-600 mt-1">Quản lý và bảo vệ dữ liệu cá nhân theo chuẩn quốc tế</p>
+                      <h3 className="font-semibold text-gray-900">{t('landing:features.dataProtection.title')}</h3>
+                      <p className="text-sm text-gray-600 mt-1">{t('landing:features.dataProtection.description')}</p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4 p-4 bg-orange-50 rounded-xl border border-orange-100">
                     <FileText className="text-orange-500 flex-shrink-0 mt-1" size={24} />
                     <div>
-                      <h3 className="font-semibold text-gray-900">Tài liệu hoàn chỉnh</h3>
-                      <p className="text-sm text-gray-600 mt-1">Tạo tự động các tài liệu tuân thủ cần thiết</p>
+                      <h3 className="font-semibold text-gray-900">{t('landing:features.documentGeneration.title')}</h3>
+                      <p className="text-sm text-gray-600 mt-1">{t('landing:features.documentGeneration.description')}</p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4 p-4 bg-cyan-50 rounded-xl border border-cyan-100">
                     <Users className="text-cyan-600 flex-shrink-0 mt-1" size={24} />
                     <div>
-                      <h3 className="font-semibold text-gray-900">Đào tạo nhân viên</h3>
-                      <p className="text-sm text-gray-600 mt-1">Khóa học và tài liệu đào tạo cho đội ngũ</p>
+                      <h3 className="font-semibold text-gray-900">{t('landing:features.staffTraining.title')}</h3>
+                      <p className="text-sm text-gray-600 mt-1">{t('landing:features.staffTraining.description')}</p>
                     </div>
                   </div>
                 </div>
@@ -164,10 +164,10 @@ function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Tính năng nổi bật
+              {t('landing:features.title')}
             </h2>
             <p className="text-xl text-gray-600">
-              Giải pháp toàn diện giúp doanh nghiệp tuân thủ PDPL 2025 một cách dễ dàng
+              {t('landing:features.description')}
             </p>
           </div>
 
@@ -175,38 +175,38 @@ function Landing() {
             {[
               {
                 icon: Shield,
-                title: 'Đánh giá tuân thủ',
-                description: 'Đánh giá tự động và chi tiết mức độ tuân thủ PDPL của doanh nghiệp',
+                title: t('landing:features.complianceAssessment.title'),
+                description: t('landing:features.complianceAssessment.description'),
                 color: 'bg-orange-100 text-orange-500'
               },
               {
                 icon: FileText,
-                title: 'Quản lý tài liệu',
-                description: 'Tạo và quản lý tất cả tài liệu cần thiết cho việc tuân thủ',
+                title: t('landing:features.documentManagement.title'),
+                description: t('landing:features.documentManagement.description'),
                 color: 'bg-emerald-100 text-emerald-600'
               },
               {
                 icon: Lock,
-                title: 'Bảo mật dữ liệu',
-                description: 'Công cụ quản lý và bảo vệ dữ liệu cá nhân theo tiêu chuẩn cao',
+                title: t('landing:features.dataProtection.title'),
+                description: t('landing:features.dataProtection.description'),
                 color: 'bg-teal-100 text-teal-600'
               },
               {
                 icon: Users,
-                title: 'Đào tạo & Hướng dẫn',
-                description: 'Khóa học và tài liệu đào tạo cho nhân viên về PDPL',
+                title: t('landing:features.training.title'),
+                description: t('landing:features.training.description'),
                 color: 'bg-cyan-100 text-cyan-600'
               },
               {
                 icon: CheckCircle,
-                title: 'Theo dõi tiến độ',
-                description: 'Dashboard theo dõi tiến độ tuân thủ theo thời gian thực',
+                title: t('landing:features.progressTracking.title'),
+                description: t('landing:features.progressTracking.description'),
                 color: 'bg-lime-100 text-lime-600'
               },
               {
                 icon: Shield,
-                title: 'Cập nhật liên tục',
-                description: 'Cập nhật tự động khi có thay đổi về quy định PDPL',
+                title: t('landing:features.continuousUpdates.title'),
+                description: t('landing:features.continuousUpdates.description'),
                 color: 'bg-green-100 text-green-600'
               }
             ].map((feature, index) => (
@@ -231,25 +231,25 @@ function Landing() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Tại sao chọn VeriSyntra?
+                {t('landing:benefits.title')}
               </h2>
               <div className="space-y-6">
                 {[
                   {
-                    title: 'Tiết kiệm chi phí',
-                    description: 'Giảm đến 70% chi phí so với việc thuê tư vấn bên ngoài'
+                    title: t('landing:benefits.costSaving.title'),
+                    description: t('landing:benefits.costSaving.description')
                   },
                   {
-                    title: 'Tiết kiệm thời gian',
-                    description: 'Đạt tuân thủ trong vòng 4-6 tuần thay vì 6-12 tháng'
+                    title: t('landing:benefits.timeSaving.title'),
+                    description: t('landing:benefits.timeSaving.description')
                   },
                   {
-                    title: 'Dễ sử dụng',
-                    description: 'Giao diện thân thiện, không cần kiến thức chuyên môn sâu'
+                    title: t('landing:benefits.easeOfUse.title'),
+                    description: t('landing:benefits.easeOfUse.description')
                   },
                   {
-                    title: 'Hỗ trợ tiếng Việt',
-                    description: 'Hoàn toàn bằng tiếng Việt, phù hợp với doanh nghiệp Việt Nam'
+                    title: t('landing:benefits.vietnameseSupport.title'),
+                    description: t('landing:benefits.vietnameseSupport.description')
                   }
                 ].map((benefit, index) => (
                   <div key={index} className="flex items-start space-x-4">
@@ -267,36 +267,36 @@ function Landing() {
 
             <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('veriportal:cta.startToday')}</h3>
-                <p className="text-gray-600">Dùng thử miễn phí 14 ngày, không cần thẻ tín dụng</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('landing:cta.startToday')}</h3>
+                <p className="text-gray-600">{t('landing:trial.description')}</p>
               </div>
 
               <form className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Tên doanh nghiệp
+                    {t('landing:form.businessName')}
                   </label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
-                    placeholder="Công ty ABC"
+                    placeholder={t('landing:form.businessNamePlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email công ty
+                    {t('landing:form.companyEmail')}
                   </label>
                   <input
                     type="email"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
-                    placeholder="contact@company.com"
+                    placeholder={t('landing:form.emailPlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Số điện thoại
+                    {t('landing:form.phoneNumber')}
                   </label>
                   <input
                     type="tel"
@@ -309,13 +309,13 @@ function Landing() {
                   type="submit"
                   className="w-full bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
-                  Đăng ký dùng thử miễn phí
+                  {t('landing:trial.signupButton')}
                 </button>
               </form>
 
               <p className="text-center text-sm text-gray-500 mt-6">
-                Bằng cách đăng ký, bạn đồng ý với{' '}
-                <a href="#" className="text-orange-500 hover:underline">Điều khoản dịch vụ</a>
+                {t('landing:trial.agreement')}{' '}
+                <a href="#" className="text-orange-500 hover:underline">{t('landing:footer.termsOfService')}</a>
               </p>
             </div>
           </div>
@@ -326,10 +326,10 @@ function Landing() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-teal-600 to-emerald-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            {t('veriportal:cta.title')}
+            {t('landing:cta.title')}
           </h2>
           <p className="text-xl text-teal-100 mb-8 leading-relaxed">
-            {t('veriportal:cta.subtitle')}
+            {t('landing:cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
@@ -337,18 +337,18 @@ function Landing() {
               className="group bg-white hover:bg-gray-100 text-teal-600 px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
             >
               <Shield className="w-5 h-5" />
-              <span>{t('veriportal:cta.enterVeriSyntra')}</span>
+              <span>{t('landing:cta.enterVeriSyntra')}</span>
               <ArrowRight className="group-hover:translate-x-1 transition-transform w-5 h-5" />
             </Link>
             <Link 
               to="/app" 
               className="bg-teal-700 hover:bg-teal-800 text-white px-8 py-4 rounded-xl font-semibold border-2 border-teal-400 transition-all flex items-center justify-center space-x-2"
             >
-              <span>{t('veriportal:hero.liveDemo')}</span>
+              <span>{t('landing:hero.liveDemo')}</span>
             </Link>
           </div>
           <div className="mt-8 text-teal-100 text-sm">
-            ✅ Miễn phí dùng thử • ✅ Hỗ trợ tiếng Việt • ✅ Tuân thủ văn hóa doanh nghiệp Việt Nam
+            {t('landing:trial.benefits')}
           </div>
         </div>
       </section>
@@ -363,41 +363,41 @@ function Landing() {
                 <span className="text-xl font-bold text-white">VeriSyntra</span>
               </div>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Giải pháp tuân thủ PDPL 2025 hàng đầu cho doanh nghiệp Việt Nam
+                {t('landing:footer.companyDescription')}
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold text-white mb-4">Sản phẩm</h4>
+              <h4 className="font-semibold text-white mb-4">{t('landing:footer.products')}</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Tính năng</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Bảng giá</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Tài liệu</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing:footer.features')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing:footer.pricing')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing:footer.documentation')}</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold text-white mb-4">Công ty</h4>
+              <h4 className="font-semibold text-white mb-4">{t('landing:footer.company')}</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Về chúng tôi</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Liên hệ</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing:footer.aboutUs')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing:footer.blog')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing:footer.contact')}</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold text-white mb-4">Hỗ trợ</h4>
+              <h4 className="font-semibold text-white mb-4">{t('landing:footer.support')}</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Trung tâm hỗ trợ</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Điều khoản dịch vụ</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Chính sách bảo mật</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing:footer.helpCenter')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing:footer.termsOfService')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing:footer.privacyPolicy')}</a></li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-400">
-              © 2025 VeriSyntra. All rights reserved.
+              {t('landing:footer.copyright')}
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">Facebook</a>

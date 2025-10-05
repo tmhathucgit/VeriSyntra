@@ -1,0 +1,125 @@
+{
+  "navigation": {
+    "features": "Tính năng",
+    "benefits": "Lợi ích", 
+    "about": "Về chúng tôi",
+    "contact": "Liên hệ"
+  },
+  "hero": {
+    "badge": "Tuân thủ PDPL 2025",
+    "title": "Giải pháp tuân thủ PDPL 2025 cho doanh nghiệp Việt",
+    "subtitle": "Cổng tự phục vụ giúp doanh nghiệp Việt Nam đạt được và duy trì sự tuân thủ PDPL 2025 một cách độc lập, nhanh chóng và hiệu quả.",
+    "tryFree": "Dùng thử miễn phí",
+    "enterApp": "Vào ứng dụng",
+    "getStarted": "Bắt đầu ngay",
+    "liveDemo": "Xem demo trực tiếp"
+  },
+  "stats": {
+    "trustedBusinesses": "Hơn 1.500 doanh nghiệp Việt Nam tin tương",
+    "complianceRate": "Tỷ lệ tuân thủ 99.2%",
+    "support": "Hỗ trợ tiếng Việt 24/7"
+  },
+  "features": {
+    "title": "Tính năng nổi bật",
+    "description": "Giải pháp toàn diện giúp doanh nghiệp tuân thủ PDPL 2025 một cách dễ dàng",
+    "automaticAssessment": {
+      "title": "Đánh giá tự động",
+      "description": "Hệ thống tự động đánh giá mức độ tuân thủ PDPL"
+    },
+    "dataProtection": {
+      "title": "Bảo mật dữ liệu",
+      "description": "Công cụ quản lý và bảo vệ dữ liệu cá nhân theo tiêu chuẩn cao"
+    },
+    "complianceAssessment": {
+      "title": "Đánh giá tuân thủ",
+      "description": "Đánh giá tự động và chi tiết mức độ tuân thủ PDPL của doanh nghiệp"
+    },
+    "documentManagement": {
+      "title": "Quản lý tài liệu",
+      "description": "Tạo và quản lý tất cả tài liệu cần thiết cho việc tuân thủ"
+    },
+    "riskManagement": {
+      "title": "Quản lý rủi ro",
+      "description": "Xác định và quản lý các rủi ro bảo vệ dữ liệu"
+    },
+    "training": {
+      "title": "Đào tạo & Hướng dẫn",
+      "description": "Khóa học và tài liệu đào tạo cho nhân viên về PDPL"
+    },
+    "customerSupport": {
+      "title": "Hỗ trợ khách hàng",
+      "description": "Hoàn toàn bằng tiếng Việt, phù hợp với doanh nghiệp Việt Nam"
+    },
+    "documentGeneration": {
+      "title": "Tài liệu hoàn chỉnh",
+      "description": "Tạo tự động các tài liệu tuân thủ cần thiết"
+    },
+    "staffTraining": {
+      "title": "Đào tạo nhân viên",
+      "description": "Khóa học và tài liệu đào tạo cho đội ngũ"
+    },
+    "progressTracking": {
+      "title": "Theo dõi tiến độ",
+      "description": "Dashboard theo dõi tiến độ tuân thủ theo thời gian thực"
+    },
+    "continuousUpdates": {
+      "title": "Cập nhật liên tục",
+      "description": "Cập nhật tự động khi có thay đổi về quy định PDPL"
+    }
+  },
+  "benefits": {
+    "title": "Tại sao chọn VeriSyntra?",
+    "costSaving": {
+      "title": "Tiết kiệm chi phí",
+      "description": "Giảm đến 70% chi phí so với việc thuê tư vấn bên ngoài"
+    },
+    "timeSaving": {
+      "title": "Tiết kiệm thời gian",
+      "description": "Đạt tuân thủ trong vòng 4-6 tuần thay vì 6-12 tháng"
+    },
+    "easeOfUse": {
+      "title": "Dễ sử dụng",
+      "description": "Giao diện thân thiện, không cần kiến thức chuyên môn sâu"
+    },
+    "vietnameseSupport": {
+      "title": "Hỗ trợ tiếng Việt",
+      "description": "Hoàn toàn bằng tiếng Việt, phù hợp với doanh nghiệp Việt Nam"
+    }
+  },
+  "cta": {
+    "title": "Sẵn sàng tuân thủ PDPL 2025?",
+    "startToday": "Bắt đầu hôm nay",
+    "subtitle": "Truy cập nền tảng VeriSyntra ngay bây giờ để bắt đầu hành trình tuân thủ PDPL 2025 cho doanh nghiệp Việt Nam của bạn.",
+    "enterVeriSyntra": "Vào ứng dụng VeriSyntra"
+  },
+  "trial": {
+    "description": "Dùng thử miễn phí 14 ngày, không cần thẻ tín dụng",
+    "signupButton": "Đăng ký dùng thử miễn phí",
+    "benefits": "✅ Miễn phí dùng thử • ✅ Hỗ trợ tiếng Việt • ✅ Tuân thủ văn hóa doanh nghiệp Việt Nam",
+    "agreement": "Bằng cách đăng ký, bạn đồng ý với"
+  },
+  "form": {
+    "businessName": "Tên doanh nghiệp",
+    "businessNamePlaceholder": "Công ty ABC",
+    "companyEmail": "Email công ty",
+    "emailPlaceholder": "contact@company.com",
+    "phoneNumber": "Số điện thoại",
+        "phoneNumberPlaceholder": "0901234567"
+  },
+  "footer": {
+    "termsOfService": "Điều khoản dịch vụ",
+    "privacyPolicy": "Chính sách bảo mật",
+    "support": "Hỗ trợ",
+    "helpCenter": "Trung tâm hỗ trợ",
+    "copyright": "© 2025 VeriSyntra. Bảo lưu mọi quyền.",
+    "companyDescription": "Giải pháp tuân thủ PDPL 2025 hàng đầu cho doanh nghiệp Việt Nam",
+    "products": "Sản phẩm",
+    "features": "Tính năng",
+    "pricing": "Bảng giá",
+    "documentation": "Tài liệu",
+    "company": "Công ty",
+    "aboutUs": "Về chúng tôi",
+    "blog": "Blog",
+    "contact": "Liên hệ"
+  }
+}

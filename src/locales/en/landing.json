@@ -1,0 +1,123 @@
+{
+  "navigation": {
+    "features": "Features",
+    "benefits": "Benefits", 
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "PDPL 2025 Compliance",
+    "title": "PDPL 2025 compliance solution for Vietnamese businesses",
+    "subtitle": "Self-service portal helping Vietnamese businesses achieve and maintain PDPL 2025 compliance independently, quickly and efficiently.",
+    "tryFree": "Try Free",
+    "enterApp": "Enter App",
+    "getStarted": "Get Started",
+    "liveDemo": "Live Demo"
+  },
+  "stats": {
+    "trustedBusinesses": "1,500+ Trusted Vietnamese Businesses",
+    "complianceRate": "99.2% Compliance Rate",
+    "support": "24/7 Vietnamese Support"
+  },
+  "features": {
+    "automaticAssessment": {
+      "title": "Automatic Assessment",
+      "description": "System automatically assesses PDPL compliance level"
+    },
+    "dataProtection": {
+      "title": "Data Protection",
+      "description": "Advanced protection for customer and business data"
+    },
+    "complianceAssessment": {
+      "title": "Compliance Assessment",
+      "description": "Automatic and detailed assessment of business PDPL compliance level"
+    },
+    "documentManagement": {
+      "title": "Document Management",
+      "description": "Create and manage all documents needed for compliance"
+    },
+    "riskManagement": {
+      "title": "Risk Management", 
+      "description": "Identify and manage data protection risks"
+    },
+    "training": {
+      "title": "Training & Guidance",
+      "description": "Courses and training materials for staff on PDPL"
+    },
+    "customerSupport": {
+      "title": "Customer Support",
+      "description": "Completely in Vietnamese, suitable for Vietnamese businesses"
+    },
+    "documentGeneration": {
+      "title": "Complete Documentation",
+      "description": "Automatically generate necessary compliance documents"
+    },
+    "staffTraining": {
+      "title": "Staff Training",
+      "description": "Courses and training materials for your team"
+    },
+    "progressTracking": {
+      "title": "Progress Tracking",
+      "description": "Real-time compliance progress tracking dashboard"
+    },
+    "continuousUpdates": {
+      "title": "Continuous Updates",
+      "description": "Automatic updates when PDPL regulations change"
+    }
+  },
+  "benefits": {
+    "title": "Why Choose VeriSyntra?",
+    "costSaving": {
+      "title": "Cost Saving",
+      "description": "Reduce up to 70% costs compared to hiring external consultants"
+    },
+    "timeSaving": {
+      "title": "Time Saving",
+      "description": "Achieve compliance in 4-6 weeks instead of 6-12 months"
+    },
+    "easeOfUse": {
+      "title": "Easy to Use",
+      "description": "User-friendly interface, no deep technical knowledge required"
+    },
+    "vietnameseSupport": {
+      "title": "Vietnamese Support",
+      "description": "Completely in Vietnamese, suitable for Vietnamese businesses"
+    }
+  },
+  "cta": {
+    "title": "Ready for PDPL 2025 Compliance?",
+    "startToday": "Get Started Today",
+    "subtitle": "Access the VeriSyntra platform now to begin your Vietnamese enterprise PDPL 2025 compliance journey.",
+    "enterVeriSyntra": "Enter VeriSyntra App"
+  },
+  "trial": {
+    "description": "14-day free trial, no credit card required",
+    "signupButton": "Sign up for free trial",
+    "benefits": "✅ Free Trial • ✅ Vietnamese Support • ✅ Vietnamese Business Culture Compliance",
+    "agreement": "By signing up, you agree to our"
+  },
+  "form": {
+    "businessName": "Business Name",
+    "businessNamePlaceholder": "ABC Company",
+    "companyEmail": "Company Email",
+    "emailPlaceholder": "contact@company.com",
+    "phoneNumber": "Phone Number",
+    "phoneNumberPlaceholder": "+84 123 456 789"
+  },
+  "footer": {
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "support": "Support",
+    "helpCenter": "Help Center",
+    "copyright": "© 2025 VeriSyntra. All rights reserved.",
+    "companyDescription": "Leading PDPL 2025 compliance solution for Vietnamese businesses",
+    "products": "Products",
+    "features": "Features",
+    "pricing": "Pricing",
+    "documentation": "Documentation",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "blog": "Blog",
+    "contact": "Contact"
+  }
+}

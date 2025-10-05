@@ -38,6 +38,8 @@
   },
   "ui": {
     "loading": "Loading...",
+    "loadingVeriPortal": "Initializing VeriPortal AI",
+    "loadingDescription": "Preparing your Vietnamese-tailored PDPL compliance experience",
     "error": "An error occurred",
     "success": "Success",
     "warning": "Warning",

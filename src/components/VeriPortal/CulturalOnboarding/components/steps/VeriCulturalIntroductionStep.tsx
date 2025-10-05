@@ -1,4 +1,4 @@
-// VeriPortal Cultural Introduction Step - Vietnamese Cultural Component
+// VeriPortal Cultural Introduction Step - Vietnamese Cultura          <p className=\"mt-2 text-gray-600 veri-loading-text-small\">Đang tải bản dịch...</p> Component
 // Implementation Status: ✅ IMPLEMENTED
 
 import React, { useEffect } from 'react';

@@ -18,7 +18,12 @@ export const VeriRegionalAdaptationStep: React.FC<VeriRegionalAdaptationStepProp
 
   // Ensure i18n is ready before rendering
   if (!i18n.isInitialized) {
-    return <div>Loading...</div>;
+    return (
+      <div className="veri-simple-loading">
+        <div className="veri-loading-spinner-small"></div>
+        <span>Đang tải thông tin khu vực...</span>
+      </div>
+    );
   }
 
   return (

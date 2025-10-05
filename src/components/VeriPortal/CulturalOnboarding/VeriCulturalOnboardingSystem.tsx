@@ -118,7 +118,7 @@ const veriOnboardingSteps: VeriOnboardingStep[] = [
 
 // AI-Powered Main Vietnamese Cultural Onboarding Component
 export const VeriCulturalOnboardingSystem: React.FC = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [veriOnboardingState, setVeriOnboardingState] = useState<VeriCulturalOnboardingSystemType>();
   const [veriCurrentStep, setVeriCurrentStep] = useState<VeriOnboardingStep>('cultural-introduction');
   
@@ -258,16 +258,57 @@ export const VeriCulturalOnboardingSystem: React.FC = () => {
   if (veriIsLoading || !veriInitializationComplete) {
     return (
       <div className="veri-loading-container">
-        <div className="veri-loading-spinner">
-          <div className="veri-vietnam-flag">🇻🇳</div>
-          <div className="veri-loading-text">
-            {veriLanguage === 'vietnamese' 
-              ? 'Đang khởi tạo VeriPortal AI...' 
-              : 'Initializing VeriPortal AI...'
-            }
+        <div className="veri-loading-content">
+          {/* Vietnamese Lotus Logo */}
+          <div className="veri-lotus-container">
+            <div className="veri-lotus-spinner">
+              <div className="veri-lotus-petal veri-petal-1"></div>
+              <div className="veri-lotus-petal veri-petal-2"></div>
+              <div className="veri-lotus-petal veri-petal-3"></div>
+              <div className="veri-lotus-petal veri-petal-4"></div>
+              <div className="veri-lotus-petal veri-petal-5"></div>
+              <div className="veri-lotus-petal veri-petal-6"></div>
+              <div className="veri-lotus-center"></div>
+            </div>
           </div>
+          
+          {/* Vietnamese Flag Accent */}
+          <div className="veri-cultural-accent">
+            <span className="veri-flag-star">⭐</span>
+            <div className="veri-flag-colors">
+              <div className="veri-red-stripe"></div>
+              <div className="veri-gold-stripe"></div>
+            </div>
+          </div>
+
+          {/* Loading Text */}
+          <div className="veri-loading-text">
+            <h3 className="veri-loading-title">
+              {t('common:loadingVeriPortal')}
+            </h3>
+            <p className="veri-loading-subtitle">
+              {t('common:loadingDescription')}
+            </p>
+          </div>
+
+          {/* Progress Bar with Cultural Design */}
           <div className="veri-loading-progress">
-            <div className="veri-progress-bar"></div>
+            <div className="veri-progress-track">
+              <div className="veri-progress-fill"></div>
+              <div className="veri-progress-glow"></div>
+            </div>
+            <div className="veri-loading-dots">
+              <span className="veri-dot veri-dot-1"></span>
+              <span className="veri-dot veri-dot-2"></span>
+              <span className="veri-dot veri-dot-3"></span>
+            </div>
+          </div>
+
+          {/* Vietnamese Cultural Pattern */}
+          <div className="veri-cultural-pattern">
+            <div className="veri-pattern-element"></div>
+            <div className="veri-pattern-element"></div>
+            <div className="veri-pattern-element"></div>
           </div>
         </div>
       </div>
@@ -298,54 +339,6 @@ export const VeriCulturalOnboardingSystem: React.FC = () => {
         veriAIInsights={veriAIInsights}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          
-          {/* Welcome Section - Moved from VeriCulturalIntroductionStep */}
-          <div className="space-y-8 mb-8">
-            {/* Hero Section - Landing Page Style */}
-            <div className="text-center space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium">
-                <span className="text-lg">🇻🇳</span>
-                <span>{veriLanguage === 'vietnamese' ? 'Onboarding Văn hóa Việt' : 'Vietnamese Cultural Onboarding'}</span>
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
-                {veriLanguage === 'vietnamese' ? 'Chào mừng bạn đến với ' : 'Welcome to '}
-                <span className="text-orange-500 bg-gradient-to-r from-orange-500 to-emerald-600 bg-clip-text text-transparent">
-                  VeriPortal
-                </span>
-              </h1>
-
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                {veriLanguage === 'vietnamese' 
-                  ? 'Chúng tôi hiểu văn hóa kinh doanh Việt Nam và sẽ điều chỉnh trải nghiệm phù hợp với doanh nghiệp của bạn'
-                  : 'We understand Vietnamese business culture and will tailor the experience to fit your business'
-                }
-              </p>
-            </div>
-
-            {/* Description Card - Landing Page Style */}
-            <div className="bg-gradient-to-r from-orange-50 to-emerald-50 rounded-3xl p-8 border border-orange-100">
-              <div className="space-y-6">
-                <p className="text-lg text-gray-700 leading-relaxed text-center">
-                  {veriLanguage === 'vietnamese'
-                    ? 'Chúng tôi sẽ hướng dẫn bạn từng bước để đảm bảo doanh nghiệp của bạn tuân thủ PDPL 2025 một cách hiệu quả và phù hợp với văn hóa Việt Nam.'
-                    : 'We will guide you step by step to ensure your business complies with PDPL 2025 effectively and in accordance with Vietnamese culture.'
-                  }
-                </p>
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-emerald-100">
-                  <div className="flex items-center justify-center space-x-3">
-                    <div className="w-3 h-3 bg-gradient-to-r from-orange-500 to-emerald-600 rounded-full"></div>
-                    <p className="text-gray-800 font-medium">
-                      {veriLanguage === 'vietnamese'
-                        ? 'Chúng tôi cam kết mang đến trải nghiệm phù hợp với văn hóa doanh nghiệp Việt Nam'
-                        : 'We are committed to providing an experience that fits Vietnamese business culture'
-                      }
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           
           {/* Progress Card */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
