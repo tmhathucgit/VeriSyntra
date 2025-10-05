@@ -75,8 +75,8 @@ export const VeriOnboardingProgress: React.FC<VeriOnboardingProgressProps> = ({
         <div className="veri-progress-title">
           <h2>
             {veriIsVietnamese 
-              ? 'Tiến trình Thiết lập VeriPortal' 
-              : 'VeriPortal Setup Progress'
+              ? 'Tiến trình Thiết lập Onboarding' 
+              : 'Onboarding Setup Progress'
             }
           </h2>
           <div className="veri-cultural-indicator">

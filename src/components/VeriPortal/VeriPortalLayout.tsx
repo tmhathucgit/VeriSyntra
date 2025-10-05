@@ -68,7 +68,7 @@ export const VeriPortalLayout: React.FC<VeriPortalLayoutProps> = ({
               }}>
                 <Shield size={16} />
                 <span className="flex items-center gap-1">
-                  🇻🇳 {isVietnamese ? 'VeriPortal - Onboarding Văn hóa Việt' : 'VeriPortal - Vietnamese Cultural Onboarding'}
+                  🇻🇳 {isVietnamese ? 'Chào mừng đến VeriSyntra' : 'Welcome to VeriSyntra'}
                 </span>
               </div>
             </div>
@@ -117,7 +117,7 @@ export const VeriPortalLayout: React.FC<VeriPortalLayoutProps> = ({
         }}>
           <div className="px-4 py-3 text-center">
             <span className="flex items-center justify-center gap-2 text-sm font-medium">
-              🇻🇳 {isVietnamese ? 'VeriPortal - Onboarding Văn hóa Việt' : 'VeriPortal - Vietnamese Cultural Onboarding'}
+              🇻🇳 {isVietnamese ? 'Chào mừng đến VeriSyntra' : 'Welcome to VeriSyntra'}
             </span>
           </div>
         </div>

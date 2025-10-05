@@ -990,8 +990,8 @@ export const VeriCulturalProgressDashboard: React.FC = () => {
       <VeriProgressHeader>
         <VeriProgressTitle>
           {veriLanguage === 'vietnamese' 
-            ? 'Tiến trình Thiết lập VeriPortal'
-            : 'VeriPortal Setup Progress'
+            ? 'Tiến trình Thiết lập Onboarding'
+            : 'Onboarding Setup Progress'
           }
         </VeriProgressTitle>
         <VeriCulturalIndicator 

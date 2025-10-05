@@ -79,7 +79,8 @@ const createMockBusinessContext = (): VeriBusinessContext => ({
 
 export const VeriSystemIntegrationSystem: React.FC = () => {
   const { isVietnamese } = useLanguageSwitch();
-  const language = isVietnamese ? 'vietnamese' : 'english';
+  const [veriLanguage, setVeriLanguage] = useState<'vietnamese' | 'english'>(isVietnamese ? 'vietnamese' : 'english');
+  const language = veriLanguage;
   
   // Set page title
   usePageTitle({ 
@@ -96,6 +97,11 @@ export const VeriSystemIntegrationSystem: React.FC = () => {
   const [veriGovernmentConnections, setVeriGovernmentConnections] = useState<VeriGovernmentConnection[]>();
   const [veriMPSIntegration, setVeriMPSIntegration] = useState<VeriMPSIntegration>();
   const [veriLoading, setVeriLoading] = useState(true);
+
+  // Language change handler
+  const handleVeriLanguageChange = (lang: 'vi' | 'en') => {
+    setVeriLanguage(lang === 'vi' ? 'vietnamese' : 'english');
+  };
 
   // Content translations
   const content = {
@@ -288,7 +294,12 @@ export const VeriSystemIntegrationSystem: React.FC = () => {
   if (veriLoading) {
     return (
       <div className="veri-system-integration-container">
-        <VeriSyntraBanner variant="portal" />
+        <VeriSyntraBanner 
+          variant="portal"
+          currentLanguage={veriLanguage === 'vietnamese' ? 'vi' : 'en'}
+          onLanguageChange={handleVeriLanguageChange}
+          showLanguageToggle={true}
+        />
         <div className="veri-system-integration-loading">
           <div className="veri-lotus-spinner"></div>
           <p className="veri-loading-text">{content[language].loading}</p>
@@ -299,7 +310,12 @@ export const VeriSystemIntegrationSystem: React.FC = () => {
 
   return (
     <div className="veri-system-integration-container">
-      <VeriSyntraBanner variant="portal" />
+      <VeriSyntraBanner 
+        variant="portal"
+        currentLanguage={veriLanguage === 'vietnamese' ? 'vi' : 'en'}
+        onLanguageChange={handleVeriLanguageChange}
+        showLanguageToggle={true}
+      />
 
       <div className="veri-system-integration-content">
         {/* Header with AI Orchestration Indicator */}
