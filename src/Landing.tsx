@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguageSwitch } from './hooks/useCulturalIntelligence';
+import vnMapLogo from '../svg/vnMapLogo.svg';
 
 function Landing() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,14 +17,10 @@ function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/app" className="flex items-center group">
-              <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:scale-105 transition-transform">
-                <path d="M10 8 Q12 10 13 12 L14 16 Q15 20 14 24 L13 28 Q12 30 10 32 Q8 30 7 28 L6 24 Q5 20 6 16 L7 12 Q8 10 10 8 Z" fill="#F97316"/>
-                <circle cx="10" cy="20" r="2" fill="#10B981"/>
-                <path d="M14 12 Q16 14 16.5 16 L17 20 Q17 22 16.5 24 L16 26" stroke="#10B981" strokeWidth="1.5" fill="none"/>
-                <text x="24" y="26" fontFamily="Arial, sans-serif" fontSize="20" fontWeight="700" fill="#1e293b">
-                  VeriSyntra
-                </text>
-              </svg>
+              <div className="flex items-center space-x-0 group-hover:scale-105 transition-transform">
+                <img src={vnMapLogo} alt="VeriSyntra Logo" className="w-8 h-8" />
+                <span className="text-xl font-bold text-slate-800">VeriSyntra</span>
+              </div>
             </Link>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -357,14 +354,10 @@ function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <svg width="160" height="36" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-4">
-                <path d="M10 8 Q12 10 13 12 L14 16 Q15 20 14 24 L13 28 Q12 30 10 32 Q8 30 7 28 L6 24 Q5 20 6 16 L7 12 Q8 10 10 8 Z" fill="#F97316"/>
-                <circle cx="10" cy="20" r="2" fill="#10B981"/>
-                <path d="M14 12 Q16 14 16.5 16 L17 20 Q17 22 16.5 24 L16 26" stroke="#10B981" strokeWidth="1.5" fill="none"/>
-                <text x="24" y="26" fontFamily="Arial, sans-serif" fontSize="20" fontWeight="700" fill="#ffffff">
-                  VeriSyntra
-                </text>
-              </svg>
+              <div className="flex items-center space-x-0 mb-4">
+                <img src={vnMapLogo} alt="VeriSyntra Logo" className="w-8 h-8" />
+                <span className="text-xl font-bold text-white">VeriSyntra</span>
+              </div>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Giải pháp tuân thủ PDPL 2025 hàng đầu cho doanh nghiệp Việt Nam
               </p>

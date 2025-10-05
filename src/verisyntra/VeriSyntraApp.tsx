@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { useLanguageSwitch } from '../hooks/useCulturalIntelligence';
 import { useState } from 'react';
+import vnMapLogo from '../../svg/vnMapLogo.svg';
 
 interface SystemStatus {
   status: string;
@@ -97,9 +98,7 @@ const VeriSyntraApp: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-teal-600 rounded-lg flex items-center justify-center">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
+              <img src={vnMapLogo} alt="VeriSyntra Logo" className="w-10 h-10" />
               <div>
                 <h1 className="text-xl font-bold text-gray-900">VeriSyntra</h1>
                 <p className="text-sm text-gray-600">
