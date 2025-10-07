@@ -2,6 +2,7 @@
 // AI-powered comprehensive system integration platform for Vietnamese businesses
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import VeriSyntraBanner from '../../../shared/VeriSyntraBanner';
 import { useLanguageSwitch } from '../../../../hooks/useCulturalIntelligence';
 import { usePageTitle } from '../../../../hooks/usePageTitle';
@@ -79,6 +80,7 @@ const createMockBusinessContext = (): VeriBusinessContext => ({
 
 export const VeriSystemIntegrationSystem: React.FC = () => {
   const { isVietnamese } = useLanguageSwitch();
+  const { i18n } = useTranslation();
   const [veriLanguage, setVeriLanguage] = useState<'vietnamese' | 'english'>(isVietnamese ? 'vietnamese' : 'english');
   const language = veriLanguage;
   
@@ -101,6 +103,7 @@ export const VeriSystemIntegrationSystem: React.FC = () => {
   // Language change handler
   const handleVeriLanguageChange = (lang: 'vi' | 'en') => {
     setVeriLanguage(lang === 'vi' ? 'vietnamese' : 'english');
+    i18n.changeLanguage(lang);
   };
 
   // Content translations
@@ -296,6 +299,8 @@ export const VeriSystemIntegrationSystem: React.FC = () => {
       <div className="veri-system-integration-container">
         <VeriSyntraBanner 
           variant="portal"
+          customTitle="VeriPortal"
+          customSubtitle={veriLanguage === 'vietnamese' ? 'Tích hợp Hệ thống' : 'System Integration'}
           currentLanguage={veriLanguage === 'vietnamese' ? 'vi' : 'en'}
           onLanguageChange={handleVeriLanguageChange}
           showLanguageToggle={true}
@@ -312,6 +317,8 @@ export const VeriSystemIntegrationSystem: React.FC = () => {
     <div className="veri-system-integration-container">
       <VeriSyntraBanner 
         variant="portal"
+        customTitle="VeriPortal"
+        customSubtitle={veriLanguage === 'vietnamese' ? 'Tích hợp Hệ thống' : 'System Integration'}
         currentLanguage={veriLanguage === 'vietnamese' ? 'vi' : 'en'}
         onLanguageChange={handleVeriLanguageChange}
         showLanguageToggle={true}

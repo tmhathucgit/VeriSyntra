@@ -53,7 +53,7 @@ export const VeriPortalLayout: React.FC<VeriPortalLayoutProps> = ({
                     color: '#7fa3c3',
                     letterSpacing: '0.5px'
                   }}>
-                    {isVietnamese ? 'Nền tảng Tuân thủ PDPL 2025' : 'PDPL 2025 Compliance Platform'}
+                    {isVietnamese ? 'Onboarding' : 'Onboarding'}
                   </span>
                 </div>
               </div>

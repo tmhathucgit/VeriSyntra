@@ -117,7 +117,7 @@ const VeriBusinessIntelligenceOverview: React.FC<{
               {veriContext?.veriLanguage === 'vietnamese' ? 'Điểm Tuân thủ' : 'Compliance Score'}
             </div>
             <div className="veri-metric-value">
-              {veriComplianceAnalytics?.veriOverallScore || 0}%
+              {(veriComplianceAnalytics?.veriOverallScore || 0).toFixed(2)}%
             </div>
             <div className="veri-metric-trend positive">
               ↗ +2.3%
@@ -322,7 +322,7 @@ const VeriCompliancePerformanceDashboard: React.FC<{
             <div className="veri-overall-compliance-score">
               <div className="veri-score-visualization">
                 <div className="veri-score-circle">
-                  <div className="veri-score-value">{veriComplianceMetrics.veriOverallScore || 89}%</div>
+                  <div className="veri-score-value">{(veriComplianceMetrics.veriOverallScore || 89).toFixed(2)}%</div>
                   <div className="veri-score-label">
                     {veriComplianceDashboardContent[veriLanguage].veriMetrics['overall-compliance']}
                   </div>

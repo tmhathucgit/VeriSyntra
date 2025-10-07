@@ -2,6 +2,7 @@
 // Vietnamese Legal Document Generation with AI-Powered Cultural Intelligence
 
 import React, { useState, useEffect, useContext, createContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { usePageTitle } from '../../../../hooks/usePageTitle';
 import {
   VeriDocumentGenerationSystem as VeriDocumentGenerationSystemType,
@@ -440,6 +441,8 @@ export const VeriDocumentGenerationSystem: React.FC<VeriDocumentGenerationProps>
   veriCulturalStyle,
   veriSelectedDocuments: initialSelectedDocuments = []
 }) => {
+  const { i18n } = useTranslation();
+  
   // Set page title
   usePageTitle({ 
     title: 'Document Generation', 
@@ -532,6 +535,8 @@ export const VeriDocumentGenerationSystem: React.FC<VeriDocumentGenerationProps>
 
   const handleVeriLanguageChange = (language: 'vietnamese' | 'english') => {
     setVeriLanguage(language);
+    // Update i18n language
+    i18n.changeLanguage(language === 'vietnamese' ? 'vi' : 'en');
   };
 
   const handleVeriDocumentGeneration = async (documents: VeriGeneratedDocument[]) => {
@@ -558,6 +563,39 @@ export const VeriDocumentGenerationSystem: React.FC<VeriDocumentGenerationProps>
           onLanguageChange={(lang) => handleVeriLanguageChange(lang === 'vi' ? 'vietnamese' : 'english')}
           showConnectionStatus={true}
           showLanguageToggle={true}
+          customNavigation={
+            <a
+              href="/veriportal"
+              className="veri-nav-link"
+              style={{
+                background: 'linear-gradient(135deg, var(--veri-sage-green), var(--veri-ocean-blue))',
+                color: 'white',
+                padding: '10px 20px',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: '500',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                transition: 'all 0.3s ease',
+                whiteSpace: 'nowrap'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(107, 142, 107, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 2L3 7v11h4v-6h6v6h4V7l-7-5z"/>
+                <path d="M10 8L4 12v6h2v-4h8v4h2v-6l-6-4z"/>
+              </svg>
+              {veriLanguage === 'vietnamese' ? 'Wizards' : 'Wizards'}
+            </a>
+          }
         />
 
         <div className="veri-document-layout" style={{
@@ -565,54 +603,6 @@ export const VeriDocumentGenerationSystem: React.FC<VeriDocumentGenerationProps>
                      veriCulturalStyle === 'central' ? 'rgba(248, 251, 253, 0.9)' :
                      'rgba(248, 250, 252, 0.9)'
         }}>
-          <div className="veri-document-header">
-            <div className="veri-document-header-content">
-              <h1 className="veri-document-title">
-                {veriLanguage === 'vietnamese' ? 
-                  'Hệ thống Tạo Tài liệu Pháp lý Việt Nam' : 
-                  'Vietnamese Legal Document Generation System'}
-              </h1>
-              <p className="veri-document-subtitle">
-                {veriLanguage === 'vietnamese' ? 
-                  'AI tạo tài liệu tuân thủ PDPL 2025 với trí tuệ văn hóa Việt Nam' :
-                  'AI generates PDPL 2025 compliant documents with Vietnamese cultural intelligence'}
-              </p>
-            </div>
-            
-            <div className="veri-portal-navigation">
-              <a 
-                href="/veriportal" 
-                className="veri-nav-link"
-                style={{
-                  background: 'linear-gradient(135deg, var(--veri-sage-green), var(--veri-ocean-blue))',
-                  color: 'white',
-                  padding: '0.75rem 1.5rem',
-                  borderRadius: '8px',
-                  textDecoration: 'none',
-                  fontWeight: '500',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(107, 142, 107, 0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M10 2L3 7v11h4v-6h6v6h4V7l-7-5z"/>
-                  <path d="M10 8L4 12v6h2v-4h8v4h2v-6l-6-4z"/>
-                </svg>
-                {veriLanguage === 'vietnamese' ? 'Quay về Wizards' : 'Back to Wizards'}
-              </a>
-            </div>
-          </div>
-
           <div className="veri-document-main-content">
             <div className="veri-document-sidebar">
               <VeriBusinessContextAnalyzer

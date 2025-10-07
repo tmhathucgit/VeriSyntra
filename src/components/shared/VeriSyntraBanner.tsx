@@ -16,6 +16,7 @@ interface VeriSyntraBannerProps {
   onLanguageChange?: (language: 'vi' | 'en') => void;
   currentLanguage?: 'vi' | 'en';
   variant?: 'main' | 'portal' | 'compact';
+  customNavigation?: React.ReactNode;
 }
 
 export const VeriSyntraBanner: React.FC<VeriSyntraBannerProps> = ({
@@ -25,7 +26,8 @@ export const VeriSyntraBanner: React.FC<VeriSyntraBannerProps> = ({
   customSubtitle,
   onLanguageChange,
   currentLanguage = 'vi',
-  variant = 'main'
+  variant = 'main',
+  customNavigation
 }) => {
   const { t, i18n } = useTranslation(['common', 'vericompliance']);
   const [connectionStatus, setConnectionStatus] = useState<'connecting' | 'connected' | 'disconnected'>('connecting');
@@ -144,7 +146,7 @@ export const VeriSyntraBanner: React.FC<VeriSyntraBannerProps> = ({
                 {customTitle || 'VeriSyntra'}
               </h1>
               {variant !== 'compact' && (
-                <p className="text-sm" style={{ color: '#7fa3c3' }}>
+                <p className="text-sm font-medium" style={{ color: '#2d5a3d' }}>
                   {customSubtitle || t('vericompliance:platform.title')}
                 </p>
               )}
@@ -158,6 +160,8 @@ export const VeriSyntraBanner: React.FC<VeriSyntraBannerProps> = ({
                 <span className="text-sm font-medium">{getConnectionText()}</span>
               </div>
             )}
+            
+            {customNavigation}
             
             {showLanguageToggle && (
               <button
