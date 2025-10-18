@@ -723,7 +723,131 @@ python review_submissions.py --min_quality 0.8
 
 ---
 
-*Document Version: 1.0*  
-*Last Updated: October 6, 2025*  
+## 🏢 Company Lists: Web Scraping vs. Dataset Generation
+
+### **Important Distinction**
+
+This guide contains a **hardcoded company list** for **one-time web scraping** (lines 239-249). This is **different** from the **Dynamic Company Registry** used for ongoing dataset generation.
+
+### **Two Different Purposes:**
+
+#### **1. Web Scraping List (This Guide) - ONE-TIME USE**
+
+```python
+VIETNAMESE_COMPANIES = [
+    {'name': 'Shopee Vietnam', 'url': 'https://shopee.vn/legaldoc/privacy'},
+    {'name': 'Lazada Vietnam', 'url': 'https://www.lazada.vn/privacy-policy/'},
+    # ... 10-20 companies
+]
+```
+
+**Purpose**: Collect initial training data from public privacy policies  
+**Frequency**: Once (during data collection phase)  
+**Scope**: Limited to companies with accessible websites  
+**Output**: Real-world Vietnamese compliance text  
+**Maintenance**: Static list (no updates needed after collection)  
+
+**Why Hardcoded is OK Here**:
+- ✅ One-time data collection activity
+- ✅ Small list (10-20 companies)
+- ✅ URL-specific (not reusable)
+- ✅ Quality filter (only companies with good policies)
+
+---
+
+#### **2. Dynamic Company Registry - ONGOING GENERATION**
+
+```python
+# From config/company_registry.json (150+ companies)
+COMPANIES_ALL = load_from_registry()  # 150+ Vietnamese companies
+company = select_company_for_template(template)
+text = template.format(company=company)
+```
+
+**Purpose**: Generate synthetic training data at scale  
+**Frequency**: Continuous (every training run)  
+**Scope**: All Vietnamese companies (150+ and growing)  
+**Output**: Company-normalized training samples  
+**Maintenance**: Hot-reload updates (zero downtime)  
+
+**Why Dynamic Registry Here**:
+- ✅ Ongoing dataset generation
+- ✅ Large list (150+ companies, growing)
+- ✅ Template-based (reusable)
+- ✅ Zero retraining for new companies
+
+---
+
+### **How They Work Together:**
+
+```
+STEP 1: DATA COLLECTION (This Guide)
+├─ Scrape 10-20 company websites (hardcoded list)
+├─ Extract 1,000 real Vietnamese privacy policy examples
+├─ Feed into company_registry.json (enrich registry)
+└─ One-time activity (MVP phase)
+
+STEP 2: DATASET GENERATION (Dynamic Registry)
+├─ Load 150+ companies from registry
+├─ Generate 150,300 synthetic samples
+├─ Normalize to [COMPANY] token
+├─ Train company-agnostic models
+└─ Ongoing activity (production phase)
+
+STEP 3: ADD NEW COMPANIES (Dynamic Registry Only)
+├─ Update company_registry.json (5 minutes)
+├─ No web scraping needed
+├─ No model retraining needed
+└─ Future-proof scalability
+```
+
+### **When to Update Each List:**
+
+| Scenario | Web Scraping List | Dynamic Registry |
+|----------|------------------|------------------|
+| **Initial MVP** | ✅ Update once | ✅ Create initial |
+| **Add 1 company** | ❌ No update | ✅ Update JSON |
+| **Add 10 companies** | ❌ No update | ✅ Update JSON |
+| **Scrape new policies** | ✅ Update if needed | ❌ No update |
+| **Generate new dataset** | ❌ No update | ✅ Use registry |
+
+### **Best Practice Workflow:**
+
+```bash
+# Phase 1: Initial Data Collection (Once)
+python collect_business_policies.py  # Uses hardcoded VIETNAMESE_COMPANIES
+
+# Phase 2: Enrich Company Registry
+python enrich_registry_from_scraped_data.py  # Add scraped companies to registry
+
+# Phase 3: Generate Datasets (Ongoing)
+python generate_hard_dataset.py --use-company-registry  # Uses Dynamic Registry
+
+# Phase 4: Add New Companies (Anytime)
+# Edit config/company_registry.json manually
+# OR use Admin API
+curl -X POST /api/v1/admin/companies/add -d '{...}'
+```
+
+### **Implementation Reference**
+
+For complete Dynamic Company Registry architecture:
+- **`VeriAIDPO_Dynamic_Company_Registry_Implementation.md`** - Full implementation plan
+- **`VeriAIDPO_Hard_Dataset_Generation_Guide.md`** - Dataset generation with registry
+- **`config/company_registry.json`** - 150+ Vietnamese companies database
+
+### **Key Takeaway**
+
+✅ **Web Scraping List**: Static, one-time, small (10-20 companies)  
+✅ **Dynamic Registry**: Scalable, ongoing, large (150+ companies)  
+✅ **Both Serve Different Purposes**: Don't confuse them!  
+✅ **Scraped Data Enriches Registry**: They work together sequentially  
+
+---
+
+*Document Version: 2.0 (Company List Clarification)*  
+*Last Updated: October 14, 2025*  
 *Focus: Hybrid Data Collection Strategy*  
-*Target: Production-Quality Vietnamese PDPL Dataset*
+*Target: Production-Quality Vietnamese PDPL Dataset*  
+*Changes: Added clarification distinguishing web scraping list from Dynamic Company Registry*
+

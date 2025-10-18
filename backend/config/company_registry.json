@@ -1,0 +1,682 @@
+{
+  "technology": {
+    "north": [
+      {
+        "name": "FPT Corporation",
+        "aliases": [
+          "FPT",
+          "FPT Software",
+          "FPT Telecom"
+        ],
+        "metadata": {
+          "website": "fpt.com.vn",
+          "type": "SOE",
+          "founded": 1988
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Viettel Group",
+        "aliases": [
+          "Viettel",
+          "Viettel Telecom",
+          "Viettel Mobile"
+        ],
+        "metadata": {
+          "website": "viettel.com.vn",
+          "type": "Military",
+          "founded": 1989
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "VNPT",
+        "aliases": [
+          "Vietnam Posts and Telecommunications Group",
+          "VNPT Group",
+          "VNPT Telecom"
+        ],
+        "metadata": {
+          "website": "vnpt.com.vn",
+          "type": "SOE",
+          "founded": 1995
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "VinSmart",
+        "aliases": [
+          "Vingroup Smart",
+          "VinSmart Research"
+        ],
+        "metadata": {
+          "website": "vinsmart.vn",
+          "type": "Private",
+          "founded": 2018
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Bkav Corporation",
+        "aliases": [
+          "Bkav",
+          "Bphone"
+        ],
+        "metadata": {
+          "website": "bkav.com",
+          "type": "Private",
+          "founded": 1995
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ],
+    "central": [
+      {
+        "name": "FPT Software Da Nang",
+        "aliases": [
+          "FPT Da Nang",
+          "FPT DN"
+        ],
+        "metadata": {
+          "website": "fpt-software.com",
+          "type": "SOE",
+          "founded": 2006
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ],
+    "south": [
+      {
+        "name": "Shopee Vietnam",
+        "aliases": [
+          "Shopee VN",
+          "Shopee",
+          "SPV"
+        ],
+        "metadata": {
+          "website": "shopee.vn",
+          "type": "Foreign",
+          "founded": 2015
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Tiki Corporation",
+        "aliases": [
+          "Tiki",
+          "Tiki.vn"
+        ],
+        "metadata": {
+          "website": "tiki.vn",
+          "type": "Startup",
+          "founded": 2010
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Grab Vietnam",
+        "aliases": [
+          "Grab VN",
+          "Grab"
+        ],
+        "metadata": {
+          "website": "grab.com/vn",
+          "type": "Foreign",
+          "founded": 2014
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "VNG Corporation",
+        "aliases": [
+          "VNG",
+          "Zalo",
+          "ZaloPay"
+        ],
+        "metadata": {
+          "website": "vng.com.vn",
+          "type": "Private",
+          "founded": 2004
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Sendo",
+        "aliases": [
+          "Sendo.vn",
+          "FPT Sendo"
+        ],
+        "metadata": {
+          "website": "sendo.vn",
+          "type": "Startup",
+          "founded": 2012
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "The Gioi Di Dong",
+        "aliases": [
+          "Mobile World",
+          "TGDD",
+          "MWG"
+        ],
+        "metadata": {
+          "website": "thegioididong.com",
+          "type": "Public",
+          "founded": 2004
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ]
+  },
+  "finance": {
+    "north": [
+      {
+        "name": "Vietcombank",
+        "aliases": [
+          "VCB",
+          "Bank for Foreign Trade of Vietnam",
+          "Ngan hang Ngoai thuong Viet Nam"
+        ],
+        "metadata": {
+          "website": "vietcombank.com.vn",
+          "type": "SOE",
+          "founded": 1963
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "BIDV",
+        "aliases": [
+          "Bank for Investment and Development of Vietnam",
+          "Ngan hang Dau tu va Phat trien Viet Nam"
+        ],
+        "metadata": {
+          "website": "bidv.com.vn",
+          "type": "SOE",
+          "founded": 1957
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Agribank",
+        "aliases": [
+          "Vietnam Bank for Agriculture and Rural Development",
+          "Ngan hang Nong nghiep"
+        ],
+        "metadata": {
+          "website": "agribank.com.vn",
+          "type": "SOE",
+          "founded": 1988
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "VietinBank",
+        "aliases": [
+          "CTG",
+          "Bank for Industry and Trade of Vietnam"
+        ],
+        "metadata": {
+          "website": "vietinbank.vn",
+          "type": "SOE",
+          "founded": 1988
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ],
+    "central": [
+      {
+        "name": "MB Bank Da Nang",
+        "aliases": [
+          "MB Da Nang",
+          "Military Bank Da Nang"
+        ],
+        "metadata": {
+          "website": "mbbank.com.vn",
+          "type": "Military",
+          "founded": 1994
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ],
+    "south": [
+      {
+        "name": "Techcombank",
+        "aliases": [
+          "TCB",
+          "Vietnam Technological and Commercial Joint Stock Bank"
+        ],
+        "metadata": {
+          "website": "techcombank.com.vn",
+          "type": "Private",
+          "founded": 1993
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "MoMo",
+        "aliases": [
+          "M_Service",
+          "Vi MoMo",
+          "MoMo Wallet"
+        ],
+        "metadata": {
+          "website": "momo.vn",
+          "type": "Fintech",
+          "founded": 2007
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "ZaloPay",
+        "aliases": [
+          "Vi ZaloPay",
+          "VNG ZaloPay",
+          "Zalo Pay"
+        ],
+        "metadata": {
+          "website": "zalopay.vn",
+          "type": "Fintech",
+          "founded": 2017
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "VNPay",
+        "aliases": [
+          "VNPAY",
+          "VN Pay"
+        ],
+        "metadata": {
+          "website": "vnpay.vn",
+          "type": "Fintech",
+          "founded": 2007
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "ACB",
+        "aliases": [
+          "Asia Commercial Bank",
+          "ACB Bank"
+        ],
+        "metadata": {
+          "website": "acb.com.vn",
+          "type": "Private",
+          "founded": 1993
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Sacombank",
+        "aliases": [
+          "STB",
+          "Saigon Thuong Tin Commercial Joint Stock Bank"
+        ],
+        "metadata": {
+          "website": "sacombank.com.vn",
+          "type": "Private",
+          "founded": 1991
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ]
+  },
+  "healthcare": {
+    "north": [
+      {
+        "name": "Vinmec International Hospital Hanoi",
+        "aliases": [
+          "Vinmec Ha Noi",
+          "Vinmec Times City",
+          "Vinmec Hanoi"
+        ],
+        "metadata": {
+          "website": "vinmec.com",
+          "type": "Private",
+          "founded": 2012
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Bac si Tu Van",
+        "aliases": [
+          "Doctor Anywhere Vietnam",
+          "Bac si online"
+        ],
+        "metadata": {
+          "website": "bacsitvantructuyen.vn",
+          "type": "HealthTech",
+          "founded": 2019
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ],
+    "central": [
+      {
+        "name": "Da Nang Hospital",
+        "aliases": [
+          "Benh vien Da Nang",
+          "Da Nang General Hospital"
+        ],
+        "metadata": {
+          "website": "bvdanang.vn",
+          "type": "Public",
+          "founded": 1975
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ],
+    "south": [
+      {
+        "name": "Vinmec Central Park",
+        "aliases": [
+          "Vinmec TPHCM",
+          "Vinmec Landmark 81",
+          "Vinmec Saigon"
+        ],
+        "metadata": {
+          "website": "vinmec.com",
+          "type": "Private",
+          "founded": 2015
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "FV Hospital",
+        "aliases": [
+          "Franco-Vietnamese Hospital",
+          "Benh vien FV"
+        ],
+        "metadata": {
+          "website": "fvhospital.com",
+          "type": "JointVenture",
+          "founded": 2003
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Tam Anh Hospital",
+        "aliases": [
+          "Benh vien Tam Anh",
+          "Tam Anh General Hospital"
+        ],
+        "metadata": {
+          "website": "tamanh.com.vn",
+          "type": "Private",
+          "founded": 2018
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ]
+  },
+  "education": {
+    "north": [
+      {
+        "name": "ELSA Speak",
+        "aliases": [
+          "ELSA",
+          "English Language Speech Assistant"
+        ],
+        "metadata": {
+          "website": "elsaspeak.com",
+          "type": "EdTech",
+          "founded": 2015
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Topica Edtech Group",
+        "aliases": [
+          "Topica",
+          "Topica Native",
+          "Topica Founder Institute"
+        ],
+        "metadata": {
+          "website": "topica.edu.vn",
+          "type": "EdTech",
+          "founded": 2008
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Monkey Junior",
+        "aliases": [
+          "Monkey",
+          "Early Start"
+        ],
+        "metadata": {
+          "website": "monkeyjunior.com",
+          "type": "EdTech",
+          "founded": 2014
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ],
+    "south": [
+      {
+        "name": "CoderSchool",
+        "aliases": [
+          "Coder School Vietnam",
+          "CoderSchool VN"
+        ],
+        "metadata": {
+          "website": "coderschool.vn",
+          "type": "EdTech",
+          "founded": 2016
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Prep",
+        "aliases": [
+          "Prep.vn",
+          "PREP Vietnam"
+        ],
+        "metadata": {
+          "website": "prep.vn",
+          "type": "EdTech",
+          "founded": 2019
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ]
+  },
+  "retail": {
+    "south": [
+      {
+        "name": "The Gioi Di Dong",
+        "aliases": [
+          "Mobile World",
+          "TGDD",
+          "MWG",
+          "Mobile World Investment Corporation"
+        ],
+        "metadata": {
+          "website": "thegioididong.com",
+          "type": "Public",
+          "founded": 2004
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Bach Hoa Xanh",
+        "aliases": [
+          "BHX",
+          "Bach Hoa Xanh Grocery"
+        ],
+        "metadata": {
+          "website": "bachhoaxanh.com",
+          "type": "Public",
+          "founded": 2015
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Hasaki Beauty",
+        "aliases": [
+          "Hasaki",
+          "Hasaki.vn"
+        ],
+        "metadata": {
+          "website": "hasaki.vn",
+          "type": "Private",
+          "founded": 2016
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ]
+  },
+  "manufacturing": {
+    "north": [
+      {
+        "name": "VinFast",
+        "aliases": [
+          "VinFast Auto",
+          "VF",
+          "Vingroup Auto"
+        ],
+        "metadata": {
+          "website": "vinfastauto.com",
+          "type": "Private",
+          "founded": 2017
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Vinamilk",
+        "aliases": [
+          "Vietnam Dairy Products",
+          "VNM"
+        ],
+        "metadata": {
+          "website": "vinamilk.com.vn",
+          "type": "Public",
+          "founded": 1976
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ],
+    "south": [
+      {
+        "name": "TH True Milk",
+        "aliases": [
+          "TH Group",
+          "TH Milk"
+        ],
+        "metadata": {
+          "website": "thmilk.vn",
+          "type": "Private",
+          "founded": 2009
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ]
+  },
+  "transportation": {
+    "south": [
+      {
+        "name": "Grab Vietnam",
+        "aliases": [
+          "Grab VN",
+          "Grab"
+        ],
+        "metadata": {
+          "website": "grab.com/vn",
+          "type": "Foreign",
+          "founded": 2014
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Be Group",
+        "aliases": [
+          "Be",
+          "Be App"
+        ],
+        "metadata": {
+          "website": "be.com.vn",
+          "type": "Startup",
+          "founded": 2018
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "Gojek Vietnam",
+        "aliases": [
+          "Gojek VN",
+          "Gojek"
+        ],
+        "metadata": {
+          "website": "gojek.com",
+          "type": "Foreign",
+          "founded": 2018
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ]
+  },
+  "telecom": {
+    "north": [
+      {
+        "name": "Viettel",
+        "aliases": [
+          "Viettel Telecom",
+          "Viettel Mobile"
+        ],
+        "metadata": {
+          "website": "viettel.com.vn",
+          "type": "Military",
+          "founded": 1989
+        },
+        "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "VNPT VinaPhone",
+        "aliases": [
+          "VinaPhone",
+          "VNPT Mobile"
+        ],
+        "metadata": {
+          "website": "vinaphone.com.vn",
+          "type": "SOE",
+          "founded": 1996
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ],
+    "south": [
+      {
+        "name": "MobiFone",
+        "aliases": [
+          "Mobi",
+          "Vietnam Mobile Telecom Services Company"
+        ],
+        "metadata": {
+          "website": "mobifone.vn",
+          "type": "SOE",
+          "founded": 1993
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ]
+  },
+  "government": {
+    "north": [
+      {
+        "name": "Vietnam National Administration of Tourism",
+        "aliases": [
+          "Vietnam Tourism",
+          "VNAT"
+        ],
+        "metadata": {
+          "website": "vietnamtourism.gov.vn",
+          "type": "Government",
+          "founded": 1960
+        },
+        "added_date": "2025-10-18T00:00:00"
+      }
+    ]
+  }
+}

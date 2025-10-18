@@ -5,7 +5,7 @@ import uvicorn
 from datetime import datetime
 import pytz
 from app.core.vietnamese_cultural_intelligence import VietnameseCulturalIntelligence
-from app.api.v1.endpoints import veriportal, vericompliance
+from app.api.v1.endpoints import veriportal, vericompliance, admin_companies, veriaidpo_classification
 from loguru import logger
 import sys
 
@@ -70,6 +70,8 @@ async def health_check():
 # Include API routes
 app.include_router(veriportal.router, prefix="/api/v1/veriportal", tags=["VeriPortal"])
 app.include_router(vericompliance.router, prefix="/api/v1/vericompliance", tags=["VeriCompliance"])
+app.include_router(admin_companies.router, prefix="/api/v1", tags=["Admin - Company Registry"])
+app.include_router(veriaidpo_classification.router, prefix="/api/v1", tags=["VeriAIDPO Classification"])
 
 # Global exception handler with Vietnamese context
 @app.exception_handler(Exception)
