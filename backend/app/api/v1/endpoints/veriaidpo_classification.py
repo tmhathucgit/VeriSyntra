@@ -19,6 +19,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../../..'))
 
 from app.core.pdpl_normalizer import get_normalizer
 from app.core.company_registry import get_registry
+from app.ml.model_loader import get_model_loader, get_category_info, PDPL_CATEGORIES
 
 
 router = APIRouter(prefix="/veriaidpo", tags=["veriaidpo", "classification"])
@@ -203,25 +204,41 @@ async def classify_text(request: ClassificationRequest):
         logger.debug(f"Normalized: '{request.text[:50]}...' -> '{normalized_text[:50]}...'")
         
         # 2. Run inference on normalized text
-        # NOTE: This is a placeholder for actual model inference
-        # In production, load the trained model and run prediction
-        # Example:
-        # model = load_model(f"VeriAIDPO_{request.model_type}_{request.language}")
-        # prediction = model.predict(normalized_text)
+        # Load model and run prediction
+        model_loader = get_model_loader()
         
-        # PLACEHOLDER LOGIC (for demonstration)
-        import random
-        categories = MODEL_TYPES[request.model_type]
-        category_id = random.choice(list(categories.keys()))
-        confidence = 0.75 + random.random() * 0.20  # 0.75-0.95 range
-        
-        prediction = {
-            'category': categories[category_id],
-            'category_id': category_id,
-            'confidence': round(confidence, 2)
-        }
-        
-        logger.info(f"Prediction: {prediction['category']} (confidence: {prediction['confidence']})")
+        # For now, only 'principles' model is available
+        if request.model_type == 'principles':
+            # Run inference
+            prediction_result = model_loader.predict(normalized_text)
+            
+            if prediction_result is None:
+                raise HTTPException(
+                    status_code=500,
+                    detail="Model inference failed. Please check model files and try again."
+                )
+            
+            category_id = prediction_result['category_id']
+            confidence = prediction_result['confidence']
+            
+            # Get category name
+            cat_info = get_category_info(category_id, language=request.language)
+            category_name = cat_info['name']
+            
+            prediction = {
+                'category': category_name,
+                'category_id': category_id,
+                'confidence': round(confidence, 2),
+                'all_probabilities': prediction_result.get('all_probabilities', {})
+            }
+            
+            logger.info(f"Prediction: {category_name} (Cat {category_id}, confidence: {confidence:.2%})")
+        else:
+            # Other model types not yet implemented
+            raise HTTPException(
+                status_code=501,
+                detail=f"Model type '{request.model_type}' not yet implemented. Currently only 'principles' is available."
+            )
         
         # 3. Prepare response
         response = ClassificationResponse(
@@ -254,7 +271,7 @@ async def classify_text(request: ClassificationRequest):
                 'processing_time_ms': round(processing_time, 2),
                 'normalization_applied': normalized_text != request.text,
                 'companies_detected': len(detected_companies),
-                'model_categories': len(categories),
+                'model_categories': 8,  # PDPL has 8 categories
                 'timestamp': datetime.now().isoformat()
             }
         
@@ -412,13 +429,16 @@ async def veriaidpo_health_check():
     Returns status of all components:
     - Company registry
     - Text normalizer
+    - Model loader
     - Available model types
     """
     try:
         registry = get_registry()
         normalizer = get_normalizer()
+        model_loader = get_model_loader()
         
         stats = registry.get_statistics()
+        model_info = model_loader.get_model_info()
         
         return {
             "status": "healthy",
@@ -434,9 +454,17 @@ async def veriaidpo_health_check():
                     "status": "active",
                     "registry_loaded": True
                 },
+                "model_loader": {
+                    "status": model_info['status'],
+                    "device": model_info['device'],
+                    "model_type": model_info.get('model_type', 'VeriAIDPO_Principles_VI_v1'),
+                    "num_labels": model_info.get('num_labels', 'not_loaded'),
+                    "vocab_size": model_info.get('vocab_size', 'not_loaded')
+                },
                 "model_types": {
-                    "available": list(MODEL_TYPES.keys()),
-                    "count": len(MODEL_TYPES)
+                    "available": ['principles'],
+                    "implemented": ['principles'],
+                    "planned": list(MODEL_TYPES.keys())
                 }
             },
             "version": "1.0.0"
@@ -449,3 +477,84 @@ async def veriaidpo_health_check():
             "error": str(e),
             "timestamp": datetime.now().isoformat()
         }
+
+
+@router.get("/model-status")
+async def get_model_status():
+    """
+    Get detailed model status and information
+    
+    Returns:
+    - Model loading status
+    - Device information (CPU/GPU)
+    - Model configuration
+    - Performance metrics
+    """
+    try:
+        model_loader = get_model_loader()
+        model_info = model_loader.get_model_info()
+        
+        return {
+            "status": "success",
+            "model": model_info,
+            "categories": {
+                "total": 8,
+                "list": [
+                    {
+                        "id": i,
+                        "name_vi": PDPL_CATEGORIES[i]['vi'],
+                        "name_en": PDPL_CATEGORIES[i]['en'],
+                        "description": PDPL_CATEGORIES[i]['description']
+                    }
+                    for i in range(8)
+                ]
+            },
+            "inference_config": {
+                "max_length": 256,
+                "language": "vi",
+                "normalization": "company_agnostic"
+            },
+            "timestamp": datetime.now().isoformat()
+        }
+    
+    except Exception as e:
+        logger.error(f"Model status check failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Model status check failed: {str(e)}")
+
+
+@router.post("/preload-model")
+async def preload_model():
+    """
+    Preload model into memory (optional optimization)
+    
+    By default, model loads lazily on first inference request.
+    Use this endpoint to preload for faster first response.
+    """
+    try:
+        model_loader = get_model_loader()
+        
+        if model_loader.is_loaded:
+            return {
+                "status": "already_loaded",
+                "message": "Model is already loaded in memory",
+                "model_info": model_loader.get_model_info()
+            }
+        
+        logger.info("Preloading model as requested...")
+        success = model_loader.load_model()
+        
+        if success:
+            return {
+                "status": "success",
+                "message": "Model preloaded successfully",
+                "model_info": model_loader.get_model_info()
+            }
+        else:
+            raise HTTPException(
+                status_code=500,
+                detail="Failed to preload model. Check logs for details."
+            )
+    
+    except Exception as e:
+        logger.error(f"Model preload failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Model preload failed: {str(e)}")

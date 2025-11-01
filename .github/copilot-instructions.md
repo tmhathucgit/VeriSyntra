@@ -144,4 +144,71 @@ type VeriAnalyticsScope =
 - VnCoreNLP integration for Vietnamese NLP processing
 - GPU setup for PhoBERT model training pipelines
 
+## 🔤 Code Style Requirements
+
+**CRITICAL - No Emoji Characters:**
+- **NEVER use emoji characters** in any code (✓, ✗, ⚠️, •, →, 🔧, etc.)
+- Use ASCII alternatives: `[OK]`, `[ERROR]`, `[WARNING]`, `>`, `->`
+- Applies to: Python, TypeScript, JavaScript, JSON, Markdown, comments
+- Reason: Terminal compatibility, CI/CD systems, cross-platform support
+
+**Status Indicator Standards:**
+```python
+# CORRECT - ASCII only
+print("[OK] Operation successful")
+print("[ERROR] Operation failed")
+print("[WARNING] Potential issue detected")
+print("  > Item 1")  # Use > for bullet points
+print("Step 1 -> Step 2")  # Use -> for arrows
+
+# WRONG - Do not use
+print("✓ Operation successful")  # NO EMOJI
+print("✗ Operation failed")      # NO EMOJI
+print("⚠️ Warning")              # NO EMOJI
+print("  • Item 1")              # NO EMOJI
+print("Step 1 → Step 2")         # NO EMOJI
+```
+
+**CRITICAL - Dynamic Code Over Hard-Coding:**
+- **ALWAYS prefer dynamic, reusable code** over hard-coded values
+- **Use functions, classes, and configuration** instead of duplicating code
+- **Follow DRY (Don't Repeat Yourself)** principle strictly
+- **Single source of truth** for data definitions and constants
+
+**Dynamic Coding Standards:**
+```python
+# CORRECT - Dynamic approach
+def calculate_total(items):
+    """Reusable function with parameters"""
+    return sum(item['price'] for item in items)
+
+# Use existing definitions instead of redefining
+if 'PDPL_CATEGORIES' in globals():
+    print(f"[OK] Using {len(PDPL_CATEGORIES)} categories")
+else:
+    raise ValueError("Run Step 2 first to define PDPL_CATEGORIES")
+
+# Dynamic validation with detailed feedback
+cat2_total = sum(len(v) for v in CAT2_DISTINCTIVE_PHRASES.values())
+print(f"[OK] {cat2_total} markers across {len(CAT2_DISTINCTIVE_PHRASES)} categories")
+
+# WRONG - Hard-coded approach
+total = items[0]['price'] + items[1]['price'] + items[2]['price']  # NO - not reusable
+
+# Duplicate definitions (violates DRY)
+PDPL_CATEGORIES = {...}  # Defined in Step 2
+PDPL_CATEGORIES = {...}  # NO - Redefining in Step 4 (use Step 2's definition)
+
+# Hard-coded counts
+print("18 markers loaded")  # NO - calculate dynamically
+```
+
+**Code Reusability Checklist:**
+- [ ] Check if data/function already exists before creating new
+- [ ] Use dependency validation (check prerequisites exist)
+- [ ] Calculate values dynamically instead of hard-coding numbers
+- [ ] Add clear error messages pointing to dependencies
+- [ ] Make functions accept parameters instead of using globals
+- [ ] Use configuration files/objects for constants
+
 When working on this codebase, always consider the Vietnamese business cultural context first, then implement technical solutions that respect these cultural patterns while maintaining PDPL 2025 compliance requirements.

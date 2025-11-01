@@ -1,9 +1,10 @@
 # VeriAIDPO - Missing PDPL Principles Implementation Plan
 ## Comprehensive Training Plan for Enhanced DPO Role Support
 
-**Document Version**: 1.0  
+**Document Version**: 1.1  
 **Created**: October 13, 2025  
-**Status**: 📋 Planning Phase  
+**Updated**: October 18, 2025 - ✅ Vietnamese v2.0 Training Notebook Created  
+**Status**: � Phase 0 In Progress - Notebook Ready for Training  
 **Priority**: 🚨 High - Critical for Production DPO Automation
 
 ---
@@ -21,8 +22,10 @@
 - **Planned Version**: v2.0_Production (24,000 samples)
   - Dataset: HARD with 40% VERY_HARD + 40% HARD ambiguity
   - Target Accuracy: 78-88% (production-grade on real Vietnamese docs)
-  - Status: 📋 **RETRAINING REQUIRED** (Priority: HIGH)
-  - Reason: Current MVP won't handle production ambiguity (enterprise customers need robust model)
+  - Status: ✅ **NOTEBOOK CREATED** - `VeriAIDPO_Principles_VI_v2_DynamicRegistry_Training.ipynb`
+  - Notebook Date: October 18, 2025
+  - Ready for: Google Colab Pro+ training (2-3 days)
+  - Features: Dynamic Company Registry, 5-layer data leak detection, company-agnostic
 
 **🇬🇧 Secondary Model (English)**:
 - **Model Name**: VeriAIDPO_Principles_EN
@@ -85,7 +88,129 @@ The existing **v1.0_MVP model** (4,488 samples) classifies **8 data processing p
 
 ---
 
-## 🎨 Hard Dataset Strategy with Ambiguity
+## �️ **CRITICAL: Production Backend Integration (ALL MODELS)**
+
+**MANDATORY REQUIREMENT FOR ALL 21 MODELS**
+
+### **Use Production Backend Modules - NOT Inline Code**
+
+**ALL training notebooks MUST use VeriSyntra production backend modules:**
+
+```python
+# ✅ CORRECT: Import from VeriSyntra backend
+from app.core.company_registry import get_registry, CompanyRegistry
+from app.core.pdpl_normalizer import get_normalizer, PDPLTextNormalizer
+
+registry = get_registry()      # Production registry
+normalizer = get_normalizer()  # Production normalizer
+```
+
+```python
+# ❌ WRONG: Do NOT recreate classes inline
+class CompanyRegistry:  # DON'T DO THIS!
+    def __init__(self, companies_data):
+        # This creates training-production mismatch
+```
+
+### **Required Files for ALL Colab Notebooks**
+
+Upload these 3 files from VeriSyntra backend to Google Colab:
+
+1. **`backend/app/core/company_registry.py`** - Production CompanyRegistry class
+2. **`backend/app/core/pdpl_normalizer.py`** - Production PDPLTextNormalizer class
+3. **`backend/config/company_registry.json`** - Production company database (46+ companies)
+
+### **Why This Matters**
+
+| Aspect | Inline Code (❌ BAD) | Backend Modules (✅ GOOD) |
+|--------|---------------------|--------------------------|
+| **Production Parity** | ⚠️ Risk of drift | ✅ Identical code |
+| **Company Registry** | ⚠️ Manual copy | ✅ Uses `company_registry.json` |
+| **Maintenance** | ❌ Update 2 places | ✅ Update 1 place |
+| **Testing** | ⚠️ Different from API | ✅ Same as API |
+| **Hot-reload** | ❌ Not supported | ✅ Add companies without retrain |
+| **Code Duplication** | ❌ ~200 lines per notebook | ✅ 2 import lines |
+
+### **Benefits of Production Backend Integration**
+
+1. **Training Code = Production Code**
+   - Model trains with EXACT same company registry as API
+   - Normalization logic is IDENTICAL in training and inference
+   - No "worked in training, fails in production" issues
+
+2. **Hot-Reload Capability**
+   - Add new company to `company_registry.json`
+   - API hot-reloads automatically
+   - Model works with new company (already normalized to `[COMPANY]`)
+   - **No retraining needed!**
+
+3. **Single Source of Truth**
+   - Company registry managed in ONE place
+   - Update once → benefits both training and deployment
+   - Version control tracks all changes
+
+4. **Easier Maintenance**
+   - Bug fix in registry → automatically applies to all models
+   - No need to update 21 different notebooks
+   - Consistent behavior across all classifiers
+
+### **Setup Guide for Colab**
+
+See detailed instructions: `docs/VeriSystems/VeriAIDPO_Colab_Setup_Guide.md`
+
+**Quick Start** (Google Drive method):
+1. Upload `VeriSyntra/backend/` folder to Google Drive
+2. In Colab notebook, set: `BACKEND_PATH = '/content/drive/MyDrive/VeriSyntra/backend'`
+3. Mount Drive and import production modules
+4. Verify 46+ companies loaded
+
+### **Verification Checklist** (Required for ALL Models)
+
+Before training ANY model, verify:
+
+```python
+# ✅ Check 1: Files exist
+import os
+assert os.path.exists(f'{BACKEND_PATH}/app/core/company_registry.py')
+assert os.path.exists(f'{BACKEND_PATH}/app/core/pdpl_normalizer.py')
+assert os.path.exists(f'{BACKEND_PATH}/config/company_registry.json')
+
+# ✅ Check 2: Imports work
+from app.core.company_registry import get_registry
+from app.core.pdpl_normalizer import get_normalizer
+
+# ✅ Check 3: Registry loaded (46+ companies)
+registry = get_registry()
+stats = registry.get_statistics()
+assert stats['total_companies'] >= 46, f"Only {stats['total_companies']} companies loaded!"
+
+# ✅ Check 4: Normalizer works
+normalizer = get_normalizer()
+result = normalizer.normalize_text("Vietcombank thu thap du lieu")
+assert '[COMPANY]' in result.normalized_text, "Normalization failed!"
+
+print("✅ All checks passed - Production backend ready for training")
+```
+
+### **This Applies to ALL 21 Models**
+
+- ✅ VeriAIDPO_Principles (VI + EN) - Already updated
+- ✅ VeriAIDPO_LegalBasis (VI + EN) - Must use backend
+- ✅ VeriAIDPO_BreachTriage (VI + EN) - Must use backend
+- ✅ VeriAIDPO_CrossBorder (VI + EN) - Must use backend
+- ✅ VeriAIDPO_ConsentType (VI + EN) - Must use backend
+- ✅ VeriAIDPO_DataSensitivity (VI + EN) - Must use backend
+- ✅ VeriAIDPO_DPOTasks (VI + EN) - Must use backend
+- ✅ VeriAIDPO_RiskLevel (VI + EN) - Must use backend
+- ✅ VeriAIDPO_ComplianceStatus (VI + EN) - Must use backend
+- ✅ VeriAIDPO_Regional (VI + EN) - Must use backend
+- ✅ VeriAIDPO_Industry (VI + EN) - Must use backend
+
+**No exceptions - ALL models must use production backend modules.**
+
+---
+
+## �🎨 Hard Dataset Strategy with Ambiguity
 
 **Critical Update**: All models use HARD datasets with controlled ambiguity (not easy keyword-based templates)
 
@@ -190,6 +315,57 @@ ENGLISH_COMPOSITION = {
 - **Cost**: $20-30 (GPU hours)
 
 **Total Phase 0**: 4-6 days, $40-60, 36,000 samples
+
+#### **✅ Vietnamese Notebook Created (v2.0)**
+
+**Notebook File**: `docs/VeriSystems/VeriAIDPO_Principles_VI_v2_DynamicRegistry_Training.ipynb`
+
+**Key Features Implemented**:
+- ✅ **Production Backend Integration** - Uses `backend/app/core/company_registry.py` and `pdpl_normalizer.py` (NOT inline code)
+- ✅ Dynamic Company Registry Integration (zero hardcoded companies)
+- ✅ 24,000 hard samples with 40% VERY_HARD + 40% HARD ambiguity
+- ✅ 5-layer data leak detection and prevention
+- ✅ Company-agnostic training ([COMPANY] token normalization)
+- ✅ Regional variations (North, Central, South Vietnamese contexts)
+- ✅ Company distribution balance tracking
+- ✅ Train/Val/Test split with leak detection
+- ✅ PhoBERT-base-v2 fine-tuning configuration
+- ✅ Company-agnostic testing with NEW companies
+- ✅ Model export with registry metadata
+
+**Production Backend Files Used**:
+- `backend/app/core/company_registry.py` - Production CompanyRegistry class
+- `backend/app/core/pdpl_normalizer.py` - Production PDPLTextNormalizer class
+- `backend/config/company_registry.json` - Production company database (46+ companies)
+
+**Notebook Structure (22 cells)**:
+1. Title and Overview (Markdown - includes backend integration architecture)
+2. Environment Setup (Python - packages installation)
+3. Dynamic Company Registry Setup (Markdown - upload instructions for backend files)
+4. Load Production Backend Modules (Python - import from VeriSyntra backend, NOT inline code)
+5. Initialize Production Normalizer (Python - uses production PDPLTextNormalizer)
+6. Dataset Generator with Data Leak Detection (Python - 214 lines)
+7. Generate 24,000 Production Samples (Python - 125 lines)
+8. Data Leak Detection (Python - 5-layer validation, 138 lines)
+9. Dataset Preparation and Split (Python - train/val/test with leak check)
+10. Model Training with PhoBERT (Python - 158 lines)
+11. Company-Agnostic Testing (Python - test with NEW companies)
+12. Model Export with Metadata (Python - save model + registry info)
+13. Completion Summary (Markdown - deployment checklist)
+
+**Data Leak Prevention Strategy**:
+- Layer 1: Template diversity analysis (>70% target)
+- Layer 2: Normalized sample uniqueness (>95% target)
+- Layer 3: Company distribution balance (min/max ratio >30%)
+- Layer 4: Category distribution balance (<10% deviation)
+- Layer 5: Train/Val/Test split overlap detection
+
+**Next Steps**:
+1. Upload notebook to Google Colab Pro+
+2. Execute training (2-3 days on T4/A100 GPU)
+3. Download trained model
+4. Test in VeriSyntra backend
+5. Deploy to production
 
 #### **Dataset Generation**
 
@@ -446,6 +622,23 @@ FORMALITY_LEVELS = ['formal', 'business']
 - **Inference Speed**: <50ms per request
 - **Dataset**: 6,000 samples with 35% VERY_HARD ambiguity
 
+#### 📋 Training Notebook Requirements
+
+**CRITICAL - Architecture Compliance**:
+✅ **MUST use production backend modules** (see Architecture Requirements section above)
+- Import `CompanyRegistry` from `backend/app/core/company_registry.py`
+- Import `PDPLTextNormalizer` from `backend/app/core/pdpl_normalizer.py`
+- Upload `backend/config/company_registry.json` to Colab
+- **NEVER recreate these classes inline in the notebook**
+
+**Training-Production Parity Benefits**:
+- ✅ Same normalization logic in training and production
+- ✅ Same company registry data source
+- ✅ Zero risk of code drift between training and deployment
+- ✅ Single source of truth for updates
+
+**Colab Setup**: See `docs/VeriSystems/VeriAIDPO_Colab_Setup_Guide.md` for upload instructions
+
 ---
 
 ### **2. VeriAIDPO_BreachTriage - Breach Notification Classification**
@@ -585,6 +778,23 @@ BREACH_SEVERITY_CATEGORIES = {
 "Sensitive national security data leaked from {company} system."
 ```
 
+#### 📋 Training Notebook Requirements
+
+**CRITICAL - Architecture Compliance**:
+✅ **MUST use production backend modules** (see Architecture Requirements section above)
+- Import `CompanyRegistry` from `backend/app/core/company_registry.py`
+- Import `PDPLTextNormalizer` from `backend/app/core/pdpl_normalizer.py`
+- Upload `backend/config/company_registry.json` to Colab
+- **NEVER recreate these classes inline in the notebook**
+
+**Training-Production Parity Benefits**:
+- ✅ Same normalization logic in training and production
+- ✅ Same company registry data source
+- ✅ Zero risk of code drift between training and deployment
+- ✅ Single source of truth for updates
+
+**Colab Setup**: See `docs/VeriSystems/VeriAIDPO_Colab_Setup_Guide.md` for upload instructions
+
 ---
 
 ### **3. VeriAIDPO_CrossBorder - Cross-Border Transfer Classification**
@@ -715,6 +925,23 @@ CROSS_BORDER_CATEGORIES = {
   - EASY: 84 samples/category (7%) - Clear location examples
 - **Sources**: International data transfer agreements, GDPR adequacy decisions, cloud provider documentation
 
+#### 📋 Training Notebook Requirements
+
+**CRITICAL - Architecture Compliance**:
+✅ **MUST use production backend modules** (see Architecture Requirements section above)
+- Import `CompanyRegistry` from `backend/app/core/company_registry.py`
+- Import `PDPLTextNormalizer` from `backend/app/core/pdpl_normalizer.py`
+- Upload `backend/config/company_registry.json` to Colab
+- **NEVER recreate these classes inline in the notebook**
+
+**Training-Production Parity Benefits**:
+- ✅ Same normalization logic in training and production
+- ✅ Same company registry data source
+- ✅ Zero risk of code drift between training and deployment
+- ✅ Single source of truth for updates
+
+**Colab Setup**: See `docs/VeriSystems/VeriAIDPO_Colab_Setup_Guide.md` for upload instructions
+
 ---
 
 ## ⚠️ Phase 2: Validation & Assessment Models (MEDIUM PRIORITY)
@@ -802,6 +1029,23 @@ MAX_LENGTH = 128
 FORMALITY_LEVELS = ['formal', 'business']
 ```
 
+#### 📋 Training Notebook Requirements
+
+**CRITICAL - Architecture Compliance**:
+✅ **MUST use production backend modules** (see Architecture Requirements section above)
+- Import `CompanyRegistry` from `backend/app/core/company_registry.py`
+- Import `PDPLTextNormalizer` from `backend/app/core/pdpl_normalizer.py`
+- Upload `backend/config/company_registry.json` to Colab
+- **NEVER recreate these classes inline in the notebook**
+
+**Training-Production Parity Benefits**:
+- ✅ Same normalization logic in training and production
+- ✅ Same company registry data source
+- ✅ Zero risk of code drift between training and deployment
+- ✅ Single source of truth for updates
+
+**Colab Setup**: See `docs/VeriSystems/VeriAIDPO_Colab_Setup_Guide.md` for upload instructions
+
 ---
 
 ### **5. VeriAIDPO_DataSensitivity - Data Category Classification**
@@ -886,6 +1130,23 @@ LEARNING_RATE = 2e-5
 MAX_LENGTH = 128
 FORMALITY_LEVELS = ['formal', 'business']
 ```
+
+#### 📋 Training Notebook Requirements
+
+**CRITICAL - Architecture Compliance**:
+✅ **MUST use production backend modules** (see Architecture Requirements section above)
+- Import `CompanyRegistry` from `backend/app/core/company_registry.py`
+- Import `PDPLTextNormalizer` from `backend/app/core/pdpl_normalizer.py`
+- Upload `backend/config/company_registry.json` to Colab
+- **NEVER recreate these classes inline in the notebook**
+
+**Training-Production Parity Benefits**:
+- ✅ Same normalization logic in training and production
+- ✅ Same company registry data source
+- ✅ Zero risk of code drift between training and deployment
+- ✅ Single source of truth for updates
+
+**Colab Setup**: See `docs/VeriSystems/VeriAIDPO_Colab_Setup_Guide.md` for upload instructions
 
 ---
 
@@ -972,6 +1233,23 @@ MAX_LENGTH = 128
 FORMALITY_LEVELS = ['formal', 'business']
 ```
 
+#### 📋 Training Notebook Requirements
+
+**CRITICAL - Architecture Compliance**:
+✅ **MUST use production backend modules** (see Architecture Requirements section above)
+- Import `CompanyRegistry` from `backend/app/core/company_registry.py`
+- Import `PDPLTextNormalizer` from `backend/app/core/pdpl_normalizer.py`
+- Upload `backend/config/company_registry.json` to Colab
+- **NEVER recreate these classes inline in the notebook**
+
+**Training-Production Parity Benefits**:
+- ✅ Same normalization logic in training and production
+- ✅ Same company registry data source
+- ✅ Zero risk of code drift between training and deployment
+- ✅ Single source of truth for updates
+
+**Colab Setup**: See `docs/VeriSystems/VeriAIDPO_Colab_Setup_Guide.md` for upload instructions
+
 ---
 
 ### **7. VeriAIDPO_RiskLevel - Risk Assessment Classification**
@@ -1056,6 +1334,23 @@ LEARNING_RATE = 2e-5
 MAX_LENGTH = 128
 FORMALITY_LEVELS = ['formal', 'business']
 ```
+
+#### 📋 Training Notebook Requirements
+
+**CRITICAL - Architecture Compliance**:
+✅ **MUST use production backend modules** (see Architecture Requirements section above)
+- Import `CompanyRegistry` from `backend/app/core/company_registry.py`
+- Import `PDPLTextNormalizer` from `backend/app/core/pdpl_normalizer.py`
+- Upload `backend/config/company_registry.json` to Colab
+- **NEVER recreate these classes inline in the notebook**
+
+**Training-Production Parity Benefits**:
+- ✅ Same normalization logic in training and production
+- ✅ Same company registry data source
+- ✅ Zero risk of code drift between training and deployment
+- ✅ Single source of truth for updates
+
+**Colab Setup**: See `docs/VeriSystems/VeriAIDPO_Colab_Setup_Guide.md` for upload instructions
 
 ---
 
@@ -1143,6 +1438,23 @@ MAX_LENGTH = 128
 FORMALITY_LEVELS = ['formal', 'business']
 ```
 
+#### 📋 Training Notebook Requirements
+
+**CRITICAL - Architecture Compliance**:
+✅ **MUST use production backend modules** (see Architecture Requirements section above)
+- Import `CompanyRegistry` from `backend/app/core/company_registry.py`
+- Import `PDPLTextNormalizer` from `backend/app/core/pdpl_normalizer.py`
+- Upload `backend/config/company_registry.json` to Colab
+- **NEVER recreate these classes inline in the notebook**
+
+**Training-Production Parity Benefits**:
+- ✅ Same normalization logic in training and production
+- ✅ Same company registry data source
+- ✅ Zero risk of code drift between training and deployment
+- ✅ Single source of truth for updates
+
+**Colab Setup**: See `docs/VeriSystems/VeriAIDPO_Colab_Setup_Guide.md` for upload instructions
+
 ---
 
 ### **9. VeriAIDPO_Regional - Vietnamese Regional Context**
@@ -1227,6 +1539,23 @@ MAX_LENGTH = 128
 FORMALITY_LEVELS = ['formal', 'business']
 ```
 
+#### 📋 Training Notebook Requirements
+
+**CRITICAL - Architecture Compliance**:
+✅ **MUST use production backend modules** (see Architecture Requirements section above)
+- Import `CompanyRegistry` from `backend/app/core/company_registry.py`
+- Import `PDPLTextNormalizer` from `backend/app/core/pdpl_normalizer.py`
+- Upload `backend/config/company_registry.json` to Colab
+- **NEVER recreate these classes inline in the notebook**
+
+**Training-Production Parity Benefits**:
+- ✅ Same normalization logic in training and production
+- ✅ Same company registry data source
+- ✅ Zero risk of code drift between training and deployment
+- ✅ Single source of truth for updates
+
+**Colab Setup**: See `docs/VeriSystems/VeriAIDPO_Colab_Setup_Guide.md` for upload instructions
+
 ---
 
 ### **10. VeriAIDPO_Industry - Industry-Specific Requirements**
@@ -1310,6 +1639,23 @@ LEARNING_RATE = 2e-5
 MAX_LENGTH = 128
 FORMALITY_LEVELS = ['formal', 'business']
 ```
+
+#### 📋 Training Notebook Requirements
+
+**CRITICAL - Architecture Compliance**:
+✅ **MUST use production backend modules** (see Architecture Requirements section above)
+- Import `CompanyRegistry` from `backend/app/core/company_registry.py`
+- Import `PDPLTextNormalizer` from `backend/app/core/pdpl_normalizer.py`
+- Upload `backend/config/company_registry.json` to Colab
+- **NEVER recreate these classes inline in the notebook**
+
+**Training-Production Parity Benefits**:
+- ✅ Same normalization logic in training and production
+- ✅ Same company registry data source
+- ✅ Zero risk of code drift between training and deployment
+- ✅ Single source of truth for updates
+
+**Colab Setup**: See `docs/VeriSystems/VeriAIDPO_Colab_Setup_Guide.md` for upload instructions
 
 ---
 
