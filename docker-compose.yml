@@ -1,0 +1,180 @@
+# ============================================
+# VeriSyntra - Docker Compose Configuration
+# ============================================
+# Development environment for Vietnamese PDPL 2025 Compliance Platform
+# Phase 1: Monolith containerization
+# ============================================
+
+version: '3.8'
+
+services:
+  # ============================================
+  # VeriSyntra Backend (FastAPI)
+  # ============================================
+  verisyntra-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: verisyntra-backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Vietnamese timezone
+      - TZ=Asia/Ho_Chi_Minh
+      
+      # Hugging Face Hub (for model auto-download)
+      # CRITICAL: Set your HF token for private model access
+      - HF_TOKEN=${HF_TOKEN:-}
+      
+      # Python configuration
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+      
+      # FastAPI/Uvicorn
+      - PORT=8000
+      - HOST=0.0.0.0
+      - WORKERS=1
+      
+      # Database (when implemented)
+      # - DATABASE_URL=postgresql://verisyntra:password@postgres:5432/verisyntra
+      
+      # Redis (when implemented)
+      # - REDIS_URL=redis://redis:6379/0
+      
+      # Environment
+      - ENVIRONMENT=development
+      - DEBUG=true
+      - LOG_LEVEL=info
+      
+    volumes:
+      # Mount source code for hot-reload during development
+      - ./backend:/app
+      
+      # Persistent model cache (so models don't re-download on container restart)
+      - verisyntra-model-cache:/app/cache/huggingface
+      
+      # Persistent logs
+      - verisyntra-logs:/app/logs
+      
+    networks:
+      - verisyntra-network
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    
+    restart: unless-stopped
+    
+    # Resource limits (adjust based on your system)
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+
+  # ============================================
+  # PostgreSQL Database (Future Phase 2)
+  # ============================================
+  # Uncomment when implementing database integration
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: verisyntra-postgres
+  #   environment:
+  #     - POSTGRES_DB=verisyntra
+  #     - POSTGRES_USER=verisyntra
+  #     - POSTGRES_PASSWORD=verisyntra_dev_password
+  #     - TZ=Asia/Ho_Chi_Minh
+  #     - PGTZ=Asia/Ho_Chi_Minh
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - verisyntra-postgres-data:/var/lib/postgresql/data
+  #   networks:
+  #     - verisyntra-network
+  #   restart: unless-stopped
+
+  # ============================================
+  # Redis Cache (Future Phase 2)
+  # ============================================
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: verisyntra-redis
+  #   command: redis-server --appendonly yes
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - verisyntra-redis-data:/data
+  #   networks:
+  #     - verisyntra-network
+  #   restart: unless-stopped
+
+# ============================================
+# Volumes (Persistent Data)
+# ============================================
+volumes:
+  # Model cache - persists downloaded ML models
+  verisyntra-model-cache:
+    driver: local
+    name: verisyntra-model-cache
+  
+  # Application logs
+  verisyntra-logs:
+    driver: local
+    name: verisyntra-logs
+  
+  # Future: Database data
+  # verisyntra-postgres-data:
+  #   driver: local
+  #   name: verisyntra-postgres-data
+  
+  # Future: Redis data
+  # verisyntra-redis-data:
+  #   driver: local
+  #   name: verisyntra-redis-data
+
+# ============================================
+# Networks
+# ============================================
+networks:
+  verisyntra-network:
+    driver: bridge
+    name: verisyntra-network
+
+# ============================================
+# Usage Instructions
+# ============================================
+# 
+# 1. Set up environment variables:
+#    Create .env file in project root with:
+#    HF_TOKEN=your_huggingface_token
+#
+# 2. Start services:
+#    docker-compose up -d
+#
+# 3. View logs:
+#    docker-compose logs -f verisyntra-backend
+#
+# 4. Stop services:
+#    docker-compose down
+#
+# 5. Rebuild after code changes:
+#    docker-compose up -d --build
+#
+# 6. Access services:
+#    - Backend API: http://localhost:8000
+#    - API Docs: http://localhost:8000/docs
+#    - ReDoc: http://localhost:8000/redoc
+#
+# 7. Execute commands in container:
+#    docker-compose exec verisyntra-backend bash
+#
+# 8. View resource usage:
+#    docker stats verisyntra-backend
+#
+# ============================================

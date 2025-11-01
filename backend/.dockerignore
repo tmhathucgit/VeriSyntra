@@ -1,0 +1,98 @@
+# ============================================
+# VeriSyntra Backend - Docker Ignore File
+# ============================================
+# Excludes files from Docker build context to:
+# 1. Speed up build process
+# 2. Reduce image size
+# 3. Prevent sensitive data from being copied
+# ============================================
+
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# ML Models (downloaded from Hugging Face Hub at runtime)
+app/ml/models/VeriAIDPO_*/
+app/ml/models/*.safetensors
+app/ml/models/*.bin
+app/ml/models/*.pt
+app/ml/models/*.pth
+
+# Development files
+.env
+.env.local
+.env.*.local
+*.log
+logs/
+*.sqlite
+*.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+.hypothesis/
+
+# Documentation
+*.md
+docs/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# CI/CD
+.github/
+
+# Jupyter Notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Cache directories
+cache/
+.cache/
+
+# Demo and test scripts (not needed in production)
+demo_*.py
+test_*.py
+validate_*.py
+tests/
+
+# Docker files (no need to copy into image)
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# OS files
+Thumbs.db
+.DS_Store
