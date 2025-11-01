@@ -1,0 +1,32 @@
+# ============================================
+# VeriSyntra Auth Service - Docker Ignore
+# ============================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+.env
+.env.local
+*.log
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+.git/
+.gitignore
+
+*.md
+docs/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+build/
+dist/
+*.egg-info/

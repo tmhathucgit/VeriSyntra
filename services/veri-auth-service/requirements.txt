@@ -1,0 +1,34 @@
+# ============================================
+# VeriSyntra Auth Service - Python Dependencies
+# ============================================
+
+# FastAPI framework
+fastapi==0.118.0
+uvicorn[standard]==0.31.0
+
+# Authentication
+python-jose[cryptography]==3.3.0  # JWT tokens
+passlib==1.7.4  # Password hashing
+bcrypt==4.1.2  # Bcrypt backend for passlib
+python-multipart==0.0.20  # Form data (fixed version)
+
+# Data validation
+pydantic[email]==2.10.3
+email-validator==2.2.0
+
+# Database (PostgreSQL - will be used in next iteration)
+asyncpg==0.30.0  # Async PostgreSQL driver
+sqlalchemy==2.0.35  # ORM
+alembic==1.14.0  # Database migrations
+
+# Vietnamese timezone support
+pytz==2025.1
+
+# HTTP client (for service communication)
+httpx==0.28.1
+
+# Logging
+loguru==0.7.3
+
+# Development
+python-dotenv==1.0.1
