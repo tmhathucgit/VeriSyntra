@@ -3,10 +3,15 @@ Admin API for Dynamic Company Registry Management
 Phase 3 Implementation - VeriAIDPO Dynamic Company Registry
 
 Version: 1.0.0
-Status: COMPLETE
+Status: COMPLETE - RBAC Protected (Task 1.1.3 Step 7)
+
+RBAC Protection:
+- All endpoints require authentication
+- Write operations: admin role only (user.write permission)
+- Read operations: admin/auditor roles (user.read permission)
 """
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Depends
 from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 from datetime import datetime
@@ -19,6 +24,9 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../../..'))
 
 from app.core.company_registry import get_registry
 from app.core.pdpl_normalizer import get_normalizer
+
+# Import RBAC dependencies (Task 1.1.3 Step 5)
+from auth.rbac_dependencies import require_permission, CurrentUser
 
 
 router = APIRouter(prefix="/admin/companies", tags=["admin", "companies"])
@@ -82,9 +90,14 @@ class CompanyListResponse(BaseModel):
 
 # Endpoints
 @router.post("/add", response_model=CompanyResponse, status_code=201)
-async def add_company(company: CompanyInput):
+async def add_company(
+    company: CompanyInput,
+    current_user: CurrentUser = Depends(require_permission("user.write"))
+):
     """
     Add new company to registry (no model retraining needed)
+    
+    **RBAC:** Requires `user.write` permission (admin role only)
     
     This endpoint enables runtime company additions without code deployment.
     The new company will be automatically normalized in all VeriAIDPO classifications.
@@ -108,14 +121,19 @@ async def add_company(company: CompanyInput):
     - north (Ha Noi region)
     - central (Da Nang, Hue region)
     - south (Ho Chi Minh City region)
+    
+    Vietnamese: Them cong ty moi vao co so du lieu (chi admin)
     """
     try:
-        logger.info(f"Adding company: {company.name} ({company.industry}/{company.region})")
+        logger.info(
+            f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+            f"adding company: {company.name}"
+        )
         
         registry = get_registry()
         
         # Add company to registry
-        entry = registry.add_company(
+        result = registry.add_company(
             name=company.name,
             industry=company.industry,
             region=company.region,
@@ -123,19 +141,26 @@ async def add_company(company: CompanyInput):
             metadata=company.metadata or {}
         )
         
+        # Check if add was successful
+        if not result.get('success'):
+            raise HTTPException(
+                status_code=400, 
+                detail=result.get('message', 'Failed to add company')
+            )
+        
         # Hot-reload normalizer to include new company
         normalizer = get_normalizer()
-        normalizer= get_normalizer()  # Hot-reload by getting fresh instance
+        normalizer = get_normalizer()  # Hot-reload by getting fresh instance
         
         logger.success(f"Successfully added company: {company.name}")
         
         return CompanyResponse(
-            name=entry['name'],
+            name=company.name,
             industry=company.industry,
             region=company.region,
-            aliases=entry.get('aliases', []),
-            metadata=entry.get('metadata', {}),
-            added_date=entry.get('added_date', datetime.now().isoformat())
+            aliases=company.aliases or [],
+            metadata=company.metadata or {},
+            added_date=datetime.now().isoformat()
         )
     
     except ValueError as e:
@@ -150,10 +175,13 @@ async def add_company(company: CompanyInput):
 async def remove_company(
     name: str = Query(..., description="Company name to remove"),
     industry: str = Query(..., description="Industry category"),
-    region: str = Query(..., description="Region (north/central/south)")
+    region: str = Query(..., description="Region (north/central/south)"),
+    current_user: CurrentUser = Depends(require_permission("user.delete"))
 ):
     """
     Remove company from registry
+    
+    **RBAC:** Requires `user.delete` permission (admin role only)
     
     Removes a company and hot-reloads the normalizer.
     
@@ -161,9 +189,14 @@ async def remove_company(
     ```
     DELETE /api/v1/admin/companies/remove?name=OldCompany&industry=technology&region=south
     ```
+    
+    Vietnamese: Xoa cong ty khoi co so du lieu (chi admin)
     """
     try:
-        logger.info(f"Removing company: {name} ({industry}/{region})")
+        logger.info(
+            f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+            f"removing company: {name}"
+        )
         
         registry = get_registry()
         success = registry.remove_company(name, industry, region)
@@ -199,10 +232,13 @@ async def remove_company(
 
 @router.get("/search", response_model=SearchResponse)
 async def search_companies(
-    query: str = Query(..., description="Search query (company name or alias)", min_length=1)
+    query: str = Query(..., description="Search query (company name or alias)", min_length=1),
+    current_user: CurrentUser = Depends(require_permission("user.read"))
 ):
     """
     Search companies by name or alias
+    
+    **RBAC:** Requires `user.read` permission (admin/auditor/dpo roles)
     
     Performs case-insensitive search across company names and aliases.
     
@@ -214,9 +250,14 @@ async def search_companies(
     **Returns:**
     - All companies matching the query
     - Includes industry and region information
+    
+    Vietnamese: Tim kiem cong ty theo ten hoac biet danh
     """
     try:
-        logger.info(f"Searching companies: query='{query}'")
+        logger.info(
+            f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+            f"searching companies: query='{query}'"
+        )
         
         registry = get_registry()
         results = registry.search_companies(query)
@@ -236,10 +277,13 @@ async def search_companies(
 
 @router.get("/list/{industry}", response_model=CompanyListResponse)
 async def list_companies_by_industry(
-    industry: str
+    industry: str,
+    current_user: CurrentUser = Depends(require_permission("user.read"))
 ):
     """
     Get all companies in specific industry
+    
+    **RBAC:** Requires `user.read` permission (admin/auditor/dpo roles)
     
     Returns all companies across all regions for the given industry.
     
@@ -251,9 +295,14 @@ async def list_companies_by_industry(
     **Supported Industries:**
     - technology, finance, healthcare, education, retail, manufacturing,
       transportation, telecom, government
+    
+    Vietnamese: Lay tat ca cong ty trong nganh cong nghiep cu the
     """
     try:
-        logger.info(f"Listing companies for industry: {industry}")
+        logger.info(
+            f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+            f"listing companies for industry: {industry}"
+        )
         
         registry = get_registry()
         companies = registry.search_companies(industry)
@@ -272,9 +321,13 @@ async def list_companies_by_industry(
 
 
 @router.get("/stats", response_model=RegistryStatsResponse)
-async def get_registry_stats():
+async def get_registry_stats(
+    current_user: CurrentUser = Depends(require_permission("user.read"))
+):
     """
     Get company registry statistics
+    
+    **RBAC:** Requires `user.read` permission (admin/auditor/dpo roles)
     
     Returns comprehensive statistics about the registry:
     - Total number of companies
@@ -299,9 +352,14 @@ async def get_registry_stats():
       "last_modified": "2025-10-18T10:30:00"
     }
     ```
+    
+    Vietnamese: Lay thong ke dang ky cong ty
     """
     try:
-        logger.info("Fetching registry statistics")
+        logger.info(
+            f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+            f"fetching registry statistics"
+        )
         
         registry = get_registry()
         stats = registry.get_statistics()
@@ -316,9 +374,13 @@ async def get_registry_stats():
 
 
 @router.post("/reload", response_model=MessageResponse)
-async def reload_registry():
+async def reload_registry(
+    current_user: CurrentUser = Depends(require_permission("user.write"))
+):
     """
     Hot-reload company registry from config file
+    
+    **RBAC:** Requires `user.write` permission (admin role only)
     
     Reloads the registry from `config/company_registry.json` without restarting
     the server. Useful after manual config file updates.
@@ -330,9 +392,14 @@ async def reload_registry():
     
     **Returns:**
     - Success message with updated statistics
+    
+    Vietnamese: Tai lai dang ky cong ty tu tep cau hinh (chi admin)
     """
     try:
-        logger.info("Hot-reloading company registry")
+        logger.info(
+            f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+            f"hot-reloading company registry"
+        )
         
         registry = get_registry()
         normalizer = get_normalizer()
@@ -360,9 +427,13 @@ async def reload_registry():
 
 
 @router.get("/export")
-async def export_registry():
+async def export_registry(
+    current_user: CurrentUser = Depends(require_permission("user.read"))
+):
     """
     Export full company registry as JSON
+    
+    **RBAC:** Requires `user.read` permission (admin/auditor/dpo roles)
     
     Returns the complete registry structure for backup or migration purposes.
     
@@ -374,9 +445,14 @@ async def export_registry():
     - Backup before major changes
     - Migration to another environment
     - Integration with external systems
+    
+    Vietnamese: Xuat dang ky cong ty day du dang JSON
     """
     try:
-        logger.info("Exporting company registry")
+        logger.info(
+            f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+            f"exporting company registry"
+        )
         
         registry = get_registry()
         

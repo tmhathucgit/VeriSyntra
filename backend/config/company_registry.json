@@ -166,6 +166,14 @@
           "founded": 2004
         },
         "added_date": "2025-10-18T00:00:00"
+      },
+      {
+        "name": "RBAC Test Company",
+        "aliases": [
+          "RBAC Test Co"
+        ],
+        "metadata": {},
+        "added_date": "2025-11-08T15:51:54.757002"
       }
     ]
   },

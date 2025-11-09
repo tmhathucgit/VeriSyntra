@@ -159,19 +159,24 @@ services:
     restart: unless-stopped
 
   # ============================================
-  # Redis Cache (Future Phase 3)
+  # Redis Cache (Phase 1.1.2 - Task Auth Endpoints)
   # ============================================
-  # redis:
-  #   image: redis:7-alpine
-  #   container_name: verisyntra-redis
-  #   command: redis-server --appendonly yes
-  #   ports:
-  #     - "6379:6379"
-  #   volumes:
-  #     - verisyntra-redis-data:/data
-  #   networks:
-  #     - verisyntra-network
-  #   restart: unless-stopped
+  redis:
+    image: redis:7-alpine
+    container_name: verisyntra-redis
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - verisyntra-redis-data:/data
+    networks:
+      - verisyntra-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 # ============================================
 # Volumes (Persistent Data)
@@ -192,10 +197,10 @@ volumes:
     driver: local
     name: verisyntra-postgres-data
   
-  # Future: Redis data
-  # verisyntra-redis-data:
-  #   driver: local
-  #   name: verisyntra-redis-data
+  # Redis data (Phase 1.1.2 - Task Auth Endpoints)
+  verisyntra-redis-data:
+    driver: local
+    name: verisyntra-redis-data
 
 # ============================================
 # Networks

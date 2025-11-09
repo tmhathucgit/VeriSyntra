@@ -3,10 +3,17 @@ VeriAIDPO Classification API with Company Normalization
 Phase 3 Implementation - Company-Agnostic Classification
 
 Version: 1.0.0
-Status: COMPLETE
+Status: COMPLETE - RBAC Protected (Task 1.1.3 Step 7)
+
+RBAC Protection:
+- Classification endpoints require processing_activity.read permission
+- Normalize endpoint requires data_category.write permission  
+- Health check is public (no auth)
+- Model status requires analytics.read permission
+- Preload model requires user.write permission (admin only)
 """
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel, Field
 from typing import Dict, List, Optional, Any
 from datetime import datetime
@@ -20,6 +27,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../../../..'))
 from app.core.pdpl_normalizer import get_normalizer
 from app.core.company_registry import get_registry
 from app.ml.model_loader import get_model_loader, get_category_info, PDPL_CATEGORIES
+from auth.rbac_dependencies import require_permission, CurrentUser
 
 
 router = APIRouter(prefix="/veriaidpo", tags=["veriaidpo", "classification"])
@@ -140,9 +148,14 @@ def get_category_name(model_type: str, category_id: int) -> str:
 
 # Classification Endpoints
 @router.post("/classify", response_model=ClassificationResponse)
-async def classify_text(request: ClassificationRequest):
+async def classify_text(
+    request: ClassificationRequest,
+    current_user: CurrentUser = Depends(require_permission("processing_activity.read"))
+):
     """
     Universal VeriAIDPO classification endpoint
+    
+    **RBAC:** Requires `processing_activity.read` permission (admin/dpo/compliance_manager/staff roles)
     
     Automatically normalizes company names before inference, making the model
     company-agnostic. Works with ANY Vietnamese company without retraining.
@@ -183,11 +196,16 @@ async def classify_text(request: ClassificationRequest):
       "original_text": "Shopee VN thu thap email..."
     }
     ```
+    
+    Vietnamese: Phan loai van ban PDPL su dung AI (yeu cau quyen doc hoat dong xu ly)
     """
     start_time = datetime.now()
     
     try:
-        logger.info(f"Classification request: model_type={request.model_type}, language={request.language}")
+        logger.info(
+            f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+            f"classifying text: model_type={request.model_type}, language={request.language}"
+        )
         
         # Validate model type
         if request.model_type not in MODEL_TYPES:
@@ -285,9 +303,14 @@ async def classify_text(request: ClassificationRequest):
 
 
 @router.post("/classify-legal-basis", response_model=ClassificationResponse)
-async def classify_legal_basis(request: ClassificationRequest):
+async def classify_legal_basis(
+    request: ClassificationRequest,
+    current_user: CurrentUser = Depends(require_permission("processing_activity.read"))
+):
     """
     Classify legal basis for data processing (Article 13.1 PDPL)
+    
+    **RBAC:** Requires `processing_activity.read` permission (admin/dpo/compliance_manager/staff roles)
     
     Automatically routes to the legal_basis model.
     
@@ -296,51 +319,84 @@ async def classify_legal_basis(request: ClassificationRequest):
     - Contract Performance (Article 13.1.b)
     - Legal Obligation (Article 13.1.c)
     - Legitimate Interest (Article 13.1.d)
+    
+    Vietnamese: Phan loai co so phap ly cho xu ly du lieu (Dieu 13.1 PDPL)
     """
+    logger.info(
+        f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+        f"classifying legal basis"
+    )
     request.model_type = 'legal_basis'
-    return await classify_text(request)
+    return await classify_text(request, current_user)
 
 
 @router.post("/classify-breach-severity", response_model=ClassificationResponse)
-async def classify_breach_severity(request: ClassificationRequest):
+async def classify_breach_severity(
+    request: ClassificationRequest,
+    current_user: CurrentUser = Depends(require_permission("processing_activity.read"))
+):
     """
     Classify data breach severity for notification requirements
+    
+    **RBAC:** Requires `processing_activity.read` permission (admin/dpo/compliance_manager/staff roles)
     
     Automatically routes to the breach_triage model.
     
     **Categories:**
-    - Low Risk: Internal notification only
-    - Medium Risk: DPO review required
-    - High Risk: MPS notification within 72 hours
-    - Critical Risk: Immediate MPS + affected individuals notification
+    - Critical Breach
+    - High Severity
+    - Medium Severity
+    - Low Severity
+    
+    Vietnamese: Phan loai muc do nghiem trong cua vi pham du lieu
     """
+    logger.info(
+        f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+        f"classifying breach severity"
+    )
     request.model_type = 'breach_triage'
-    return await classify_text(request)
+    return await classify_text(request, current_user)
 
 
 @router.post("/classify-cross-border", response_model=ClassificationResponse)
-async def classify_cross_border(request: ClassificationRequest):
+async def classify_cross_border(
+    request: ClassificationRequest,
+    current_user: CurrentUser = Depends(require_permission("processing_activity.read"))
+):
     """
     Classify cross-border data transfer compliance
+    
+    **RBAC:** Requires `processing_activity.read` permission (admin/dpo/compliance_manager/staff roles)
     
     Automatically routes to the cross_border model.
     
     **Categories:**
-    - Domestic Only: No cross-border transfer
-    - Approved Country List: Whitelist countries
-    - Requires MPS Approval: Case-by-case approval needed
-    - Prohibited Transfer: Not allowed under PDPL
-    - Emergency Exception: Exceptional circumstances
+    - Adequate Protection: Transfer to countries with adequate protection
+    - Standard Clauses: Transfer using standard contractual clauses
+    - Explicit Consent: Transfer based on data subject consent
+    - MPS Approval Required: Transfer requiring Ministry approval
+    - Prohibited Transfer: Transfer not allowed under PDPL
+    
+    Vietnamese: Phan loai tuan thu chuyen giao du lieu xuyen bien gioi
     """
+    logger.info(
+        f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+        f"classifying cross-border transfer"
+    )
     request.model_type = 'cross_border'
-    return await classify_text(request)
+    return await classify_text(request, current_user)
 
 
 # Normalization Endpoint
 @router.post("/normalize", response_model=NormalizationResponse)
-async def normalize_text(request: NormalizationRequest):
+async def normalize_text(
+    request: NormalizationRequest,
+    current_user: CurrentUser = Depends(require_permission("data_category.write"))
+):
     """
     Normalize text for VeriAIDPO inference
+    
+    **RBAC:** Requires `data_category.write` permission (admin/dpo/compliance_manager roles)
     
     Standalone normalization endpoint useful for:
     - Testing normalization accuracy
@@ -367,12 +423,17 @@ async def normalize_text(request: NormalizationRequest):
       "processing_time_ms": 12.5
     }
     ```
+    
+    Vietnamese: Chuan hoa van ban cho suy luan VeriAIDPO
     """
     start_time = datetime.now()
     
     try:
-        logger.info(f"Normalization request: companies={request.normalize_companies}, " +
-                   f"persons={request.normalize_persons}, locations={request.normalize_locations}")
+        logger.info(
+            f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+            f"normalizing text: companies={request.normalize_companies}, "
+            f"persons={request.normalize_persons}, locations={request.normalize_locations}"
+        )
         
         normalizer = get_normalizer()
         normalized_text = request.text
@@ -480,17 +541,27 @@ async def veriaidpo_health_check():
 
 
 @router.get("/model-status")
-async def get_model_status():
+async def get_model_status(
+    current_user: CurrentUser = Depends(require_permission("analytics.read"))
+):
     """
     Get detailed model status and information
+    
+    **RBAC:** Requires `analytics.read` permission (admin/dpo/compliance_manager/auditor roles)
     
     Returns:
     - Model loading status
     - Device information (CPU/GPU)
     - Model configuration
     - Performance metrics
+    
+    Vietnamese: Lay trang thai chi tiet cua mo hinh
     """
     try:
+        logger.info(
+            f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+            f"checking model status"
+        )
         model_loader = get_model_loader()
         model_info = model_loader.get_model_info()
         
@@ -523,14 +594,24 @@ async def get_model_status():
 
 
 @router.post("/preload-model")
-async def preload_model():
+async def preload_model(
+    current_user: CurrentUser = Depends(require_permission("user.write"))
+):
     """
     Preload model into memory (optional optimization)
     
+    **RBAC:** Requires `user.write` permission (admin role only)
+    
     By default, model loads lazily on first inference request.
     Use this endpoint to preload for faster first response.
+    
+    Vietnamese: Tai truoc mo hinh vao bo nho (toi uu hoa - chi admin)
     """
     try:
+        logger.info(
+            f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+            f"preloading model"
+        )
         model_loader = get_model_loader()
         
         if model_loader.is_loaded:

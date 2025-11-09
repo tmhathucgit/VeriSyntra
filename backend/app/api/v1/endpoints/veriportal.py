@@ -1,6 +1,18 @@
-from fastapi import APIRouter, HTTPException
+"""
+VeriPortal User Management API
+
+Status: COMPLETE - RBAC Protected (Task 1.1.3 Step 7)
+
+RBAC Protection:
+- Root endpoint is public (info only)
+- Dashboard requires analytics.read permission
+"""
+
+from fastapi import APIRouter, HTTPException, Depends
 from datetime import datetime
 import pytz
+
+from auth.rbac_dependencies import require_permission, CurrentUser
 
 router = APIRouter()
 
@@ -22,7 +34,22 @@ async def veriportal_info():
     }
 
 @router.get("/dashboard")
-async def vietnamese_business_dashboard():
+async def vietnamese_business_dashboard(
+    current_user: CurrentUser = Depends(require_permission("analytics.read"))
+):
+    """
+    Vietnamese business dashboard data
+    
+    **RBAC:** Requires `analytics.read` permission (admin/dpo/compliance_manager/auditor roles)
+    
+    Vietnamese: Du lieu bang dieu khien doanh nghiep Viet Nam
+    """
+    from loguru import logger
+    
+    logger.info(
+        f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+        f"accessing Vietnamese business dashboard"
+    )
     """Vietnamese business dashboard data"""
     return {
         "dashboard": "Vietnamese Business Dashboard",

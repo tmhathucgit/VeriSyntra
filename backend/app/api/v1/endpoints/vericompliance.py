@@ -1,7 +1,20 @@
-from fastapi import APIRouter, HTTPException
+"""
+VeriCompliance PDPL 2025 API
+
+Status: COMPLETE - RBAC Protected (Task 1.1.3 Step 7)
+
+RBAC Protection:
+- Root endpoint is public (info only)
+- Requirements endpoint requires ropa.read permission
+- Assessment start requires ropa.write permission
+"""
+
+from fastapi import APIRouter, HTTPException, Depends
 from datetime import datetime
 import pytz
 from typing import Dict, Any
+
+from auth.rbac_dependencies import require_permission, CurrentUser
 
 router = APIRouter()
 
@@ -25,7 +38,22 @@ async def vericompliance_info():
     }
 
 @router.get("/requirements")
-async def pdpl_2025_requirements():
+async def pdpl_2025_requirements(
+    current_user: CurrentUser = Depends(require_permission("ropa.read"))
+):
+    """
+    PDPL 2025 compliance requirements for Vietnamese businesses
+    
+    **RBAC:** Requires `ropa.read` permission (admin/dpo/compliance_manager/auditor/staff roles)
+    
+    Vietnamese: Yeu cau tuan thu PDPL 2025 cho doanh nghiep Viet Nam
+    """
+    from loguru import logger
+    
+    logger.info(
+        f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+        f"accessing PDPL 2025 requirements"
+    )
     """PDPL 2025 compliance requirements for Vietnamese businesses"""
     return {
         "title": "Yêu cầu tuân thủ PDPL 2025",
@@ -87,8 +115,24 @@ async def pdpl_2025_requirements():
     }
 
 @router.post("/assessment/start")
-async def start_compliance_assessment(company_data: Dict[str, Any] = None):
-    """Start PDPL 2025 compliance assessment for Vietnamese business"""
+async def start_compliance_assessment(
+    company_data: Dict[str, Any] = None,
+    current_user: CurrentUser = Depends(require_permission("ropa.generate"))
+):
+    """
+    Start PDPL 2025 compliance assessment for Vietnamese business
+    
+    **RBAC:** Requires `ropa.generate` permission (admin/dpo/compliance_manager roles)
+    
+    Vietnamese: Bat dau danh gia tuan thu PDPL 2025 cho doanh nghiep Viet Nam
+    """
+    from loguru import logger
+    
+    logger.info(
+        f"[RBAC] User {current_user.email} (role: {current_user.role}) "
+        f"starting compliance assessment"
+    )
+    
     if company_data is None:
         company_data = {}
     

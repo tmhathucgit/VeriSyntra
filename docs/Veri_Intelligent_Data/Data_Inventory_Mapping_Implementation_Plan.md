@@ -115,7 +115,7 @@ This implementation plan outlines the development of VeriSyntra's intelligent da
 
 **Note on Microservices Deployment:**  
 The AI models developed in this phase will be deployed across VeriSyntra's microservices architecture:
-- **`veri-vi-ai-classification`** (Port 8006): Structured + Unstructured classification models (Vietnamese AI Classification)
+- **`veri-vi-ai-classification`** (Port 8006): VeriAIDPO_Principles_VI_v1 model (8 PDPL Principles Classification)
 - **`veri-ai-data-inventory`** (Port 8010): Data flow mapping and discovery (Generic with UTF-8 support)
 - **`veri-vi-nlp-processor`** (Port 8007): Vietnamese NLP preprocessing
 
@@ -125,7 +125,7 @@ The AI models developed in this phase will be deployed across VeriSyntra's micro
 - Vietnamese SQL column names supported (ho_ten, so_cmnd, dia_chi, etc.)
 - Delegates Vietnamese pattern recognition to specialized services:
   - `veri-vi-nlp-processor` for Vietnamese text preprocessing
-  - `veri-vi-ai-classification` for Vietnamese data classification
+  - `veri-vi-ai-classification` for Vietnamese PDPL principles classification
 
 See `docs/Veri_Micro_Service_Implementation/02_Service_Specifications.md` for detailed service architecture and `docs/Veri_Micro_Service_Implementation/13_Vietnamese_Data_Handling_Guide.md` for Vietnamese text handling best practices.
 
@@ -140,14 +140,15 @@ See `docs/Veri_Micro_Service_Implementation/02_Service_Specifications.md` for de
 
 **Model Components:**
 
-1. **Structured Data Classifier** _(Deployed in `veri-vi-ai-classification` service, Port 8006)_
+1. **VeriAIDPO Classifier** _(Deployed in `veri-vi-ai-classification`, Port 8006)_
+   - VeriAIDPO_Principles_VI_v1 model (8 PDPL Principles)
+   - Vietnamese pattern recognition (CMND/CCCD, phone, address formats)
    - Field name pattern recognition
    - Data type inference from values
    - Database schema analysis
-   - Sensitivity scoring
-   - Vietnamese-specific pattern library (CMND/CCCD, phone, address formats)
+   - Sensitivity scoring based on PDPL principles
 
-2. **Unstructured Data Classifier (PhoBERT-based)** _(Deployed in `veri-vi-ai-classification` service, Port 8006)_
+2. **Unstructured Data Classifier** _(Integrated with `veri-vi-ai-classification`, Port 8006)_
    - Vietnamese NLP for document classification
    - Named entity recognition (NER) for personal data
    - Context analysis for purpose detection
@@ -172,9 +173,10 @@ See `docs/Veri_Micro_Service_Implementation/02_Service_Specifications.md` for de
 - Embedding generation
 
 **Step 2: Base Model Training**
-- Train PhoBERT on Vietnamese PDPL corpus _(for `veri-vi-ai-classification` unstructured classifier)_
-- Fine-tune on personal data classification _(for `veri-vi-ai-classification`)_
-- Train structured data classifier on patterns _(for `veri-vi-ai-classification` structured classifier)_
+- Use existing VeriAIDPO_Principles_VI_v1 model _(deployed in `veri-vi-ai-classification`)_
+- Model already trained on 24,000 samples from PDPL Law 91/2025/QH15
+- 8 PDPL Principles classification (78-88% accuracy)
+- Hosted on HuggingFace Hub: TranHF/VeriAIDPO_Principles_VI_v1
 - Train graph model on data lineage samples _(for `veri-ai-data-inventory` flow mapper)_
 
 **Step 3: Validation and Testing**
@@ -322,18 +324,19 @@ GET    /api/v1/veriportal/cultural-context/{client_id}
 
 ### 6.1 Model Deployment
 **Infrastructure:**
-- Model serving with FastAPI + TensorFlow Serving
-- GPU acceleration for PhoBERT inference (GPU required for `veri-vi-ai-classification`)
-- Model versioning and A/B testing
+- Model serving with FastAPI + VeriAIDPO_Principles_VI_v1
+- GPU acceleration for PhoBERT inference (required for `veri-vi-ai-classification`)
+- Model versioning via HuggingFace Hub
 - Caching for frequently classified patterns
 
 **Microservices Architecture:**
-- **`veri-vi-ai-classification` (Port 8006):** Hosts both structured and unstructured classifiers
-  - CPU-based pattern matching for structured data (field names, Vietnamese patterns)
-  - GPU-based PhoBERT inference for unstructured data (documents, text)
+- **`veri-vi-ai-classification` (Port 8006):** Hosts VeriAIDPO_Principles_VI_v1 model
+  - PhoBERT-based PDPL principles classification (8 categories)
+  - Vietnamese pattern recognition integrated
   - REST API endpoints for classification requests
+  - HuggingFace Hub model auto-download
 - **`veri-ai-data-inventory` (Port 8010):** Hosts data discovery and flow mapping
-  - Calls `veri-vi-ai-classification` service for classification
+  - Calls `veri-vi-ai-classification` for PDPL classification
   - Performs data scanning, schema analysis, and ROPA generation
   - Graph-based data lineage tracking
 - **`veri-vi-nlp-processor` (Port 8007):** Vietnamese NLP preprocessing
@@ -346,9 +349,9 @@ GET    /api/v1/veriportal/cultural-context/{client_id}
 
 1. **Data Extraction:** Connector pulls data samples _(in `veri-ai-data-inventory`)_
 2. **Preprocessing:** Normalize and tokenize _(calls `veri-vi-nlp-processor` for Vietnamese text)_
-3. **Model Inference:** _(calls `veri-vi-ai-classification` service)_
-   - Structured classifier for databases (field names, schema, patterns)
-   - PhoBERT for documents/text (unstructured data)
+3. **Model Inference:** _(calls `veri-vi-ai-classification`)_
+   - VeriAIDPO_Principles_VI_v1 for PDPL principles classification
+   - Vietnamese pattern recognition for databases and documents
    - Graph model for flows _(processed in `veri-ai-data-inventory`)_
 4. **Post-processing:** _(in `veri-ai-data-inventory`)_
    - Apply client-specific rules
@@ -367,8 +370,8 @@ veri-ai-data-inventory (Port 8010)
   |     |-- Tokenization, NER
   |
   |-- Calls veri-vi-ai-classification (Port 8006)
-  |     |-- Structured classifier (CPU)
-  |     |-- Unstructured classifier (GPU + PhoBERT)
+  |     |-- VeriAIDPO_Principles_VI_v1 classification
+  |     |-- 8 PDPL Principles (78-88% accuracy)
   |     |-- Returns classifications with confidence scores
   |
   |-- Builds data flow graph
