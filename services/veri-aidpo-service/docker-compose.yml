@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  veriaidpo-service:
+    build: .
+    container_name: verisyntra-veriaidpo
+    ports:
+      - "8001:8001"
+    environment:
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - JWT_ALGORITHM=HS256
+      - DATABASE_URL=postgresql://verisyntra:verisyntra_dev_password@postgres:5432/verisyntra
+      - REDIS_URL=redis://redis:6379/2
+      - HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN}
+      - MODEL_CACHE_DIR=/app/models
+    volumes:
+      - ./models:/app/models
+      - ./app:/app/app
+    networks:
+      - verisyntra-network
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+
+networks:
+  verisyntra-network:
+    external: true
